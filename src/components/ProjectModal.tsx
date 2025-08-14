@@ -168,6 +168,14 @@ export default function ProjectModal({
   // Process media items - simplified for static export
   const mediaItems: LocalMediaItem[] = React.useMemo(() => {
     // Compute URL: prefer project.live; otherwise derive from image folder if available
+    const withBasePath = (p: string) => {
+      if (!p) return p as any;
+      // If absolute URL, return as-is
+      if (/^https?:\/\//i.test(p)) return p;
+      const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+      return `${base}${p.startsWith('/') ? p : `/${p}`}`;
+    };
+
     const url = (() => {
       if (project?.live) return project.live;
       const img = project?.image;
@@ -175,7 +183,7 @@ export default function ProjectModal({
       if (m?.[1]) {
         const folder = m[1];
         const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
-        return `/Projects/${folder}/${filename}`;
+        return withBasePath(`/Projects/${folder}/${filename}`);
       }
       return undefined;
     })();

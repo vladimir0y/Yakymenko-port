@@ -28,6 +28,15 @@ export default async function ProjectPage({ params }: Params) {
     );
   }
 
+  // Helper to prefix with base path for GitHub Pages
+  const withBasePath = (p: string) => {
+    // If absolute URL, return as-is
+    if (/^https?:\/\//i.test(p)) return p;
+    const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+    // Ensure no double slashes when concatenating
+    return `${base}${p.startsWith('/') ? p : `/${p}`}`;
+  };
+
   // Compute iframe URL: prefer project.live; otherwise derive from image folder
   const iframeUrl = (() => {
     if (project.live) return project.live;
@@ -35,7 +44,7 @@ export default async function ProjectPage({ params }: Params) {
     if (m?.[1]) {
       const folder = m[1];
       const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
-      return `/Projects/${folder}/${filename}`;
+      return withBasePath(`/Projects/${folder}/${filename}`);
     }
     return undefined;
   })();

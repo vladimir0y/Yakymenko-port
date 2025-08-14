@@ -303,7 +303,12 @@ export default function ProjectModal({
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-50" onClose={handleClose}>
+      <Dialog
+        as="div"
+        className="relative z-50"
+        onClose={handleClose}
+        initialFocus={contentRef}
+      >
         {/* Overlay */}
         <div
           ref={overlayRef}
@@ -351,6 +356,9 @@ export default function ProjectModal({
                     aria-label={
                       isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'
                     }
+                    title={
+                      isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'
+                    }
                   >
                     {isFullscreen ? (
                       <ArrowsPointingInIcon className="h-6 w-6" />
@@ -364,6 +372,7 @@ export default function ProjectModal({
                     onClick={handleClose}
                     className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
                     aria-label="Close modal"
+                    title="Close modal"
                   >
                     <XMarkIcon className="h-6 w-6" />
                   </button>

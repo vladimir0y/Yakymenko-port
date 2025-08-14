@@ -5,17 +5,17 @@
 /* CSS Variables for Light Mode */
 :root {
   /* Primary Color Palette - Professional Blue */
---color-primary-50: 254 242 242;
---color-primary-100: 254 226 226;
---color-primary-200: 254 202 202;
---color-primary-300: 252 165 165;
---color-primary-400: 248 113 113;
---color-primary-500: 239 68 68;
---color-primary-600: 220 38 38;
---color-primary-700: 185 28 28;
---color-primary-800: 153 27 27;
---color-primary-900: 127 29 29;
---color-primary-950: 69 10 10;
+  --color-primary-50: 254 242 242;
+  --color-primary-100: 254 226 226;
+  --color-primary-200: 254 202 202;
+  --color-primary-300: 252 165 165;
+  --color-primary-400: 248 113 113;
+  --color-primary-500: 239 68 68;
+  --color-primary-600: 220 38 38;
+  --color-primary-700: 185 28 28;
+  --color-primary-800: 153 27 27;
+  --color-primary-900: 127 29 29;
+  --color-primary-950: 69 10 10;
 
   /* Secondary Color Palette - Elegant Purple */
   --color-secondary-50: 250 245 255;
@@ -51,6 +51,46 @@
   --color-border: 226 232 240;
   --color-input: 248 250 252;
   --color-ring: 59 130 246;
+
+  /* Typography scale (fluid) */
+  --size-fluid-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem); /* 12-14px */
+  --size-fluid-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem); /* 14-16px */
+  --size-fluid-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem); /* 16-18px */
+  --size-fluid-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem); /* 18-20px */
+  --size-fluid-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem); /* 20-24px */
+  --size-fluid-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem); /* 24-32px */
+  --size-fluid-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem); /* 30-40px */
+  --size-fluid-4xl: clamp(2.25rem, 1.8rem + 2.25vw, 3rem); /* 36-48px */
+  --size-fluid-5xl: clamp(3rem, 2.4rem + 3vw, 4rem); /* 48-64px */
+  --size-fluid-6xl: clamp(3.75rem, 3rem + 3.75vw, 5rem); /* 60-80px */
+
+  /* Spacing scale */
+  --space-container-xs: clamp(0.75rem, 2.5vw, 1.25rem);
+  --space-container-sm: clamp(1rem, 3vw, 2rem);
+  --space-container-md: clamp(1.25rem, 4vw, 2.5rem);
+  --space-container-lg: clamp(1.5rem, 4.5vw, 3rem);
+  --space-container-xl: clamp(2rem, 5vw, 4rem);
+  /* Material-3 4pt aliases */
+  --space-m3-1: 0.25rem; /* 4px */
+  --space-m3-2: 0.5rem; /* 8px */
+  --space-m3-3: 0.75rem; /* 12px */
+  --space-m3-4: 1rem; /* 16px */
+  --space-m3-5: 1.25rem; /* 20px */
+  --space-m3-6: 1.5rem; /* 24px */
+  --space-m3-7: 1.75rem; /* 28px */
+  --space-m3-8: 2rem; /* 32px */
+
+  /* Elevation (shadows) */
+  --elevation-soft:
+    0 1px 2px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --elevation-glass:
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.15);
+  --elevation-deep:
+    0 6px 20px rgba(0, 0, 0, 0.25), 0 12px 48px rgba(0, 0, 0, 0.15);
+
+  /* Radii */
+  --radius-md: 0.75rem;
 
   /* Font Variables */
   --font-body:
@@ -199,10 +239,26 @@
     z-index: -1;
     pointer-events: none;
     background-image:
-      radial-gradient(1200px 800px at -10% -10%, rgba(220, 38, 38, 0.18), transparent 60%),
-      radial-gradient(1000px 700px at 110% 10%, rgba(0, 0, 0, 0.08), transparent 60%),
-      radial-gradient(900px 600px at 20% 120%, rgba(220, 38, 38, 0.12), transparent 60%),
-      radial-gradient(700px 500px at 80% 80%, rgba(0, 0, 0, 0.06), transparent 60%),
+      radial-gradient(
+        1200px 800px at -10% -10%,
+        rgba(220, 38, 38, 0.18),
+        transparent 60%
+      ),
+      radial-gradient(
+        1000px 700px at 110% 10%,
+        rgba(0, 0, 0, 0.08),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 600px at 20% 120%,
+        rgba(220, 38, 38, 0.12),
+        transparent 60%
+      ),
+      radial-gradient(
+        700px 500px at 80% 80%,
+        rgba(0, 0, 0, 0.06),
+        transparent 60%
+      ),
       linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
     background-repeat: no-repeat;
     background-size:
@@ -236,10 +292,26 @@
   @media (prefers-color-scheme: dark) {
     body::before {
       background-image:
-        radial-gradient(1200px 800px at -10% -10%, rgba(220, 38, 38, 0.2), transparent 60%),
-        radial-gradient(1000px 700px at 110% 10%, rgba(255, 255, 255, 0.06), transparent 60%),
-        radial-gradient(900px 600px at 20% 120%, rgba(220, 38, 38, 0.1), transparent 60%),
-        radial-gradient(700px 500px at 80% 80%, rgba(255, 255, 255, 0.04), transparent 60%),
+        radial-gradient(
+          1200px 800px at -10% -10%,
+          rgba(220, 38, 38, 0.2),
+          transparent 60%
+        ),
+        radial-gradient(
+          1000px 700px at 110% 10%,
+          rgba(255, 255, 255, 0.06),
+          transparent 60%
+        ),
+        radial-gradient(
+          900px 600px at 20% 120%,
+          rgba(220, 38, 38, 0.1),
+          transparent 60%
+        ),
+        radial-gradient(
+          700px 500px at 80% 80%,
+          rgba(255, 255, 255, 0.04),
+          transparent 60%
+        ),
         linear-gradient(180deg, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.72));
       filter: saturate(110%) contrast(110%);
       opacity: 1;
@@ -348,6 +420,15 @@
   :focus-visible {
     @apply outline-none ring-2 ring-accent-500 ring-offset-2 ring-offset-background;
     transition: box-shadow 0.2s ease-in-out;
+  }
+
+  /* Ensure focus styles are visible with forced colors/high contrast modes */
+  @media (forced-colors: active) {
+    :focus-visible {
+      outline: 2px solid CanvasText !important;
+      outline-offset: 2px;
+      box-shadow: none !important;
+    }
   }
 
   /* Increase contrast when user requests it */

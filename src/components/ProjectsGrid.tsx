@@ -87,6 +87,8 @@ export default function ProjectsGrid({
   return (
     <div
       ref={gridRef}
+      role="list"
+      aria-label="Projects list"
       className={`
         grid gap-4 sm:gap-6
         [grid-template-columns:repeat(auto-fit,minmax(260px,1fr))]
@@ -102,6 +104,7 @@ export default function ProjectsGrid({
             ref={(el) => {
               if (el) cardsRef.current[index] = el;
             }}
+            role="listitem"
             className={`project-card opacity-0`}
             style={{
               transform: 'translateY(60px) scale(0.9)',

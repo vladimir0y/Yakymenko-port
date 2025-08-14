@@ -88,11 +88,12 @@ export default function ProjectCard({
     <LazyMotion features={domAnimation} strict>
       <m.div
         ref={cardRef}
-        className={`group relative bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden cursor-pointer will-change-transform focus:outline-none ${className}`}
+        className={`group relative bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden cursor-pointer will-change-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 ${className}`}
         style={style}
         role="button"
         tabIndex={0}
         aria-label={`Open project ${project.projectData?.title || project.name}`}
+        aria-describedby={`project-${project.id}-desc`}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         onMouseMove={handleMouseMove}
@@ -143,16 +144,27 @@ export default function ProjectCard({
           animate={prefersReducedMotion ? {} : { y: isHover ? -6 : 0 }}
           transition={{ type: 'spring', stiffness: 160, damping: 16 }}
         >
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white line-clamp-2">
+          <h3
+            id={`project-${project.id}-title`}
+            className="text-xl font-semibold text-gray-900 dark:text-white line-clamp-2"
+          >
             {project.projectData?.title || project.name}
           </h3>
+          <p id={`project-${project.id}-desc`} className="sr-only">
+            {project.projectData?.title || project.name} project card
+          </p>
 
           {/* Tags only (as requested) */}
           {project.projectData?.tags && project.projectData.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
+            <div
+              className="flex flex-wrap gap-2"
+              aria-label="Project tags"
+              role="list"
+            >
               {project.projectData.tags.slice(0, 4).map((tag) => (
                 <span
                   key={tag}
+                  role="listitem"
                   className="px-2 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-xs rounded-full font-medium"
                 >
                   {tag}

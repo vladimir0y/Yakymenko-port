@@ -112,36 +112,36 @@ const config: Config = {
         'gradient-hero':
           'linear-gradient(135deg, rgb(var(--color-primary-600)), rgb(var(--color-secondary-600)), rgb(var(--color-accent-600)))',
       },
-      // Fluid typography using clamp
+      // Fluid typography using CSS variables (design tokens)
       fontSize: {
-        'fluid-xs': 'clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem)', // 12-14px
-        'fluid-sm': 'clamp(0.875rem, 0.8rem + 0.375vw, 1rem)', // 14-16px
-        'fluid-base': 'clamp(1rem, 0.9rem + 0.5vw, 1.125rem)', // 16-18px
-        'fluid-lg': 'clamp(1.125rem, 1rem + 0.625vw, 1.25rem)', // 18-20px
-        'fluid-xl': 'clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)', // 20-24px
-        'fluid-2xl': 'clamp(1.5rem, 1.3rem + 1vw, 2rem)', // 24-32px
-        'fluid-3xl': 'clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem)', // 30-40px
-        'fluid-4xl': 'clamp(2.25rem, 1.8rem + 2.25vw, 3rem)', // 36-48px
-        'fluid-5xl': 'clamp(3rem, 2.4rem + 3vw, 4rem)', // 48-64px
-        'fluid-6xl': 'clamp(3.75rem, 3rem + 3.75vw, 5rem)', // 60-80px
+        'fluid-xs': 'var(--size-fluid-xs)',
+        'fluid-sm': 'var(--size-fluid-sm)',
+        'fluid-base': 'var(--size-fluid-base)',
+        'fluid-lg': 'var(--size-fluid-lg)',
+        'fluid-xl': 'var(--size-fluid-xl)',
+        'fluid-2xl': 'var(--size-fluid-2xl)',
+        'fluid-3xl': 'var(--size-fluid-3xl)',
+        'fluid-4xl': 'var(--size-fluid-4xl)',
+        'fluid-5xl': 'var(--size-fluid-5xl)',
+        'fluid-6xl': 'var(--size-fluid-6xl)',
       },
-      // Custom spacing for fluid design and Material-3 4-pt aliases
+      // Spacing derived from CSS variables (design tokens)
       spacing: {
         // Fluid container paddings (can be used ad-hoc as utilities)
-        'container-xs': 'clamp(0.75rem, 2.5vw, 1.25rem)',
-        'container-sm': 'clamp(1rem, 3vw, 2rem)',
-        'container-md': 'clamp(1.25rem, 4vw, 2.5rem)',
-        'container-lg': 'clamp(1.5rem, 4.5vw, 3rem)',
-        'container-xl': 'clamp(2rem, 5vw, 4rem)',
+        'container-xs': 'var(--space-container-xs)',
+        'container-sm': 'var(--space-container-sm)',
+        'container-md': 'var(--space-container-md)',
+        'container-lg': 'var(--space-container-lg)',
+        'container-xl': 'var(--space-container-xl)',
         // Material 3 4pt aliases (semantic helpers)
-        'm3-1': '0.25rem', // 4px
-        'm3-2': '0.5rem', // 8px
-        'm3-3': '0.75rem', // 12px
-        'm3-4': '1rem', // 16px
-        'm3-5': '1.25rem', // 20px
-        'm3-6': '1.5rem', // 24px
-        'm3-7': '1.75rem', // 28px
-        'm3-8': '2rem', // 32px
+        'm3-1': 'var(--space-m3-1)', // 4px
+        'm3-2': 'var(--space-m3-2)', // 8px
+        'm3-3': 'var(--space-m3-3)', // 12px
+        'm3-4': 'var(--space-m3-4)', // 16px
+        'm3-5': 'var(--space-m3-5)', // 20px
+        'm3-6': 'var(--space-m3-6)', // 24px
+        'm3-7': 'var(--space-m3-7)', // 28px
+        'm3-8': 'var(--space-m3-8)', // 32px
       },
       // Custom font families
       fontFamily: {
@@ -168,17 +168,16 @@ const config: Config = {
         'google-sans': ['var(--font-inter)', 'sans-serif'],
         'google-mono': ['var(--font-jetbrains-mono)', 'monospace'],
       },
-      // Radii
+      // Radii (via tokens)
       borderRadius: {
-        DEFAULT: '0.75rem', // rounded-12 baseline
-        12: '0.75rem',
+        DEFAULT: 'var(--radius-md)', // rounded-12 baseline
+        12: 'var(--radius-md)',
       },
-      // Shadows
+      // Shadows (elevation via tokens)
       boxShadow: {
-        soft: '0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.08)',
-        glass:
-          'inset 0 1px 1.5px rgba(255,255,255,0.25), inset 0 0 0 1px rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.15)',
-        deep: '0 6px 20px rgba(0,0,0,0.25), 0 12px 48px rgba(0,0,0,0.15)',
+        soft: 'var(--elevation-soft)',
+        glass: 'var(--elevation-glass)',
+        deep: 'var(--elevation-deep)',
       },
       // Transitions
       transitionTimingFunction: {

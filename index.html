@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+    <!-- Include the built Tailwind output; adjust path according to your bundler -->
+    <link rel="stylesheet" href="/dist/output.css" />
+    <script>
+      // Persisted dark-mode toggle: adds/removes 'dark' class on <html>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && preferDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+    <header class="max-w-5xl mx-auto px-4 py-6 flex items-center justify-between">
+      <h1 class="text-xl sm:text-2xl md:text-3xl font-semibold">My Portfolio</h1>
+      <button id="theme-toggle" class="text-sm sm:text-base px-3 py-1 rounded border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800">
+        Toggle theme
+      </button>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 space-y-10">
+      <!-- Responsive grid using breakpoints and aspect-video plugin -->
+      <section>
+        <h2 class="text-lg sm:text-xl md:text-2xl font-medium mb-4">Featured Projects</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800">
+            <div class="aspect-video bg-slate-100 dark:bg-slate-700"></div>
+            <div class="p-4">
+              <h3 class="text-base md:text-lg font-semibold">Project A</h3>
+              <p class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-300">Responsive card with dark mode styles.</p>
+            </div>
+          </article>
+          <article class="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800">
+            <div class="aspect-video bg-slate-100 dark:bg-slate-700"></div>
+            <div class="p-4">
+              <h3 class="text-base md:text-lg font-semibold">Project B</h3>
+              <p class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-300">Uses sm/md/lg responsive breakpoints.</p>
+            </div>
+          </article>
+          <article class="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800">
+            <div class="aspect-video bg-slate-100 dark:bg-slate-700"></div>
+            <div class="p-4">
+              <h3 class="text-base md:text-lg font-semibold">Project C</h3>
+              <p class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-300">Demonstrates aspect-ratio plugin.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Responsive typography and spacing -->
+      <section class="prose prose-slate dark:prose-invert max-w-none">
+        <h2 class="text-lg sm:text-xl md:text-2xl">About Me</h2>
+        <p class="text-sm sm:text-base md:text-lg leading-relaxed">
+          I build performant, accessible web experiences. Resize the window to see responsive typography, and toggle the theme to see dark mode.
+        </p>
+      </section>
+    </main>
+
+    <footer class="max-w-5xl mx-auto px-4 py-12 text-center text-slate-500 dark:text-slate-400">
+      <p class="text-xs sm:text-sm">© <span id="year"></span> Your Name</p>
+    </footer>
+
+    <script>
+      document.getElementById('theme-toggle').addEventListener('click', function () {
+        const root = document.documentElement;
+        const isDark = root.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+

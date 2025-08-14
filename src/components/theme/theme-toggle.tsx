@@ -129,7 +129,7 @@ export function ThemeToggle() {
       onClick={handleToggle}
       className="relative group focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-full transition-all duration-200"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-      aria-pressed={theme === 'dark'}
+      aria-checked={theme === 'dark'}
       role="switch"
       type="button"
     >

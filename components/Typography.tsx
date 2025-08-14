@@ -16,7 +16,7 @@ type PropsToOmit<C extends ElementType, P> = keyof (AsProp<C> & P);
 
 export type PolymorphicComponentProps<
   C extends ElementType,
-  Props = {},
+  Props = Record<string, never>,
 > = Props &
   AsProp<C> &
   Omit<ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
@@ -57,15 +57,14 @@ function createHeading<C extends ElementType>(
     const Component = (as ?? defaultAs) as ElementType;
     return (
       <Component
-        ref={ref as any}
+        ref={ref as unknown as PolymorphicRef<C>}
         className={cn(
-          // Tight leading for headings and slightly tighter tracking
-          'font-semibold tracking-tight leading-tight', // base
+          'font-semibold tracking-tight leading-tight',
           sizeClasses,
           variantClasses(variant),
           className
         )}
-        {...(rest as any)}
+        {...(rest as unknown as ComponentPropsWithoutRef<C>)}
       />
     );
   });
@@ -113,14 +112,13 @@ export const Text = forwardRef<
   const Component = (as ?? 'p') as ElementType;
   return (
     <Component
-      ref={ref as any}
+      ref={ref as unknown as PolymorphicRef<'p'>}
       className={cn(
-        // Comfortable reading length
         'leading-[1.7] text-[clamp(1rem,0.3vw+0.9rem,1.125rem)]',
         variantClasses(variant),
         className
       )}
-      {...(rest as any)}
+      {...(rest as React.HTMLAttributes<HTMLParagraphElement>)}
     />
   );
 });
@@ -141,22 +139,17 @@ export const Prose = forwardRef<
 
   return (
     <Component
-      ref={ref as any}
+      ref={ref as unknown as PolymorphicRef<'div'>}
       className={cn(
-        // Base prose styles with dark mode tweaks
         'prose prose-zinc dark:prose-invert',
-        // Make links readable in both modes
         'prose-a:text-blue-600 dark:prose-a:text-blue-400',
-        // Tighter headings inside prose
         'prose-headings:tracking-tight prose-headings:leading-tight',
-        // Images and tables niceties
         'prose-img:rounded-md prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800',
-        // Code blocks
         "prose-code:before:content-[''] prose-code:after:content-['']",
         sizeClass,
         className
       )}
-      {...(rest as any)}
+      {...(rest as React.HTMLAttributes<HTMLDivElement>)}
     />
   );
 });

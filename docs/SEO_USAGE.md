@@ -49,6 +49,8 @@ The basic SEO is handled automatically through the metadata export in `layout.ts
 
 For pages that need custom SEO, install and use the NextSeo component:
 
+{% raw %}
+
 ```tsx
 import { NextSeo } from 'next-seo';
 
@@ -78,9 +80,13 @@ export default function AboutPage() {
 }
 ```
 
+{% endraw %}
+
 ### Project-specific SEO
 
 For individual project pages:
+
+{% raw %}
 
 ```tsx
 import { NextSeo } from 'next-seo';
@@ -110,6 +116,8 @@ export default function ProjectPage() {
   );
 }
 ```
+
+{% endraw %}
 
 ## Configuration Customization
 

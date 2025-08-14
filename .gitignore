@@ -1,3 +1,4 @@
+# dependencies and builds
 node_modules/
 .next/
 out/

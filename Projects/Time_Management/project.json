@@ -4,8 +4,8 @@
   "tags": ["Productivity", "Time Tracking", "Analytics", "Task Management"],
   "date": "2023-09-10",
   "technologies": ["TypeScript", "React", "Next.js", "PostgreSQL"],
-  "github": "https://github.com/vladimir0y/portfolio-project-time_management",
-  "live": "https://vladimir0y.github.io/portfolio-project-time_management",
+  "github": "https://github.com/vladimir0y/Website-Portfolio",
+  "live": "https://vladimir0y.github.io/Website-Portfolio/projects/time-management/story.html",
   "category": "Productivity Tools",
   "status": "In Development"
 }

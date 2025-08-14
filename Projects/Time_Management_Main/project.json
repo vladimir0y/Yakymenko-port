@@ -4,8 +4,8 @@
   "tags": ["Dashboard", "Analytics", "Admin Panel", "Data Visualization"],
   "date": "2023-10-05",
   "technologies": ["React", "D3.js", "Chart.js", "Node.js", "Express"],
-  "github": "https://github.com/vladimir0y/portfolio-project-time_management_main",
-  "live": "https://vladimir0y.github.io/portfolio-project-time_management_main",
+  "github": "https://github.com/vladimir0y/Website-Portfolio",
+  "live": "https://vladimir0y.github.io/Website-Portfolio/projects/time-management-main/story.html",
   "category": "Business Intelligence",
   "status": "Completed"
 }

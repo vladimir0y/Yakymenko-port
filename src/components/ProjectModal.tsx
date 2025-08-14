@@ -15,7 +15,6 @@ import {
   ArrowsPointingInIcon,
 } from '@heroicons/react/24/outline';
 import Image from 'next/image';
-import useSWR from 'swr';
 import { Project, MediaType } from '@/types';
 
 interface ProjectModalProps {
@@ -24,7 +23,7 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-// Local file API types (matching the new API structure)
+// Local file API types (simplified for static export)
 interface LocalProjectFile {
   id: string;
   name: string;
@@ -32,42 +31,6 @@ interface LocalProjectFile {
   path: string;
   size: number;
   lastModified: string;
-}
-
-interface LocalProjectFilesResponse {
-  projectId: string;
-  files: LocalProjectFile[];
-  total: number;
-}
-
-// Fetcher function for SWR
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-// Helper function to determine media type for local files
-function getMediaType(file: LocalProjectFile): MediaType {
-  const { name, type } = file;
-  const lowerName = name.toLowerCase();
-
-  // Check for HTML files
-  if (lowerName.includes('index.html') || lowerName.endsWith('.html')) {
-    return 'html';
-  }
-
-  // Use the type from the API first
-  if (type === 'video') {
-    return 'video';
-  }
-
-  if (type === 'image') {
-    return 'image';
-  }
-
-  // Check for YouTube/Vimeo links (if stored as text files with URLs)
-  if (lowerName.includes('youtube') || lowerName.includes('vimeo')) {
-    return lowerName.includes('youtube') ? 'youtube' : 'vimeo';
-  }
-
-  return 'unknown';
 }
 
 // Helper function to get YouTube embed URL
@@ -202,13 +165,7 @@ export default function ProjectModal({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
 
-  // Fetch project files
-  const { data: filesData, error } = useSWR<LocalProjectFilesResponse>(
-    project ? `/api/projects/${project.id}` : null,
-    fetcher
-  );
-
-  // Process media items
+  // Process media items - simplified for static export
   const mediaItems: LocalMediaItem[] = React.useMemo(() => {
     // If project has a live URL, show it as the primary media
     if (project?.live) {
@@ -228,24 +185,8 @@ export default function ProjectModal({
       ];
     }
 
-    // Fallback to file listing if no live URL
-    if (!filesData?.files) return [];
-
-    return filesData.files
-      .map((file): LocalMediaItem => {
-        const type = getMediaType(file);
-        let embedUrl: string | undefined;
-
-        // For YouTube/Vimeo, we'd need to read the file content to get the URL
-        // This is a simplified version - in practice, you might store URLs in project.json
-        if (type === 'youtube' || type === 'vimeo') {
-          embedUrl = file.path; // Use the file path for now
-        }
-
-        return { file, type, embedUrl };
-      })
-      .filter((item) => item.type !== 'unknown'); // Only show supported media types
-  }, [project?.live, filesData]);
+    return [];
+  }, [project?.live]);
 
   // Handle close with animation
   const handleClose = useCallback(() => {
@@ -423,32 +364,23 @@ export default function ProjectModal({
               <div
                 className={`${isFullscreen ? 'h-full' : 'h-96 md:h-[500px] lg:h-[600px]'} p-6`}
               >
-                {error && (
-                  <div className="flex items-center justify-center h-full">
-                    <div className="text-center text-red-600 dark:text-red-400">
-                      <p className="text-lg mb-2">
-                        Failed to load project files
-                      </p>
-                      <p className="text-sm">
-                        {error.message || 'Unknown error occurred'}
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                {!filesData && !error && (
-                  <div className="flex items-center justify-center h-full">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                  </div>
-                )}
-
-                {filesData && mediaItems.length === 0 && (
+                {mediaItems.length === 0 && (
                   <div className="flex items-center justify-center h-full">
                     <div className="text-center text-gray-500 dark:text-gray-400">
-                      <p className="text-lg mb-2">No media files found</p>
+                      <p className="text-lg mb-2">No live demo available</p>
                       <p className="text-sm">
-                        This project doesn&apos;t contain any viewable media.
+                        Check the project repository for more details.
                       </p>
+                      {project?.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        >
+                          View Repository
+                        </a>
+                      )}
                     </div>
                   </div>
                 )}

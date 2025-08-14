@@ -105,10 +105,14 @@ function MediaPlayer({
 
   switch (mediaItem.type) {
     case 'html':
+      // Use the view API endpoint to serve HTML files with proper content-type
+      // Extract project ID from path and use file ID for the file path within the project
+      const projectId = mediaItem.file.path.split('/')[2]; // Extract project ID from /Projects/GBL/...
+      const htmlSrc = `/api/projects/${projectId}/view/${mediaItem.file.id}`;
       return (
         <div ref={containerRef} className="w-full h-full">
           <iframe
-            src={mediaItem.file.path}
+            src={htmlSrc}
             className="w-full h-full border-0 rounded-lg"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

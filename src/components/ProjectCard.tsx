@@ -22,6 +22,35 @@ export default function ProjectCard({
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
+  // Build a direct HTML URL for this project (same logic as detail page)
+  const directHtmlUrl = useMemo(() => {
+    const withBasePath = (p: string) => {
+      if (!p) return p as any;
+      if (/^https?:\/\//i.test(p)) return p;
+      const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+      return `${base}${p.startsWith('/') ? p : '/' + p}`;
+    };
+    const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
+    const result: string[] = [];
+    if (m?.[1]) {
+      const folderRaw = m[1];
+      const folderEnc = encodeURIComponent(folderRaw);
+      const folderSlug = folderRaw
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+      const files = ['story.html', 'content/index.html', 'html5/index.html', 'index.html'];
+      const folders = [folderEnc, folderRaw, folderSlug];
+      for (const f of folders) {
+        for (const file of files) {
+          result.push(withBasePath(`/Projects/${f}/${file}`));
+        }
+      }
+    }
+    if (project.live) result.push(project.live);
+    return result[0];
+  }, [project.image, project.live]);
+
   useEffect(() => {
     const card = cardRef.current;
     const image = imageRef.current;
@@ -277,8 +306,25 @@ export default function ProjectCard({
         )}
       </div>
 
-      {/* Hover indicator */}
-      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      {/* Hover actions */}
+      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2">
+        {/* Open direct HTML in new tab */}
+        {directHtmlUrl && (
+          <a
+            href={directHtmlUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm ring-1 ring-black/5 dark:ring-white/5 hover:scale-105 transition"
+            title="Open live"
+            aria-label="Open live"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <svg className="w-4 h-4 text-zinc-700 dark:text-zinc-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 3h7m0 0v7m0-7L10 14" />
+            </svg>
+          </a>
+        )}
+        {/* Old icon kept for visual balance */}
         <div className="w-7 h-7 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm ring-1 ring-black/5 dark:ring-white/5">
           <svg
             className="w-4 h-4 text-zinc-600 dark:text-zinc-300"

@@ -167,26 +167,38 @@ export default function ProjectModal({
 
   // Process media items - simplified for static export
   const mediaItems: LocalMediaItem[] = React.useMemo(() => {
-    // If project has a live URL, show it as the primary media
-    if (project?.live) {
+    // Compute URL: prefer project.live; otherwise derive from image folder if available
+    const url = (() => {
+      if (project?.live) return project.live;
+      const img = project?.image;
+      const m = img?.match(/^\/?Projects\/([^/]+)\//);
+      if (m?.[1]) {
+        const folder = m[1];
+        const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
+        return `/Projects/${folder}/${filename}`;
+      }
+      return undefined;
+    })();
+
+    if (url) {
       return [
         {
           file: {
             id: 'live-demo',
             name: 'Live Demo',
             type: 'code',
-            path: project.live,
+            path: url,
             size: 0,
             lastModified: new Date().toISOString(),
           },
           type: 'html' as MediaType,
-          embedUrl: project.live,
+          embedUrl: url,
         },
       ];
     }
 
     return [];
-  }, [project?.live]);
+  }, [project?.live, project?.image]);
 
   // Handle close with animation
   const handleClose = useCallback(() => {

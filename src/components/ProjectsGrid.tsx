@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import Link from 'next/link';
+import React, { useEffect, useRef, useState } from 'react';
 import ProjectCard from './ProjectCard';
+import ProjectModal from './ProjectModal';
 import { Project } from '@/types';
 import { ScrollAnimations } from '@/lib/scroll-animations';
 
@@ -15,6 +15,8 @@ export default function ProjectsGrid({
   projects,
   className = '',
 }: ProjectsGridProps) {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
@@ -70,6 +72,16 @@ export default function ProjectsGrid({
     cardsRef.current = cardsRef.current.slice(0, projects.length);
   }, [projects]);
 
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
+  };
+
   return (
     <div
       ref={gridRef}
@@ -93,13 +105,16 @@ export default function ProjectsGrid({
               transform: 'translateY(60px) scale(0.9)',
             }}
           >
-            <Link href={`/projects/${project.id}`} className="h-full block focus-ring">
-              <ProjectCard project={project} className="h-full" />
-            </Link>
+            <ProjectCard
+              project={project}
+              className="h-full focus-ring"
+              onClick={handleProjectClick}
+            />
           </div>
         );
       })}
 
+      <ProjectModal project={selectedProject} isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 }

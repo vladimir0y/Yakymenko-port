@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 export default function ProjectPlayer({
   src,
@@ -11,25 +11,63 @@ export default function ProjectPlayer({
   title: string;
   openUrl?: string;
 }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const toggleFullscreen = () => {
+    const el = (iframeRef.current as any) || (containerRef.current as any);
+    if (!document.fullscreenElement) {
+      if (el && typeof el.requestFullscreen === 'function') {
+        el.requestFullscreen().then(() => setIsFullscreen(true)).catch(() => {
+          containerRef.current?.requestFullscreen?.();
+          setIsFullscreen(true);
+        });
+      } else if (containerRef.current?.requestFullscreen) {
+        containerRef.current.requestFullscreen();
+        setIsFullscreen(true);
+      }
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
+
   return (
     <div className="w-full space-y-3">
       <div className="flex items-center justify-between">
         <div className="text-sm text-zinc-600 dark:text-zinc-300">
           Embedded preview
         </div>
-        {openUrl && (
-          <a
-            href={openUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="flex items-center gap-2">
+          {openUrl && (
+            <a
+              href={openUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs px-2.5 py-1 rounded-md border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+              aria-label="Open in new tab"
+            >
+              Open in new tab
+            </a>
+          )}
+          <button
+            type="button"
+            onClick={toggleFullscreen}
             className="text-xs px-2.5 py-1 rounded-md border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+            aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
+            title={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
           >
-            Open in new tab
-          </a>
-        )}
+            {isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+          </button>
+        </div>
       </div>
-      <div className="w-full aspect-[16/10] md:aspect-[16/9] border border-zinc-200/70 dark:border-zinc-800 rounded-xl overflow-hidden bg-white dark:bg-zinc-900">
+      <div
+        ref={containerRef}
+        className="w-full aspect-[16/10] md:aspect-[16/9] border border-zinc-200/70 dark:border-zinc-800 rounded-xl overflow-hidden bg-white dark:bg-zinc-900"
+      >
         <iframe
+          ref={iframeRef}
           src={src}
           title={title}
           className="w-full h-full"

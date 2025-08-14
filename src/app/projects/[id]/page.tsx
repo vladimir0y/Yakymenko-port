@@ -32,7 +32,11 @@ export default async function ProjectPage({ params }: Params) {
   const iframeUrl = (() => {
     if (project.live) return project.live;
     const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
-    if (m?.[1]) return `/Projects/${m[1]}/story.html`;
+    if (m?.[1]) {
+      const folder = m[1];
+      const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
+      return `/Projects/${folder}/${filename}`;
+    }
     return undefined;
   })();
 

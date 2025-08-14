@@ -135,8 +135,16 @@ const Hero = () => {
           }}
         />
 
-        {/* Animated gradient overlay */}
+        {/* Animated gradient overlay with subtle 3D feel */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-secondary-500/5 to-accent-500/5 animate-gradient-shift" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="absolute -top-24 -left-24 w-80 h-80 bg-primary-500/10 blur-3xl rounded-full" />
+          <div className="absolute top-1/3 -right-24 w-72 h-72 bg-secondary-500/10 blur-3xl rounded-full" />
+          <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-accent-500/10 blur-3xl rounded-full" />
+        </div>
       </div>
 
       {/* Content Container */}
@@ -149,7 +157,8 @@ const Hero = () => {
               'text-gradient'
             )}
           >
-            Full Stack Developer &amp; Digital Creator
+            Volodymyr Yakymenko — E‑Learning, AI Integrations & Innovative
+            Learning Products
           </h1>
 
           {/* Subtitle */}
@@ -159,9 +168,7 @@ const Hero = () => {
               'text-muted-foreground max-w-2xl mx-auto'
             )}
           >
-            Crafting exceptional digital experiences with modern web
-            technologies. Specializing in React, Next.js, TypeScript, and
-            scalable cloud solutions.
+            This portfolio was created with the help of Artificial Intelligence.
           </p>
 
           {/* Bio Text */}
@@ -172,10 +179,12 @@ const Hero = () => {
             )}
           >
             <p>
-              Passionate about creating intuitive user interfaces and robust
-              backend systems. With expertise in modern JavaScript ecosystems,
-              cloud architecture, and DevOps practices, I bring ideas to life
-              through clean, performant, and accessible code.
+              I specialize in building high‑impact e‑learning experiences,
+              integrating AI to personalize content, automate workflows, and
+              scale delivery. My work blends product strategy, instructional
+              design, and modern web technologies (React, Next.js, TypeScript)
+              to craft engaging, data‑driven learning products that are
+              accessible, performant, and delightful.
             </p>
           </div>
 

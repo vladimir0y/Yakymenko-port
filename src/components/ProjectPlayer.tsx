@@ -6,14 +6,46 @@ export default function ProjectPlayer({
   src,
   title,
   openUrl,
+  fallbackSrc,
 }: {
   src: string;
   title: string;
   openUrl?: string;
+  fallbackSrc?: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [currentSrc, setCurrentSrc] = useState(src);
+
+  // Try primary src, then fallback if primary 404s (same-origin static files)
+  React.useEffect(() => {
+    let cancelled = false;
+    async function chooseSrc() {
+      setCurrentSrc(src);
+      // Only attempt HEAD checks for relative URLs (same-origin)
+      const isAbsolute = /^(https?:)?\/\//i.test(src);
+      const tryHead = async (url: string) => {
+        try {
+          const res = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+          return res.ok;
+        } catch {
+          return false;
+        }
+      };
+      if (!isAbsolute) {
+        const ok = await tryHead(src);
+        if (!ok && fallbackSrc) {
+          const okAlt = await tryHead(fallbackSrc);
+          if (okAlt && !cancelled) setCurrentSrc(fallbackSrc);
+        }
+      }
+    }
+    chooseSrc();
+    return () => {
+      cancelled = true;
+    };
+  }, [src, fallbackSrc]);
 
   const toggleFullscreen = () => {
     const el = (iframeRef.current as any) || (containerRef.current as any);
@@ -68,7 +100,7 @@ export default function ProjectPlayer({
       >
         <iframe
           ref={iframeRef}
-          src={src}
+          src={currentSrc}
           title={title}
           className="w-full h-full"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"

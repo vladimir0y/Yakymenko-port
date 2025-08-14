@@ -71,6 +71,16 @@ export default async function ProjectPage({ params }: Params) {
           src={iframeUrl}
           title={project.projectData?.title || project.name}
           openUrl={iframeUrl}
+          fallbackSrc={(() => {
+            // Build a fallback with unencoded folder if encoded one 404s
+            const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
+            if (!m?.[1]) return undefined;
+            const folder = m[1];
+            const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
+            const raw = `/Projects/${folder}/${filename}`;
+            const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+            return `${base}${raw.startsWith('/') ? raw : `/${raw}`}`;
+          })()}
         />
       ) : (
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800">

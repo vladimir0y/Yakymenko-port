@@ -37,18 +37,32 @@ export default async function ProjectPage({ params }: Params) {
     return `${base}${p.startsWith('/') ? p : `/${p}`}`;
   };
 
-  // Compute iframe URL: prefer derived local path; fall back to project.live
-  const iframeUrl = (() => {
+  // Build list of candidate iframe URLs from the image folder and common filenames
+  const candidates = (() => {
+    const result: string[] = [];
     const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
     if (m?.[1]) {
-      const folder = m[1];
-      const folderEnc = encodeURIComponent(folder);
-      const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
-      return withBasePath(`/Projects/${folderEnc}/${filename}`);
+      const folderRaw = m[1];
+      const folderEnc = encodeURIComponent(folderRaw);
+      const folderSlug = folderRaw
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+
+      const files = ['story.html', 'content/index.html', 'html5/index.html', 'index.html'];
+      const folders = [folderEnc, folderRaw, folderSlug];
+
+      for (const f of folders) {
+        for (const file of files) {
+          result.push(withBasePath(`/Projects/${f}/${file}`));
+        }
+      }
     }
-    if (project.live) return project.live;
-    return undefined;
+    if (project.live) result.push(project.live);
+    return Array.from(new Set(result));
   })();
+
+  const primary = candidates[0];
 
   return (
     <div className="mx-auto max-w-[1400px] px-4 md:px-6 py-6 md:py-10 space-y-4 md:space-y-6">
@@ -56,9 +70,9 @@ export default async function ProjectPage({ params }: Params) {
         <h1 className="text-xl md:text-2xl font-semibold tracking-tight">
           {project.projectData?.title || project.title || project.name}
         </h1>
-        {iframeUrl && (
+        {primary && (
           <a
-            href={iframeUrl}
+            href={primary}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm px-3 py-1.5 rounded-md border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800"
@@ -66,21 +80,12 @@ export default async function ProjectPage({ params }: Params) {
         )}
       </div>
 
-      {iframeUrl ? (
+      {primary ? (
         <ProjectPlayer
-          src={iframeUrl}
+          src={primary}
           title={project.projectData?.title || project.name}
-          openUrl={iframeUrl}
-          fallbackSrc={(() => {
-            // Build a fallback with unencoded folder if encoded one 404s
-            const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
-            if (!m?.[1]) return undefined;
-            const folder = m[1];
-            const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
-            const raw = `/Projects/${folder}/${filename}`;
-            const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
-            return `${base}${raw.startsWith('/') ? raw : `/${raw}`}`;
-          })()}
+          openUrl={primary}
+          fallbackSrcs={candidates.slice(1)}
         />
       ) : (
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800">

@@ -7,54 +7,77 @@ export default function ProjectPlayer({
   title,
   openUrl,
   fallbackSrc,
+  fallbackSrcs,
 }: {
   src: string;
   title: string;
   openUrl?: string;
-  fallbackSrc?: string;
+  fallbackSrc?: string; // deprecated in favor of fallbackSrcs
+  fallbackSrcs?: string[];
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentSrc, setCurrentSrc] = useState(src);
 
-  // Try primary src, then fallback if primary 404s (same-origin static files)
+  // Try primary src, then fallbacks until one responds OK (same-origin static files)
   React.useEffect(() => {
     let cancelled = false;
+
+    const candidates: string[] = [
+      src,
+      ...(fallbackSrc ? [fallbackSrc] : []),
+      ...(fallbackSrcs || []),
+    ].filter(Boolean) as string[];
+
     async function chooseSrc() {
-      setCurrentSrc(src);
+      // Default to first candidate immediately to avoid blank iframe
+      setCurrentSrc(candidates[0]);
+
       // Only attempt HEAD checks for relative URLs (same-origin)
-      const isAbsolute = /^(https?:)?\/\//i.test(src);
+      const isAbsolute = (url: string) => /^(https?:)?\/\//i.test(url);
       const tryHead = async (url: string) => {
         try {
           const res = await fetch(url, { method: 'HEAD', cache: 'no-store' });
-          return res.ok;
+        	  return res.ok;
         } catch {
           return false;
         }
       };
-      if (!isAbsolute) {
-        const ok = await tryHead(src);
-        if (!ok && fallbackSrc) {
-          const okAlt = await tryHead(fallbackSrc);
-          if (okAlt && !cancelled) setCurrentSrc(fallbackSrc);
+
+      for (const url of candidates) {
+        if (cancelled) return;
+        if (isAbsolute(url)) {
+          // Can't HEAD cross-origin reliably without CORS; just pick first absolute and stop.
+          setCurrentSrc(url);
+          return;
+        }
+        const ok = await tryHead(url);
+        if (ok) {
+          if (!cancelled) setCurrentSrc(url);
+          return;
         }
       }
+      // If none worked, keep the first; the onload error will just reflect 404
     }
+
     chooseSrc();
     return () => {
       cancelled = true;
     };
-  }, [src, fallbackSrc]);
+  }, [src, fallbackSrc, JSON.stringify(fallbackSrcs || [])]);
 
   const toggleFullscreen = () => {
     const el = (iframeRef.current as any) || (containerRef.current as any);
     if (!document.fullscreenElement) {
       if (el && typeof el.requestFullscreen === 'function') {
-        el.requestFullscreen().then(() => setIsFullscreen(true)).catch(() => {
-          containerRef.current?.requestFullscreen?.();
-          setIsFullscreen(true);
-        });
+        el
+          .requestFullscreen()
+          .then(() => setIsFullscreen(true))
+          .catch(() => {
+            containerRef.current?.requestFullscreen?.();
+            setIsFullscreen(true);
+          });
       } else if (containerRef.current?.requestFullscreen) {
         containerRef.current.requestFullscreen();
         setIsFullscreen(true);

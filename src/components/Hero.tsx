@@ -110,42 +110,10 @@ const Hero = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
       aria-label="Hero section"
     >
-      {/* Background Canvas with Layered Gradients */}
-      <div
-        ref={canvasRef}
-        className="absolute inset-0 -z-10"
-        aria-hidden="true"
-      >
-        {/* Base gradient layer */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-secondary-500/10 to-accent-500/10" />
-
-        {/* Parallax gradient layer */}
-        <div
-          ref={parallaxRef}
-          className="absolute inset-0 bg-gradient-radial from-primary-600/20 via-transparent to-secondary-600/20"
-          style={{
-            background: `
-              radial-gradient(circle at 30% 40%, rgba(var(--color-primary-600), 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 70% 60%, rgba(var(--color-secondary-600), 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 50% 20%, rgba(var(--color-accent-600), 0.08) 0%, transparent 50%)
-            `,
-          }}
-        />
-
-        {/* Animated gradient overlay with subtle 3D feel */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-secondary-500/5 to-accent-500/5 animate-gradient-shift" />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          aria-hidden="true"
-        >
-          <div className="absolute -top-24 -left-24 w-80 h-80 bg-primary-500/10 blur-3xl rounded-full" />
-          <div className="absolute top-1/3 -right-24 w-72 h-72 bg-secondary-500/10 blur-3xl rounded-full" />
-          <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-accent-500/10 blur-3xl rounded-full" />
-        </div>
-      </div>
+      {/* Uniform background: removed gradient layers for consistency */}
 
       {/* Content Container */}
       <div className={designTokens.layout.getContainer('xl')}>

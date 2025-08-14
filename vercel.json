@@ -1,0 +1,23 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "outputDirectory": ".next",
+  "functions": {
+    "app/api/drive/[...path].js": {
+      "memory": 1024
+    }
+  },
+  "env": {
+    "GOOGLE_DRIVE_FOLDER_ID": "@google_drive_folder_id",
+    "GOOGLE_SERVICE_ACCOUNT_EMAIL": "@google_service_account_email",
+    "GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY": "@google_service_account_private_key"
+  },
+  "build": {
+    "env": {
+      "GOOGLE_DRIVE_FOLDER_ID": "@google_drive_folder_id",
+      "GOOGLE_SERVICE_ACCOUNT_EMAIL": "@google_service_account_email",
+      "GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY": "@google_service_account_private_key"
+    }
+  }
+}

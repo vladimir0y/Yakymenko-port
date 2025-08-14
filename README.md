@@ -27,11 +27,13 @@ src/
 ## Getting Started
 
 1. Install dependencies:
+
    ```bash
    npm install
    ```
 
 2. Run the development server:
+
    ```bash
    npm run dev
    ```
@@ -61,17 +63,20 @@ To push to GitHub:
 ## Dependencies
 
 ### Core
+
 - Next.js 14 with TypeScript
 - React 18
 - Tailwind CSS
 
 ### UI & Animation
+
 - GSAP for animations
 - Headless UI for accessible components
 - Heroicons for icons
 - clsx for conditional styling
 
 ### Data & API
+
 - SWR for data fetching
 - Google APIs
 - dotenv for environment variables

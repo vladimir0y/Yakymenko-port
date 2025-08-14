@@ -38,7 +38,7 @@ export default async function ProjectPage({ params }: Params) {
   };
 
   // Compute iframe URL: prefer derived local path; fall back to project.live
-  const iframeUrl = (() =[0m> {
+  const iframeUrl = (() => {
     const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
     if (m?.[1]) {
       const folder = m[1];

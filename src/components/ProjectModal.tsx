@@ -176,7 +176,7 @@ export default function ProjectModal({
       return `${base}${p.startsWith('/') ? p : `/${p}`}`;
     };
 
-    const url = (() =[0m> {
+    const url = (() => {
       const img = project?.image;
       const m = img?.match(/^\/?Projects\/([^/]+)\//);
       if (m?.[1]) {

@@ -1,0 +1,15 @@
+/* Example theme split files (not imported). Demonstrates data-attribute or class-based theme switchers. */
+
+/* Light theme */
+:root[data-theme='light'] {
+  --color-bg: hsl(0 0% 100%);
+  --color-fg: hsl(240 10% 3.9%);
+  --color-primary: hsl(221 83% 53%);
+}
+
+/* Dark theme */
+:root[data-theme='dark'] {
+  --color-bg: hsl(240 10% 3.9%);
+  --color-fg: hsl(0 0% 98%);
+  --color-primary: hsl(217 91% 60%);
+}

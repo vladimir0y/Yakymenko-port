@@ -75,7 +75,7 @@ function MediaPlayer({
           <iframe
             src={htmlSrc}
             className="w-full h-full border-0 rounded-lg"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
             allowFullScreen
             title={mediaItem.file.name}
           />
@@ -225,8 +225,18 @@ export default function ProjectModal({
 
   // Handle fullscreen toggle
   const toggleFullscreen = () => {
+    const mediaEl = contentRef.current?.querySelector(
+      'iframe, video'
+    ) as HTMLElement & { requestFullscreen?: () => Promise<void> };
+
     if (!document.fullscreenElement) {
-      modalRef.current?.requestFullscreen();
+      if (mediaEl && typeof (mediaEl as any).requestFullscreen === 'function') {
+        (mediaEl as any).requestFullscreen().catch(() => {
+          modalRef.current?.requestFullscreen();
+        });
+      } else {
+        modalRef.current?.requestFullscreen();
+      }
       setIsFullscreen(true);
     } else {
       document.exitFullscreen();

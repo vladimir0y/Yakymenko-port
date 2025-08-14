@@ -13,7 +13,7 @@ const staticProjectsData: Project[] = [
     date: '2024-01-15T00:00:00.000Z',
     technologies: ['JavaScript', 'HTML', 'CSS', 'Game Development'],
     github: 'https://github.com/vladimir0y/Website-Portfolio',
-    live: 'https://vladimir0y.github.io/Website-Portfolio/projects/gbl/story.html',
+    live: 'https://vladimir0y.github.io/Yakymenko-port/GBL/story.html',
     projectData: {
       title: 'GBL - Game Based Learning',
       description:
@@ -22,7 +22,7 @@ const staticProjectsData: Project[] = [
       date: '2024-01-15',
       technologies: ['JavaScript', 'HTML', 'CSS', 'Game Development'],
       github: 'https://github.com/vladimir0y/Website-Portfolio',
-      live: 'https://vladimir0y.github.io/Website-Portfolio/projects/gbl/story.html',
+      live: 'https://vladimir0y.github.io/Yakymenko-port/GBL/story.html',
     },
   },
   {
@@ -36,7 +36,7 @@ const staticProjectsData: Project[] = [
     date: '2023-11-20T00:00:00.000Z',
     technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
     github: 'https://github.com/vladimir0y/Website-Portfolio',
-    live: 'https://vladimir0y.github.io/Website-Portfolio/projects/rock-climbing/content/index.html',
+    live: 'https://vladimir0y.github.io/Yakymenko-port/rock-climbing-raw-v2ojS82U/content/index.html',
     projectData: {
       title: 'Rock Climbing Adventure',
       description:
@@ -45,7 +45,7 @@ const staticProjectsData: Project[] = [
       date: '2023-11-20',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
       github: 'https://github.com/vladimir0y/Website-Portfolio',
-      live: 'https://vladimir0y.github.io/Website-Portfolio/projects/rock-climbing/content/index.html',
+      live: 'https://vladimir0y.github.io/Yakymenko-port/rock-climbing-raw-v2ojS82U/content/index.html',
     },
   },
   {

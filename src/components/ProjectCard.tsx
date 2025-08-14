@@ -127,12 +127,12 @@ export default function ProjectCard({
   return (
     <div
       ref={cardRef}
-      className={`group relative bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden cursor-pointer will-change-transform ${className}`}
+      className={`group relative rounded-2xl overflow-hidden cursor-pointer will-change-transform border border-zinc-200/60 dark:border-white/10 bg-white/80 dark:bg-zinc-900/70 backdrop-blur-xl shadow-sm hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1 ${className}`}
       style={{ perspective: '1000px', ...style }}
       onClick={handleClick}
     >
       {/* Cover Image */}
-      <div ref={imageRef} className="relative aspect-video overflow-hidden">
+      <div ref={imageRef} className="relative aspect-video overflow-hidden rounded-b-none">
         <Image
           src={getPlaceholderImage(project.id)}
           alt={project.projectData?.title || project.name}
@@ -144,18 +144,18 @@ export default function ProjectCard({
           priority={false}
         />
 
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Subtle top gradient */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent dark:from-white/5" />
       </div>
 
       {/* Content */}
       <div ref={contentRef} className="p-6 space-y-3">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white line-clamp-2">
+        <h3 className="text-[17px] font-semibold tracking-[-0.01em] text-zinc-900 dark:text-zinc-50 line-clamp-2">
           {project.projectData?.title || project.name}
         </h3>
 
         {project.projectData?.description && (
-          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-3">
+          <p className="text-zinc-600 dark:text-zinc-300 text-sm/6 leading-relaxed line-clamp-3">
             {project.projectData.description}
           </p>
         )}
@@ -166,13 +166,13 @@ export default function ProjectCard({
             {project.projectData.tags.slice(0, 4).map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-xs rounded-full font-medium"
+                className="px-2 py-1 bg-zinc-100 dark:bg-white/10 text-zinc-700 dark:text-zinc-200 text-[11px] rounded-full font-medium"
               >
                 {tag}
               </span>
             ))}
             {project.projectData.tags.length > 4 && (
-              <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs rounded-full font-medium">
+              <span className="px-2 py-1 bg-zinc-100 dark:bg-white/10 text-zinc-600 dark:text-zinc-300 text-[11px] rounded-full font-medium">
                 +{project.projectData.tags.length - 4}
               </span>
             )}
@@ -181,7 +181,7 @@ export default function ProjectCard({
 
         {/* Date */}
         {project.projectData?.date && (
-          <div className="text-xs text-gray-500 dark:text-gray-400 pt-2 border-t border-gray-100 dark:border-gray-700">
+          <div className="text-[11px] text-zinc-500 dark:text-zinc-400 pt-3 border-t border-zinc-100/80 dark:border-white/10">
             {new Date(project.projectData.date).toLocaleDateString('en-US', {
               month: 'short',
               year: 'numeric',
@@ -192,9 +192,9 @@ export default function ProjectCard({
 
       {/* Hover indicator */}
       <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="w-8 h-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+        <div className="w-8 h-8 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm">
           <svg
-            className="w-4 h-4 text-gray-600 dark:text-gray-300"
+            className="w-4 h-4 text-zinc-600 dark:text-zinc-300"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

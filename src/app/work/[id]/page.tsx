@@ -32,7 +32,8 @@ export default async function ProjectPage({ params }: Params) {
   const withBasePath = (p: string) => {
     // If absolute URL, return as-is
     if (/^https?:\/\//i.test(p)) return p;
-    const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+    // Always point to GitHub Pages absolute base so it works on Vercel too
+    const base = 'https://vladimir0y.github.io/Yakymenko-port';
     // Ensure no double slashes when concatenating
     return `${base}${p.startsWith('/') ? p : `/${p}`}`;
   };

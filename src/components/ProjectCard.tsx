@@ -27,7 +27,7 @@ export default function ProjectCard({
     const withBasePath = (p: string) => {
       if (!p) return p as any;
       if (/^https?:\/\//i.test(p)) return p;
-      const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+      const base = 'https://vladimir0y.github.io/Yakymenko-port';
       return `${base}${p.startsWith('/') ? p : '/' + p}`;
     };
     const m = project.image?.match(/^\/?Projects\/([^/]+)\//);

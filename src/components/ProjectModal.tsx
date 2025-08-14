@@ -172,7 +172,7 @@ export default function ProjectModal({
       if (!p) return p as any;
       // If absolute URL, return as-is
       if (/^https?:\/\//i.test(p)) return p;
-      const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+      const base = 'https://vladimir0y.github.io/Yakymenko-port';
       return `${base}${p.startsWith('/') ? p : '/' + p}`;
     };
 

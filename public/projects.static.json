@@ -4,7 +4,7 @@
       "id": "gbl-project",
       "name": "GBL",
       "coverImageId": "gbl-cover",
-      "live": "/api/projects/GBL/view/story.html",
+      "live": "/Projects/GBL/story.html",
       "projectData": {
         "title": "Game-Based Learning Project",
         "description": "An interactive e-learning module created with Articulate Storyline, featuring gamification elements and multimedia content for enhanced learning experience.",
@@ -16,7 +16,7 @@
       "id": "time-management-project",
       "name": "Time Management",
       "coverImageId": "time-management-cover",
-      "live": "/api/projects/Time_Management/view/story.html",
+      "live": "/Projects/Time_Management/story.html",
       "projectData": {
         "title": "Time Management Training",
         "description": "Interactive training module focused on time management skills, productivity techniques, and work-life balance strategies.",
@@ -28,7 +28,7 @@
       "id": "time-management-main-project",
       "name": "Time Management Main",
       "coverImageId": "time-management-main-cover",
-      "live": "/api/projects/Time_Management_Main/view/story.html",
+      "live": "/Projects/Time_Management_Main/story.html",
       "projectData": {
         "title": "Advanced Time Management Course",
         "description": "Comprehensive time management course with advanced techniques, case studies, and practical exercises for professional development.",
@@ -40,7 +40,7 @@
       "id": "rock-climbing-project",
       "name": "Rock Climbing",
       "coverImageId": "rock-climbing-cover",
-      "live": "/api/projects/rock-climbing-raw-v2ojS82U/view/content/index.html",
+      "live": "/Projects/rock-climbing-raw-v2ojS82U/content/index.html",
       "projectData": {
         "title": "Rock Climbing Interactive Experience",
         "description": "An immersive interactive presentation about rock climbing techniques, safety procedures, and adventure experiences with multimedia content.",

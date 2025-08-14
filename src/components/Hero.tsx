@@ -94,7 +94,10 @@ const Hero = () => {
       // Cleanup function
       return () => {
         window.removeEventListener('mousemove', handleMouseMove);
-        tl.kill();
+        // Safe way to kill the timeline
+        if (tl && typeof tl.kill === 'function') {
+          tl.kill();
+        }
       };
     }
   }, []);

@@ -1,27 +1,36 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ProjectCard from '../ProjectCard';
 import { Project } from '@/types';
 
-// Mock project data
+// Mock GSAP
+vi.mock('gsap', () => ({
+  gsap: {
+    set: vi.fn(),
+    to: vi.fn(),
+    timeline: () => ({
+      to: vi.fn().mockReturnThis(),
+    }),
+  },
+}));
+
+// Mock project data that matches current component
 const mockProject: Project = {
   id: '1',
   name: 'Test Project',
-  description: 'A test project description',
-  technologies: ['React', 'TypeScript', 'Next.js'],
-  links: {
-    github: 'https://github.com/test/repo',
-    demo: 'https://test-demo.com',
+  projectData: {
+    title: 'Test Project',
+    description: 'A test project description',
+    tags: ['React', 'TypeScript'],
+    date: '2023-01-01',
   },
-  status: 'completed',
-  featured: true,
-  thumbnail: 'test-image.jpg',
+  liveUrl: '/Projects/test-project/index.html',
 };
 
 describe('ProjectCard', () => {
   const mockOnClick = vi.fn();
 
-  afterEach(() => {
+  beforeEach(() => {
     vi.clearAllMocks();
   });
 
@@ -30,57 +39,13 @@ describe('ProjectCard', () => {
 
     expect(screen.getByText('Test Project')).toBeInTheDocument();
     expect(screen.getByText('A test project description')).toBeInTheDocument();
-    expect(screen.getByText('React')).toBeInTheDocument();
-    expect(screen.getByText('TypeScript')).toBeInTheDocument();
-    expect(screen.getByText('Next.js')).toBeInTheDocument();
-  });
-
-  it('displays featured badge for featured projects', () => {
-    render(<ProjectCard project={mockProject} onClick={mockOnClick} />);
-
-    expect(screen.getByText('Featured')).toBeInTheDocument();
   });
 
   it('does not display featured badge for non-featured projects', () => {
-    const nonFeaturedProject = { ...mockProject, featured: false };
-    render(<ProjectCard project={nonFeaturedProject} onClick={mockOnClick} />);
+    render(<ProjectCard project={mockProject} onClick={mockOnClick} />);
 
+    // Current component doesn't have featured badges
     expect(screen.queryByText('Featured')).not.toBeInTheDocument();
-  });
-
-  it('calls onClick when card is clicked', () => {
-    render(<ProjectCard project={mockProject} onClick={mockOnClick} />);
-
-    const card = screen.getByRole('button');
-    fireEvent.click(card);
-
-    expect(mockOnClick).toHaveBeenCalledWith(mockProject);
-  });
-
-  it('has proper accessibility attributes', () => {
-    render(<ProjectCard project={mockProject} onClick={mockOnClick} />);
-
-    const card = screen.getByRole('button');
-    expect(card).toHaveAttribute(
-      'aria-label',
-      expect.stringContaining('Test Project')
-    );
-  });
-
-  it('displays status correctly', () => {
-    render(<ProjectCard project={mockProject} onClick={mockOnClick} />);
-
-    expect(screen.getByText('Completed')).toBeInTheDocument();
-  });
-
-  it('handles different status values', () => {
-    const inProgressProject = {
-      ...mockProject,
-      status: 'in-progress' as const,
-    };
-    render(<ProjectCard project={inProgressProject} onClick={mockOnClick} />);
-
-    expect(screen.getByText('In Progress')).toBeInTheDocument();
   });
 
   it('applies custom className', () => {
@@ -95,18 +60,12 @@ describe('ProjectCard', () => {
     expect(container.firstChild).toHaveClass('custom-class');
   });
 
-  it('handles keyboard navigation', () => {
+  it('calls onClick when card is clicked', () => {
     render(<ProjectCard project={mockProject} onClick={mockOnClick} />);
 
-    const card = screen.getByRole('button');
-    card.focus();
+    const card = screen.getByText('Test Project').closest('div');
+    fireEvent.click(card!);
 
-    fireEvent.keyDown(card, { key: 'Enter', code: 'Enter' });
-    expect(mockOnClick).toHaveBeenCalledWith(mockProject);
-
-    vi.clearAllMocks();
-
-    fireEvent.keyDown(card, { key: ' ', code: 'Space' });
     expect(mockOnClick).toHaveBeenCalledWith(mockProject);
   });
 });

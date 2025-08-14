@@ -16,6 +16,14 @@ export interface ProjectData {
 export interface Project {
   id: string;
   name: string;
+  title: string;
+  description: string;
+  image?: string;
+  tags: string[];
+  date: string;
+  github?: string;
+  live?: string;
+  technologies: string[];
   coverImageId?: string;
   projectData?: ProjectData;
 }

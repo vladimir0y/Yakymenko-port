@@ -1,7 +1,11 @@
 {
   "framework": "nextjs",
   "functions": {
-    "pages/api/drive/[...path].js": {
+    "pages/api/projects.js": {
+      "memory": 1024,
+      "maxDuration": 30
+    },
+    "pages/api/projects/[id].js": {
       "memory": 1024,
       "maxDuration": 30
     }

@@ -33,3 +33,6 @@ Thumbs.db
 # Miscellaneous
 *.min.js
 *.min.css
+
+# Projects folder (user content)
+Projects/

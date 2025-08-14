@@ -1,0 +1,11 @@
+{
+  "title": "Rock Climbing Adventure",
+  "description": "A comprehensive rock climbing guide and adventure platform featuring route information, difficulty ratings, and community-driven content for climbing enthusiasts.",
+  "tags": ["Sports", "Adventure", "Community", "Web App"],
+  "date": "2023-11-20",
+  "technologies": ["React", "Node.js", "MongoDB", "Express"],
+  "github": "https://github.com/vladimir0y/rock-climbing-app",
+  "live": "https://rock-climbing-app.vercel.app",
+  "category": "Sports & Recreation",
+  "status": "Completed"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Time Management Main Dashboard",
+  "description": "The main dashboard and administration panel for the Time Management System, featuring comprehensive analytics, user management, and system configuration tools.",
+  "tags": ["Dashboard", "Analytics", "Admin Panel", "Data Visualization"],
+  "date": "2023-10-05",
+  "technologies": ["React", "D3.js", "Chart.js", "Node.js", "Express"],
+  "github": "https://github.com/vladimir0y/time-management-main",
+  "live": "https://time-management-main.vercel.app",
+  "category": "Business Intelligence",
+  "status": "Completed"
+}

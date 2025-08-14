@@ -1,8 +1,7 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
-  "plugins": ["prettier"],
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "ignorePatterns": ["Projects/**/*"],
   "rules": {
-    "prettier/prettier": "error",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "warn",
     "prefer-const": "error",

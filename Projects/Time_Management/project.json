@@ -1,0 +1,11 @@
+{
+  "title": "Time Management System",
+  "description": "A sophisticated time management and productivity tracking application with task scheduling, time tracking, and analytics to help users optimize their daily workflows.",
+  "tags": ["Productivity", "Time Tracking", "Analytics", "Task Management"],
+  "date": "2023-09-10",
+  "technologies": ["TypeScript", "React", "Next.js", "PostgreSQL"],
+  "github": "https://github.com/vladimir0y/time-management",
+  "live": "https://time-management-demo.vercel.app",
+  "category": "Productivity Tools",
+  "status": "In Development"
+}

@@ -1,5 +1,6 @@
 import useSWR from 'swr';
 import { ProjectsResponse, ProjectsError, Project } from '@/types';
+import { getStaticProjects } from './projects';
 
 // Fetcher function for SWR with fallback handling
 const fetcher = async (url: string): Promise<ProjectsResponse> => {
@@ -17,26 +18,37 @@ const fetcher = async (url: string): Promise<ProjectsResponse> => {
         errorMessage = `HTTP ${response.status}: ${response.statusText}`;
       }
 
-      // Log warning and throw error
-      console.warn(`Drive API failed: ${errorMessage}`);
-      throw new Error(errorMessage);
+      // Log warning and fall back to static data
+      console.warn(
+        `Projects API failed: ${errorMessage}, using static fallback`
+      );
+
+      // Return static data as fallback
+      const staticProjects = getStaticProjects();
+      return {
+        folders: staticProjects,
+        total: staticProjects.length,
+        lastModified: new Date().toISOString(),
+      };
     }
 
     return response.json();
   } catch (error) {
-    // Log the error for debugging
-    console.warn(
-      'Google Drive API unavailable, check your configuration:',
-      error
-    );
-    throw error;
+    // Log the error for debugging and fall back to static data
+    console.warn('Projects API unavailable, using static fallback:', error);
+    const staticProjects = getStaticProjects();
+    return {
+      folders: staticProjects,
+      total: staticProjects.length,
+      lastModified: new Date().toISOString(),
+    };
   }
 };
 
 // Custom hook for fetching projects
 export function useProjects(fallbackData?: ProjectsResponse) {
   const { data, error, isLoading, mutate } = useSWR<ProjectsResponse, Error>(
-    '/api/drive',
+    '/api/projects',
     fetcher,
     {
       fallbackData,

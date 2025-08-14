@@ -105,10 +105,8 @@ function MediaPlayer({
 
   switch (mediaItem.type) {
     case 'html':
-      // Use the view API endpoint to serve HTML files with proper content-type
-      // Extract project ID from path and use file ID for the file path within the project
-      const projectId = mediaItem.file.path.split('/')[2]; // Extract project ID from /Projects/GBL/...
-      const htmlSrc = `/api/projects/${projectId}/view/${mediaItem.file.id}`;
+      // Use the live URL directly (GitHub Pages)
+      const htmlSrc = mediaItem.embedUrl || mediaItem.file.path;
       return (
         <div ref={containerRef} className="w-full h-full">
           <iframe
@@ -212,6 +210,25 @@ export default function ProjectModal({
 
   // Process media items
   const mediaItems: LocalMediaItem[] = React.useMemo(() => {
+    // If project has a live URL, show it as the primary media
+    if (project?.live) {
+      return [
+        {
+          file: {
+            id: 'live-demo',
+            name: 'Live Demo',
+            type: 'code',
+            path: project.live,
+            size: 0,
+            lastModified: new Date().toISOString(),
+          },
+          type: 'html' as MediaType,
+          embedUrl: project.live,
+        },
+      ];
+    }
+
+    // Fallback to file listing if no live URL
     if (!filesData?.files) return [];
 
     return filesData.files
@@ -228,7 +245,7 @@ export default function ProjectModal({
         return { file, type, embedUrl };
       })
       .filter((item) => item.type !== 'unknown'); // Only show supported media types
-  }, [filesData]);
+  }, [project?.live, filesData]);
 
   // Handle close with animation
   const handleClose = useCallback(() => {

@@ -4,8 +4,8 @@
   "tags": ["Education", "Gaming", "Interactive", "UI/UX"],
   "date": "2024-01-15",
   "technologies": ["JavaScript", "HTML", "CSS", "Game Development"],
-  "github": "https://github.com/vladimir0y/GBL",
-  "live": "https://gbl-demo.vercel.app",
+  "github": "https://github.com/vladimir0y/portfolio-project-gbl",
+  "live": "https://vladimir0y.github.io/portfolio-project-gbl",
   "category": "Educational Technology",
   "status": "Completed"
 }

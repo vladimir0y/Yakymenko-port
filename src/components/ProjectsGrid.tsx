@@ -88,24 +88,21 @@ export default function ProjectsGrid({
     <div
       ref={gridRef}
       className={`
-        grid gap-4 sm:gap-6
+        grid items-stretch gap-4 sm:gap-6
         grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-        auto-rows-max
+        auto-rows-[1fr]
         w-full
         ${className}
       `}
     >
       {projects.map((project, index) => {
-        const offsetClass =
-          index % 3 === 1 ? 'lg:mt-8' : index % 3 === 2 ? 'lg:mt-16' : '';
-
         return (
           <div
             key={project.id}
             ref={(el) => {
               if (el) cardsRef.current[index] = el;
             }}
-            className={`project-card opacity-0 ${offsetClass}`}
+            className="project-card opacity-0 h-full"
             style={{
               transform: 'translateY(60px) scale(0.9)',
             }}

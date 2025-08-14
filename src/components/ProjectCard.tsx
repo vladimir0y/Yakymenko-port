@@ -124,7 +124,7 @@ export default function ProjectCard({
   return (
     <div
       ref={cardRef}
-      className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-zinc-200/70 dark:border-zinc-800 bg-gradient-to-b from-white to-white/95 dark:from-zinc-900 dark:to-zinc-900/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_-12px_rgba(0,0,0,0.35)] transition-all duration-300 ${className}`}
+      className={`group relative h-full flex flex-col rounded-3xl overflow-hidden cursor-pointer border border-zinc-200/70 dark:border-zinc-800 bg-gradient-to-b from-white to-white/95 dark:from-zinc-900 dark:to-zinc-900/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_-12px_rgba(0,0,0,0.35)] transition-all duration-300 ${className}`}
       style={{ ...style }}
       onClick={handleClick}
       tabIndex={0}
@@ -154,7 +154,7 @@ export default function ProjectCard({
       </div>
 
       {/* Content */}
-      <div ref={contentRef} className="px-6 pb-6 pt-2 space-y-3">
+      <div ref={contentRef} className="px-6 pb-6 pt-2 space-y-3 flex-1 flex flex-col">
         <h3 className="text-[16px] md:text-[17px] font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 line-clamp-2">
           {project.projectData?.title || project.name}
         </h3>

@@ -120,7 +120,7 @@ const Hero = () => {
         aria-hidden="true"
       >
         {/* Base gradient layer */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-secondary-500/10 to-accent-500/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] to-[#1e40af]" />
 
         {/* Parallax gradient layer */}
         <div
@@ -154,7 +154,7 @@ const Hero = () => {
           <h1
             className={designTokens.cn(
               designTokens.typography.getHeading(1),
-              'text-gradient'
+              'text-gradient md:text-fluid-6xl'
             )}
           >
             Volodymyr Yakymenko —

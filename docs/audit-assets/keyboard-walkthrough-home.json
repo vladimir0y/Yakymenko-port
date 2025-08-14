@@ -1,0 +1,572 @@
+[
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "Skip to main content",
+    "aria": {},
+    "rect": {
+      "x": 24,
+      "y": -96.67500305175781,
+      "width": 164.875,
+      "height": 40
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "VPortfolio",
+    "aria": {},
+    "rect": {
+      "x": 136.8000030517578,
+      "y": 36.79999923706055,
+      "width": 96.82500457763672,
+      "height": 32
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "Home",
+    "aria": {
+      "aria-current": "page"
+    },
+    "rect": {
+      "x": 1015.6625366210938,
+      "y": 42.79999923706055,
+      "width": 34.22500228881836,
+      "height": 20
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "Work",
+    "aria": {},
+    "rect": {
+      "x": 1073.8875732421875,
+      "y": 42.79999923706055,
+      "width": 30.762500762939453,
+      "height": 20
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "About",
+    "aria": {},
+    "rect": {
+      "x": 1128.6500244140625,
+      "y": 42.79999923706055,
+      "width": 35,
+      "height": 20
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "Contact",
+    "aria": {},
+    "rect": {
+      "x": 1187.6500244140625,
+      "y": 42.79999923706055,
+      "width": 43.54999923706055,
+      "height": 20
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": "switch",
+    "name": "Switch to dark mode",
+    "aria": {
+      "aria-label": "Switch to dark mode",
+      "aria-pressed": "false"
+    },
+    "rect": {
+      "x": 1255.2000732421875,
+      "y": 28.80000114440918,
+      "width": 48,
+      "height": 48
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": "switch",
+    "name": "Switch to dark mode",
+    "aria": {
+      "aria-label": "Switch to dark mode",
+      "aria-pressed": "false"
+    },
+    "rect": {
+      "x": 1368,
+      "y": 24,
+      "width": 48,
+      "height": 48
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": null,
+    "name": "View My Work",
+    "aria": {},
+    "rect": {
+      "x": 555.8500366210938,
+      "y": 744.3500366210938,
+      "width": 162.78750610351562,
+      "height": 44
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": null,
+    "name": "Get In Touch",
+    "aria": {},
+    "rect": {
+      "x": 734.6375122070312,
+      "y": 744.3500366210938,
+      "width": 149.5,
+      "height": 44
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": null,
+    "name": "Scroll to next section",
+    "aria": {
+      "aria-label": "Scroll to next section"
+    },
+    "rect": {
+      "x": 692.2124633789062,
+      "y": 880.7536010742188,
+      "width": 55.78750228881836,
+      "height": 52
+    }
+  },
+  {
+    "tag": "div",
+    "id": null,
+    "role": "button",
+    "name": "Open project GBL - Game Based Learning",
+    "aria": {
+      "aria-label": "Open project GBL - Game Based Learning"
+    },
+    "rect": {
+      "x": 149.6999969482422,
+      "y": 1181.5062255859375,
+      "width": 246.60000610351562,
+      "height": 293.51251220703125
+    }
+  },
+  {
+    "tag": "div",
+    "id": null,
+    "role": "button",
+    "name": "Open project Rock Climbing Adventure",
+    "aria": {
+      "aria-label": "Open project Rock Climbing Adventure"
+    },
+    "rect": {
+      "x": 447.70001220703125,
+      "y": 1081.5062255859375,
+      "width": 246.60000610351562,
+      "height": 293.51251220703125
+    }
+  },
+  {
+    "tag": "div",
+    "id": null,
+    "role": "button",
+    "name": "Open project Time Management System",
+    "aria": {
+      "aria-label": "Open project Time Management System"
+    },
+    "rect": {
+      "x": 745.7000122070312,
+      "y": 919.90625,
+      "width": 246.60000610351562,
+      "height": 293.51251220703125
+    }
+  },
+  {
+    "tag": "div",
+    "id": null,
+    "role": "button",
+    "name": "Open project Time Management Main Dashboard",
+    "aria": {
+      "aria-label": "Open project Time Management Main Dashboard"
+    },
+    "rect": {
+      "x": 1043.7000732421875,
+      "y": 855.1062622070312,
+      "width": 246.60000610351562,
+      "height": 293.51251220703125
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "GitHub",
+    "aria": {
+      "aria-label": "GitHub"
+    },
+    "rect": {
+      "x": 1216,
+      "y": 2477.199951171875,
+      "width": 20,
+      "height": 20
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "LinkedIn",
+    "aria": {
+      "aria-label": "LinkedIn"
+    },
+    "rect": {
+      "x": 1248,
+      "y": 2107.60009765625,
+      "width": 20,
+      "height": 20
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": "switch",
+    "name": "Switch to dark mode",
+    "aria": {
+      "aria-label": "Switch to dark mode",
+      "aria-pressed": "false"
+    },
+    "rect": {
+      "x": 1280,
+      "y": 2093.60009765625,
+      "width": 48,
+      "height": 48
+    }
+  },
+  {
+    "tag": "body",
+    "id": null,
+    "role": null,
+    "name": "((e,t,r,n,i,a,o,s)=>{let l=document.documentElement,u=[\"light\",\"dark\"];function c(t){(Array.isArray(e)?e:[e]).forEach(e=>{let r=\"class\"===e,n=r&&a?i.map(e=>a[e]||e):i;r?(l.classList.remove(...n),l.classList.add(a&&a[t]?a[t]:t)):l.setAttribute(e,t)}),s&&u.includes(t)&&(l.style.colorScheme=t)}if(n)c(n);else try{let e=localStorage.getItem(t)||r,n=o&&\"system\"===e?window.matchMedia(\"(prefers-color-scheme: dark)\").matches?\"dark\":\"light\":e;c(n)}catch(e){}})(\"class\",\"portfolio-theme\",\"system\",null,[\"light\",\"dark\"],null,true,true)Skip to main contentVPortfolioHomeWorkAboutContactVolodymyr Yakymenko —E‑Learning, AI Integrations & Innovative Learning ProductsThis portfolio was created with the help of Artificial Intelligence.I specialize in building high‑impact e‑learning experiences, integrating AI to personalize content, automate workflows, and scale delivery. My work blends product strategy, instructional design, and modern web technologies (React, Next.js, TypeScript) to craft engaging, data‑driven learning products that are accessible, performant, and delightful.View My WorkGet In TouchScrollWelcome to my portfolio - Full Stack Developer specializing in modern web developmentProjects(4)GBL - Game Based LearningEducationGamingInteractiveUI/UXRock Climbing AdventureSportsAdventureCommunityWeb AppTime Management SystemProductivityTime TrackingAnalyticsTask ManagementTime Management Main DashboardDashboardAnalyticsAdmin PanelData VisualizationContact SectionComing soon...© 2025 Your Name. All rights reserved.(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])self.__next_f.push([1,\"1:HL[\\\"/_next/static/css/ca0c12c36952adf1.css\\\",\\\"style\\\"]\\n\"])self.__next_f.push([1,\"2:I[2846,[],\\\"\\\"]\\n4:I[804,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"default\\\"]\\n5:I[4973,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"ThemeToggle\\\"]\\n6:I[7736,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"default\\\"]\\n7:I[9003,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"default\\\"]\\n8:I[7514,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"ThemeProvider\\\"]\\n9:I[2023,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"s\"])self.__next_f.push([1,\"tatic/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"AppHeader\\\"]\\na:I[4707,[],\\\"\\\"]\\nb:I[6423,[],\\\"\\\"]\\nc:I[1480,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"AppFooter\\\"]\\ne:I[1060,[],\\\"\\\"]\\nf:[]\\n\"])self.__next_f.push([1,\"0:[\\\"$\\\",\\\"$L2\\\",null,{\\\"buildId\\\":\\\"a1ApoxX_oUk1GMsMmg-8g\\\",\\\"assetPrefix\\\":\\\"\\\",\\\"urlParts\\\":[\\\"\\\",\\\"\\\"],\\\"initialTree\\\":[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{}]},\\\"$undefined\\\",\\\"$undefined\\\",true],\\\"initialSeedData\\\":[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{},[[\\\"$L3\\\",[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"relative\\\",\\\"children\\\":[[\\\"$\\\",\\\"$L4\\\",null,{\\\"position\\\":\\\"bottom-left\\\",\\\"detailed\\\":true}],[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"fixed top-6 right-6 z-50\\\",\\\"children\\\":[\\\"$\\\",\\\"$L5\\\",null,{}]}],[\\\"$\\\",\\\"main\\\",null,{\\\"id\\\":\\\"main-content\\\",\\\"children\\\":[[\\\"$\\\",\\\"$L6\\\",null,{}],[\\\"$\\\",\\\"section\\\",null,{\\\"id\\\":\\\"projects\\\",\\\"className\\\":\\\"min-h-screen py-20 bg-muted/20\\\",\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"container mx-auto px-6\\\",\\\"children\\\":[\\\"$\\\",\\\"$L7\\\",null,{}]}]}],[\\\"$\\\",\\\"section\\\",null,{\\\"id\\\":\\\"contact\\\",\\\"className\\\":\\\"min-h-screen flex items-center justify-center\\\",\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"text-center\\\",\\\"children\\\":[[\\\"$\\\",\\\"h2\\\",null,{\\\"className\\\":\\\"text-4xl font-bold mb-4\\\",\\\"children\\\":\\\"Contact Section\\\"}],[\\\"$\\\",\\\"p\\\",null,{\\\"className\\\":\\\"text-muted-foreground\\\",\\\"children\\\":\\\"Coming soon...\\\"}]]}]}]]}]]}],null],null],null]},[[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ca0c12c36952adf1.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"suppressHydrationWarning\\\":true,\\\"className\\\":\\\"__variable_29916c __variable_fb114f\\\",\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preload\\\",\\\"href\\\":\\\"/fonts/GeistVF.woff\\\",\\\"as\\\":\\\"font\\\",\\\"type\\\":\\\"font/woff\\\",\\\"crossOrigin\\\":\\\"anonymous\\\"}],[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preload\\\",\\\"href\\\":\\\"/fonts/GeistMonoVF.woff\\\",\\\"as\\\":\\\"font\\\",\\\"type\\\":\\\"font/woff\\\",\\\"crossOrigin\\\":\\\"anonymous\\\"}],[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preconnect\\\",\\\"href\\\":\\\"https://fonts.googleapis.com\\\"}],[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preconnect\\\",\\\"href\\\":\\\"https://fonts.gstatic.com\\\",\\\"crossOrigin\\\":\\\"anonymous\\\"}]]}],[\\\"$\\\",\\\"body\\\",null,{\\\"className\\\":\\\"\\\\n          __variable_1e4310 __variable_c3aa02\\\\n          __variable_3c557b\\\\n          font-sans antialiased\\\\n        \\\",\\\"children\\\":[\\\"$\\\",\\\"$L8\\\",null,{\\\"attribute\\\":\\\"class\\\",\\\"defaultTheme\\\":\\\"system\\\",\\\"enableSystem\\\":true,\\\"disableTransitionOnChange\\\":true,\\\"storageKey\\\":\\\"portfolio-theme\\\",\\\"children\\\":[[\\\"$\\\",\\\"a\\\",null,{\\\"href\\\":\\\"#main-content\\\",\\\"className\\\":\\\"skip-link focus:outline-none focus:ring-2 focus:ring-primary-500\\\",\\\"children\\\":\\\"Skip to main content\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"min-h-screen flex flex-col\\\",\\\"children\\\":[[\\\"$\\\",\\\"$L9\\\",null,{}],[\\\"$\\\",\\\"main\\\",null,{\\\"id\\\":\\\"main-content\\\",\\\"className\\\":\\\"flex-1 container mx-auto px-4 sm:px-6 lg:px-8\\\",\\\"children\\\":[\\\"$\\\",\\\"$La\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"segmentPath\\\":[\\\"children\\\"],\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$Lb\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":\\\"404\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],\\\"notFoundStyles\\\":[]}]}],[\\\"$\\\",\\\"$Lc\\\",null,{}]]}]]}]}]]}]],null],null],\\\"couldBeIntercepted\\\":false,\\\"initialHead\\\":[null,\\\"$Ld\\\"],\\\"globalErrorComponent\\\":\\\"$e\\\",\\\"missingSlots\\\":\\\"$Wf\\\"}]\\n\"])self.__next_f.push([1,\"d:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1, maximum-scale=1\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"title\\\",\\\"2\\\",{\\\"children\\\":\\\"Portfolio | Full Stack Developer\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"3\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"4\\\",{\\\"name\\\":\\\"author\\\",\\\"content\\\":\\\"Portfolio Owner\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"5\\\",{\\\"name\\\":\\\"keywords\\\",\\\"content\\\":\\\"portfolio,developer,react,nextjs,typescript,web development\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"6\\\",{\\\"name\\\":\\\"creator\\\",\\\"content\\\":\\\"Portfolio Owner\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"7\\\",{\\\"name\\\":\\\"robots\\\",\\\"content\\\":\\\"index, follow\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"8\\\",{\\\"name\\\":\\\"googlebot\\\",\\\"content\\\":\\\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"9\\\",{\\\"property\\\":\\\"og:title\\\",\\\"content\\\":\\\"Portfolio | Full Stack Developer\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"10\\\",{\\\"property\\\":\\\"og:description\\\",\\\"content\\\":\\\"Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"11\\\",{\\\"property\\\":\\\"og:url\\\",\\\"content\\\":\\\"https://your-domain.com\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"12\\\",{\\\"property\\\":\\\"og:site_name\\\",\\\"content\\\":\\\"Portfolio\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"13\\\",{\\\"property\\\":\\\"og:locale\\\",\\\"content\\\":\\\"en_US\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"14\\\",{\\\"property\\\":\\\"og:image\\\",\\\"content\\\":\\\"https://your-domain.com/og-image.jpg\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"15\\\",{\\\"property\\\":\\\"og:image:width\\\",\\\"content\\\":\\\"1200\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"16\\\",{\\\"property\\\":\\\"og:image:height\\\",\\\"content\\\":\\\"630\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"17\\\",{\\\"property\\\":\\\"og:image:alt\\\",\\\"content\\\":\\\"Portfolio - Full Stack Developer\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"18\\\",{\\\"property\\\":\\\"og:type\\\",\\\"content\\\":\\\"website\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"19\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary_large_image\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"20\\\",{\\\"name\\\":\\\"twitter:title\\\",\\\"content\\\":\\\"Portfolio | Full Stack Developer\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"21\\\",{\\\"name\\\":\\\"twitter:description\\\",\\\"content\\\":\\\"Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"22\\\",{\\\"name\\\":\\\"twitter:image\\\",\\\"content\\\":\\\"https://your-domain.com/og-image.jpg\\\"}],[\\\"$\\\",\\\"link\\\",\\\"23\\\",{\\\"rel\\\":\\\"icon\\\",\\\"href\\\":\\\"/favicon.ico\\\",\\\"type\\\":\\\"image/x-icon\\\",\\\"sizes\\\":\\\"16x16\\\"}]]\\n\"])self.__next_f.push([1,\"3:null\\n\"])",
+    "aria": {},
+    "rect": {
+      "x": 0,
+      "y": -1000,
+      "width": 1440,
+      "height": 2894.400146484375
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "Skip to main content",
+    "aria": {},
+    "rect": {
+      "x": 24,
+      "y": -1077.9375,
+      "width": 164.875,
+      "height": 40
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "VPortfolio",
+    "aria": {},
+    "rect": {
+      "x": 136.8000030517578,
+      "y": 36.79999923706055,
+      "width": 96.82500457763672,
+      "height": 32
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "Home",
+    "aria": {
+      "aria-current": "page"
+    },
+    "rect": {
+      "x": 1015.6625366210938,
+      "y": 42.79999923706055,
+      "width": 34.22500228881836,
+      "height": 20
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "Work",
+    "aria": {},
+    "rect": {
+      "x": 1073.8875732421875,
+      "y": 42.79999923706055,
+      "width": 30.762500762939453,
+      "height": 20
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "About",
+    "aria": {},
+    "rect": {
+      "x": 1128.6500244140625,
+      "y": 42.79999923706055,
+      "width": 35,
+      "height": 20
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "Contact",
+    "aria": {},
+    "rect": {
+      "x": 1187.6500244140625,
+      "y": 42.79999923706055,
+      "width": 43.54999923706055,
+      "height": 20
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": "switch",
+    "name": "Switch to dark mode",
+    "aria": {
+      "aria-label": "Switch to dark mode",
+      "aria-pressed": "false"
+    },
+    "rect": {
+      "x": 1255.2000732421875,
+      "y": 28.80000114440918,
+      "width": 48,
+      "height": 48
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": "switch",
+    "name": "Switch to dark mode",
+    "aria": {
+      "aria-label": "Switch to dark mode",
+      "aria-pressed": "false"
+    },
+    "rect": {
+      "x": 1368,
+      "y": 24,
+      "width": 48,
+      "height": 48
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": null,
+    "name": "View My Work",
+    "aria": {},
+    "rect": {
+      "x": 555.8500366210938,
+      "y": 744.3500366210938,
+      "width": 162.78750610351562,
+      "height": 44
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": null,
+    "name": "Get In Touch",
+    "aria": {},
+    "rect": {
+      "x": 734.6375122070312,
+      "y": 744.3500366210938,
+      "width": 149.5,
+      "height": 44
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": null,
+    "name": "Scroll to next section",
+    "aria": {
+      "aria-label": "Scroll to next section"
+    },
+    "rect": {
+      "x": 692.2124633789062,
+      "y": 889.4773559570312,
+      "width": 55.78750228881836,
+      "height": 52
+    }
+  },
+  {
+    "tag": "div",
+    "id": null,
+    "role": "button",
+    "name": "Open project GBL - Game Based Learning",
+    "aria": {
+      "aria-label": "Open project GBL - Game Based Learning"
+    },
+    "rect": {
+      "x": 136,
+      "y": 1090.800048828125,
+      "width": 274,
+      "height": 326.125
+    }
+  },
+  {
+    "tag": "div",
+    "id": null,
+    "role": "button",
+    "name": "Open project Rock Climbing Adventure",
+    "aria": {
+      "aria-label": "Open project Rock Climbing Adventure"
+    },
+    "rect": {
+      "x": 434,
+      "y": 990,
+      "width": 274,
+      "height": 326.125
+    }
+  },
+  {
+    "tag": "div",
+    "id": null,
+    "role": "button",
+    "name": "Open project Time Management System",
+    "aria": {
+      "aria-label": "Open project Time Management System"
+    },
+    "rect": {
+      "x": 732,
+      "y": 830,
+      "width": 274,
+      "height": 326.125
+    }
+  },
+  {
+    "tag": "div",
+    "id": null,
+    "role": "button",
+    "name": "Open project Time Management Main Dashboard",
+    "aria": {
+      "aria-label": "Open project Time Management Main Dashboard"
+    },
+    "rect": {
+      "x": 1030,
+      "y": 789.2000122070312,
+      "width": 274,
+      "height": 326.125
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "GitHub",
+    "aria": {
+      "aria-label": "GitHub"
+    },
+    "rect": {
+      "x": 1216,
+      "y": 2466,
+      "width": 20,
+      "height": 20
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "LinkedIn",
+    "aria": {
+      "aria-label": "LinkedIn"
+    },
+    "rect": {
+      "x": 1248,
+      "y": 2367.60009765625,
+      "width": 20,
+      "height": 20
+    }
+  },
+  {
+    "tag": "button",
+    "id": null,
+    "role": "switch",
+    "name": "Switch to dark mode",
+    "aria": {
+      "aria-label": "Switch to dark mode",
+      "aria-pressed": "false"
+    },
+    "rect": {
+      "x": 1280,
+      "y": 2172.800048828125,
+      "width": 48,
+      "height": 48
+    }
+  },
+  {
+    "tag": "body",
+    "id": null,
+    "role": null,
+    "name": "((e,t,r,n,i,a,o,s)=>{let l=document.documentElement,u=[\"light\",\"dark\"];function c(t){(Array.isArray(e)?e:[e]).forEach(e=>{let r=\"class\"===e,n=r&&a?i.map(e=>a[e]||e):i;r?(l.classList.remove(...n),l.classList.add(a&&a[t]?a[t]:t)):l.setAttribute(e,t)}),s&&u.includes(t)&&(l.style.colorScheme=t)}if(n)c(n);else try{let e=localStorage.getItem(t)||r,n=o&&\"system\"===e?window.matchMedia(\"(prefers-color-scheme: dark)\").matches?\"dark\":\"light\":e;c(n)}catch(e){}})(\"class\",\"portfolio-theme\",\"system\",null,[\"light\",\"dark\"],null,true,true)Skip to main contentVPortfolioHomeWorkAboutContactVolodymyr Yakymenko —E‑Learning, AI Integrations & Innovative Learning ProductsThis portfolio was created with the help of Artificial Intelligence.I specialize in building high‑impact e‑learning experiences, integrating AI to personalize content, automate workflows, and scale delivery. My work blends product strategy, instructional design, and modern web technologies (React, Next.js, TypeScript) to craft engaging, data‑driven learning products that are accessible, performant, and delightful.View My WorkGet In TouchScrollWelcome to my portfolio - Full Stack Developer specializing in modern web developmentProjects(4)GBL - Game Based LearningEducationGamingInteractiveUI/UXRock Climbing AdventureSportsAdventureCommunityWeb AppTime Management SystemProductivityTime TrackingAnalyticsTask ManagementTime Management Main DashboardDashboardAnalyticsAdmin PanelData VisualizationContact SectionComing soon...© 2025 Your Name. All rights reserved.(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])self.__next_f.push([1,\"1:HL[\\\"/_next/static/css/ca0c12c36952adf1.css\\\",\\\"style\\\"]\\n\"])self.__next_f.push([1,\"2:I[2846,[],\\\"\\\"]\\n4:I[804,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"default\\\"]\\n5:I[4973,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"ThemeToggle\\\"]\\n6:I[7736,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"default\\\"]\\n7:I[9003,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"default\\\"]\\n8:I[7514,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"ThemeProvider\\\"]\\n9:I[2023,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"s\"])self.__next_f.push([1,\"tatic/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"AppHeader\\\"]\\na:I[4707,[],\\\"\\\"]\\nb:I[6423,[],\\\"\\\"]\\nc:I[1480,[\\\"922\\\",\\\"static/chunks/c15bf2b0-3fa3c123f635ab8d.js\\\",\\\"290\\\",\\\"static/chunks/290-037c8ed732364b8a.js\\\",\\\"204\\\",\\\"static/chunks/204-ad141e2a4ce01344.js\\\",\\\"498\\\",\\\"static/chunks/498-510f20c2d0cc1f30.js\\\",\\\"578\\\",\\\"static/chunks/578-37be5800a703ec00.js\\\",\\\"328\\\",\\\"static/chunks/328-22fbdcca2004b0db.js\\\",\\\"931\\\",\\\"static/chunks/app/page-7a655ac652d1a29b.js\\\"],\\\"AppFooter\\\"]\\ne:I[1060,[],\\\"\\\"]\\nf:[]\\n\"])self.__next_f.push([1,\"0:[\\\"$\\\",\\\"$L2\\\",null,{\\\"buildId\\\":\\\"a1ApoxX_oUk1GMsMmg-8g\\\",\\\"assetPrefix\\\":\\\"\\\",\\\"urlParts\\\":[\\\"\\\",\\\"\\\"],\\\"initialTree\\\":[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{}]},\\\"$undefined\\\",\\\"$undefined\\\",true],\\\"initialSeedData\\\":[\\\"\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{},[[\\\"$L3\\\",[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"relative\\\",\\\"children\\\":[[\\\"$\\\",\\\"$L4\\\",null,{\\\"position\\\":\\\"bottom-left\\\",\\\"detailed\\\":true}],[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"fixed top-6 right-6 z-50\\\",\\\"children\\\":[\\\"$\\\",\\\"$L5\\\",null,{}]}],[\\\"$\\\",\\\"main\\\",null,{\\\"id\\\":\\\"main-content\\\",\\\"children\\\":[[\\\"$\\\",\\\"$L6\\\",null,{}],[\\\"$\\\",\\\"section\\\",null,{\\\"id\\\":\\\"projects\\\",\\\"className\\\":\\\"min-h-screen py-20 bg-muted/20\\\",\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"container mx-auto px-6\\\",\\\"children\\\":[\\\"$\\\",\\\"$L7\\\",null,{}]}]}],[\\\"$\\\",\\\"section\\\",null,{\\\"id\\\":\\\"contact\\\",\\\"className\\\":\\\"min-h-screen flex items-center justify-center\\\",\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"text-center\\\",\\\"children\\\":[[\\\"$\\\",\\\"h2\\\",null,{\\\"className\\\":\\\"text-4xl font-bold mb-4\\\",\\\"children\\\":\\\"Contact Section\\\"}],[\\\"$\\\",\\\"p\\\",null,{\\\"className\\\":\\\"text-muted-foreground\\\",\\\"children\\\":\\\"Coming soon...\\\"}]]}]}]]}]]}],null],null],null]},[[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/ca0c12c36952adf1.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"suppressHydrationWarning\\\":true,\\\"className\\\":\\\"__variable_29916c __variable_fb114f\\\",\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preload\\\",\\\"href\\\":\\\"/fonts/GeistVF.woff\\\",\\\"as\\\":\\\"font\\\",\\\"type\\\":\\\"font/woff\\\",\\\"crossOrigin\\\":\\\"anonymous\\\"}],[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preload\\\",\\\"href\\\":\\\"/fonts/GeistMonoVF.woff\\\",\\\"as\\\":\\\"font\\\",\\\"type\\\":\\\"font/woff\\\",\\\"crossOrigin\\\":\\\"anonymous\\\"}],[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preconnect\\\",\\\"href\\\":\\\"https://fonts.googleapis.com\\\"}],[\\\"$\\\",\\\"link\\\",null,{\\\"rel\\\":\\\"preconnect\\\",\\\"href\\\":\\\"https://fonts.gstatic.com\\\",\\\"crossOrigin\\\":\\\"anonymous\\\"}]]}],[\\\"$\\\",\\\"body\\\",null,{\\\"className\\\":\\\"\\\\n          __variable_1e4310 __variable_c3aa02\\\\n          __variable_3c557b\\\\n          font-sans antialiased\\\\n        \\\",\\\"children\\\":[\\\"$\\\",\\\"$L8\\\",null,{\\\"attribute\\\":\\\"class\\\",\\\"defaultTheme\\\":\\\"system\\\",\\\"enableSystem\\\":true,\\\"disableTransitionOnChange\\\":true,\\\"storageKey\\\":\\\"portfolio-theme\\\",\\\"children\\\":[[\\\"$\\\",\\\"a\\\",null,{\\\"href\\\":\\\"#main-content\\\",\\\"className\\\":\\\"skip-link focus:outline-none focus:ring-2 focus:ring-primary-500\\\",\\\"children\\\":\\\"Skip to main content\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"min-h-screen flex flex-col\\\",\\\"children\\\":[[\\\"$\\\",\\\"$L9\\\",null,{}],[\\\"$\\\",\\\"main\\\",null,{\\\"id\\\":\\\"main-content\\\",\\\"className\\\":\\\"flex-1 container mx-auto px-4 sm:px-6 lg:px-8\\\",\\\"children\\\":[\\\"$\\\",\\\"$La\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"segmentPath\\\":[\\\"children\\\"],\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$Lb\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":\\\"404\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],\\\"notFoundStyles\\\":[]}]}],[\\\"$\\\",\\\"$Lc\\\",null,{}]]}]]}]}]]}]],null],null],\\\"couldBeIntercepted\\\":false,\\\"initialHead\\\":[null,\\\"$Ld\\\"],\\\"globalErrorComponent\\\":\\\"$e\\\",\\\"missingSlots\\\":\\\"$Wf\\\"}]\\n\"])self.__next_f.push([1,\"d:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1, maximum-scale=1\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"title\\\",\\\"2\\\",{\\\"children\\\":\\\"Portfolio | Full Stack Developer\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"3\\\",{\\\"name\\\":\\\"description\\\",\\\"content\\\":\\\"Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"4\\\",{\\\"name\\\":\\\"author\\\",\\\"content\\\":\\\"Portfolio Owner\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"5\\\",{\\\"name\\\":\\\"keywords\\\",\\\"content\\\":\\\"portfolio,developer,react,nextjs,typescript,web development\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"6\\\",{\\\"name\\\":\\\"creator\\\",\\\"content\\\":\\\"Portfolio Owner\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"7\\\",{\\\"name\\\":\\\"robots\\\",\\\"content\\\":\\\"index, follow\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"8\\\",{\\\"name\\\":\\\"googlebot\\\",\\\"content\\\":\\\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"9\\\",{\\\"property\\\":\\\"og:title\\\",\\\"content\\\":\\\"Portfolio | Full Stack Developer\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"10\\\",{\\\"property\\\":\\\"og:description\\\",\\\"content\\\":\\\"Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"11\\\",{\\\"property\\\":\\\"og:url\\\",\\\"content\\\":\\\"https://your-domain.com\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"12\\\",{\\\"property\\\":\\\"og:site_name\\\",\\\"content\\\":\\\"Portfolio\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"13\\\",{\\\"property\\\":\\\"og:locale\\\",\\\"content\\\":\\\"en_US\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"14\\\",{\\\"property\\\":\\\"og:image\\\",\\\"content\\\":\\\"https://your-domain.com/og-image.jpg\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"15\\\",{\\\"property\\\":\\\"og:image:width\\\",\\\"content\\\":\\\"1200\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"16\\\",{\\\"property\\\":\\\"og:image:height\\\",\\\"content\\\":\\\"630\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"17\\\",{\\\"property\\\":\\\"og:image:alt\\\",\\\"content\\\":\\\"Portfolio - Full Stack Developer\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"18\\\",{\\\"property\\\":\\\"og:type\\\",\\\"content\\\":\\\"website\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"19\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary_large_image\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"20\\\",{\\\"name\\\":\\\"twitter:title\\\",\\\"content\\\":\\\"Portfolio | Full Stack Developer\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"21\\\",{\\\"name\\\":\\\"twitter:description\\\",\\\"content\\\":\\\"Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript.\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"22\\\",{\\\"name\\\":\\\"twitter:image\\\",\\\"content\\\":\\\"https://your-domain.com/og-image.jpg\\\"}],[\\\"$\\\",\\\"link\\\",\\\"23\\\",{\\\"rel\\\":\\\"icon\\\",\\\"href\\\":\\\"/favicon.ico\\\",\\\"type\\\":\\\"image/x-icon\\\",\\\"sizes\\\":\\\"16x16\\\"}]]\\n\"])self.__next_f.push([1,\"3:null\\n\"])",
+    "aria": {},
+    "rect": {
+      "x": 0,
+      "y": -915.2000122070312,
+      "width": 1440,
+      "height": 2894.400146484375
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "Skip to main content",
+    "aria": {},
+    "rect": {
+      "x": 24,
+      "y": -1003.2250366210938,
+      "width": 164.875,
+      "height": 40
+    }
+  },
+  {
+    "tag": "a",
+    "id": null,
+    "role": null,
+    "name": "VPortfolio",
+    "aria": {},
+    "rect": {
+      "x": 136.8000030517578,
+      "y": 36.79999923706055,
+      "width": 96.82500457763672,
+      "height": 32
+    }
+  }
+]

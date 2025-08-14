@@ -17,6 +17,7 @@ A modern, themeable portfolio built with Next.js 14, TypeScript, and Tailwind CS
 - Building
 - Deploying to Vercel (preview and production)
 - GitHub + Vercel integration
+- Related docs
 
 ## Overview
 
@@ -110,6 +111,12 @@ Tailwind usage
 
 - Use semantic utilities based on CSS variables, e.g., bg-background text-foreground border-border, and color palettes like text-primary-700, bg-secondary-600.
 - Dark mode is toggled by the presence of the .dark class on html (handled by next-themes).
+
+## Related docs
+
+- Projects grid implementation: docs/PROJECTS_GRID_IMPLEMENTATION.md
+- Hero implementation: HERO_IMPLEMENTATION.md
+- SEO usage: docs/SEO_USAGE.md
 
 ## Project structure
 

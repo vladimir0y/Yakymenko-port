@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import '../styles/globals.css';
 import { ThemeProvider } from '@/components/theme';
+import { AppHeader, AppFooter } from '@/components/shell';
 
 // Local font declarations with preload
 const geistSans = localFont({
@@ -21,10 +22,18 @@ const geistMono = localFont({
   preload: true,
 });
 
-// Google Fonts as fallbacks
-const inter = Inter({
+// Google Fonts via next/font
+const fontInter = Inter({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '500'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const fontGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-display',
   display: 'swap',
 });
 
@@ -101,7 +110,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${fontGrotesk.variable} ${fontInter.variable}`}
+    >
       <head>
         {/* Preload custom fonts for better performance */}
         <link
@@ -129,7 +142,7 @@ export default function RootLayout({
       <body
         className={`
           ${geistSans.variable} ${geistMono.variable}
-          ${inter.variable} ${jetbrainsMono.variable}
+          ${jetbrainsMono.variable}
           font-sans antialiased
         `}
       >
@@ -147,7 +160,18 @@ export default function RootLayout({
           >
             Skip to main content
           </a>
-          {children}
+
+          {/* App Shell: Header + Main + Footer */}
+          <div className="min-h-screen flex flex-col">
+            <AppHeader />
+            <main
+              id="main-content"
+              className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8"
+            >
+              {children}
+            </main>
+            <AppFooter />
+          </div>
         </ThemeProvider>
       </body>
     </html>

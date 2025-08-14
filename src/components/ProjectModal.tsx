@@ -16,6 +16,8 @@ import {
 } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { Project, MediaType } from '@/types';
+import Prose from './Prose';
+import { Button } from './ui/Button';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -127,6 +129,7 @@ function MediaPlayer({
             height={600}
             className="max-w-full max-h-full object-contain rounded-lg"
             unoptimized={true}
+            loading="lazy"
           />
         </div>
       );
@@ -321,15 +324,22 @@ export default function ProjectModal({
               `}
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-                <div>
+              <div className="flex items-start justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+                <div className="max-w-3xl">
                   <Dialog.Title className="text-2xl font-bold text-gray-900 dark:text-white">
                     {project.projectData?.title || project.name}
                   </Dialog.Title>
                   {project.projectData?.description && (
-                    <p className="mt-2 text-gray-600 dark:text-gray-300">
-                      {project.projectData.description}
-                    </p>
+                    <Prose className="mt-2 text-gray-700 dark:text-gray-300">
+                      <p>{project.projectData.description}</p>
+                      {/* Callout box */}
+                      <div className="mt-4 border-l-4 border-accent-500 pl-4 py-2 bg-muted/40 rounded-r">
+                        <p className="text-sm">
+                          Tip: Try the fullscreen mode for a more immersive demo
+                          experience.
+                        </p>
+                      </div>
+                    </Prose>
                   )}
                 </div>
 
@@ -386,11 +396,14 @@ export default function ProjectModal({
                 )}
 
                 {currentMedia && (
-                  <div className="h-full">
-                    <MediaPlayer
-                      mediaItem={currentMedia}
-                      isFullscreen={isFullscreen}
-                    />
+                  <div className="h-full -mx-6">
+                    {/* Full-bleed media with soft shadow */}
+                    <div className="h-full shadow-soft">
+                      <MediaPlayer
+                        mediaItem={currentMedia}
+                        isFullscreen={isFullscreen}
+                      />
+                    </div>
                   </div>
                 )}
               </div>
@@ -398,32 +411,34 @@ export default function ProjectModal({
               {/* Media navigation */}
               {mediaItems.length > 1 && (
                 <div className="p-6 border-t border-gray-200 dark:border-gray-700">
-                  <div className="flex items-center justify-center space-x-2">
-                    <span className="text-sm text-gray-500 dark:text-gray-400 mr-4">
+                  <div className="flex items-center justify-center gap-3">
+                    <span className="text-sm text-gray-500 dark:text-gray-400 mr-2">
                       {currentMediaIndex + 1} of {mediaItems.length}
                     </span>
 
-                    <button
+                    <Button
+                      variant="ghost"
                       onClick={() =>
                         setCurrentMediaIndex(Math.max(0, currentMediaIndex - 1))
                       }
                       disabled={currentMediaIndex === 0}
-                      className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                      className="min-w-24"
                     >
                       Previous
-                    </button>
+                    </Button>
 
-                    <button
+                    <Button
+                      variant="ghost"
                       onClick={() =>
                         setCurrentMediaIndex(
                           Math.min(mediaItems.length - 1, currentMediaIndex + 1)
                         )
                       }
                       disabled={currentMediaIndex === mediaItems.length - 1}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors"
+                      className="min-w-24"
                     >
                       Next
-                    </button>
+                    </Button>
                   </div>
 
                   {/* Media thumbnails */}

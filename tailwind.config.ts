@@ -1,12 +1,54 @@
 import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
 
 const config: Config = {
   content: ['./src/**/*.{ts,tsx}'],
   darkMode: 'class',
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: 'clamp(1rem, 3vw, 2rem)',
+        sm: 'clamp(1rem, 3.5vw, 2.25rem)',
+        md: 'clamp(1.25rem, 4vw, 2.5rem)',
+        lg: 'clamp(1.5rem, 4.5vw, 3rem)',
+        xl: 'clamp(2rem, 5vw, 4rem)',
+      },
+    },
     extend: {
+      screens: {
+        xs: '360px',
+      },
       colors: {
-        // Custom color palette
+        // Neutral gray scale 50 -> 950
+        neutral: {
+          50: colors.gray[50],
+          100: colors.gray[100],
+          200: colors.gray[200],
+          300: colors.gray[300],
+          400: colors.gray[400],
+          500: colors.gray[500],
+          600: colors.gray[600],
+          700: colors.gray[700],
+          800: colors.gray[800],
+          900: colors.gray[900],
+          950: colors.gray[950],
+        },
+        // Warm accent palette (amber/copper)
+        accentWarm: {
+          50: colors.amber[50],
+          100: colors.amber[100],
+          200: colors.amber[200],
+          300: colors.amber[300],
+          400: colors.amber[400],
+          500: colors.amber[500],
+          600: colors.amber[600],
+          700: colors.amber[700],
+          800: colors.amber[800],
+          900: colors.amber[900],
+          950: colors.amber[950],
+        },
+        // Existing CSS-variable-driven palettes
         primary: {
           50: 'rgb(var(--color-primary-50) / <alpha-value>)',
           100: 'rgb(var(--color-primary-100) / <alpha-value>)',
@@ -83,14 +125,23 @@ const config: Config = {
         'fluid-5xl': 'clamp(3rem, 2.4rem + 3vw, 4rem)', // 48-64px
         'fluid-6xl': 'clamp(3.75rem, 3rem + 3.75vw, 5rem)', // 60-80px
       },
-      // Custom spacing for fluid design
+      // Custom spacing for fluid design and Material-3 4-pt aliases
       spacing: {
-        'fluid-xs': 'clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem)',
-        'fluid-sm': 'clamp(0.5rem, 0.4rem + 0.5vw, 1rem)',
-        'fluid-md': 'clamp(1rem, 0.8rem + 1vw, 2rem)',
-        'fluid-lg': 'clamp(1.5rem, 1.2rem + 1.5vw, 3rem)',
-        'fluid-xl': 'clamp(2rem, 1.6rem + 2vw, 4rem)',
-        'fluid-2xl': 'clamp(3rem, 2.4rem + 3vw, 6rem)',
+        // Fluid container paddings (can be used ad-hoc as utilities)
+        'container-xs': 'clamp(0.75rem, 2.5vw, 1.25rem)',
+        'container-sm': 'clamp(1rem, 3vw, 2rem)',
+        'container-md': 'clamp(1.25rem, 4vw, 2.5rem)',
+        'container-lg': 'clamp(1.5rem, 4.5vw, 3rem)',
+        'container-xl': 'clamp(2rem, 5vw, 4rem)',
+        // Material 3 4pt aliases (semantic helpers)
+        'm3-1': '0.25rem', // 4px
+        'm3-2': '0.5rem', // 8px
+        'm3-3': '0.75rem', // 12px
+        'm3-4': '1rem', // 16px
+        'm3-5': '1.25rem', // 20px
+        'm3-6': '1.5rem', // 24px
+        'm3-7': '1.75rem', // 28px
+        'm3-8': '2rem', // 32px
       },
       // Custom font families
       fontFamily: {
@@ -116,6 +167,25 @@ const config: Config = {
         'geist-mono': ['var(--font-geist-mono)', 'monospace'],
         'google-sans': ['var(--font-inter)', 'sans-serif'],
         'google-mono': ['var(--font-jetbrains-mono)', 'monospace'],
+      },
+      // Radii
+      borderRadius: {
+        DEFAULT: '0.75rem', // rounded-12 baseline
+        12: '0.75rem',
+      },
+      // Shadows
+      boxShadow: {
+        soft: '0 1px 2px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.08)',
+        glass:
+          'inset 0 1px 1.5px rgba(255,255,255,0.25), inset 0 0 0 1px rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.15)',
+        deep: '0 6px 20px rgba(0,0,0,0.25), 0 12px 48px rgba(0,0,0,0.15)',
+      },
+      // Transitions
+      transitionTimingFunction: {
+        material: 'cubic-bezier(.4,0,.2,1)',
+      },
+      transitionDuration: {
+        material: '200ms',
       },
       // Animation utilities
       animation: {

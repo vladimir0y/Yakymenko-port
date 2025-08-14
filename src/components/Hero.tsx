@@ -28,14 +28,14 @@ const Hero = () => {
         tl.fromTo(
           textElements,
           {
-            y: 60,
+            y: 20, // Spec: fade-up 20px
             opacity: 0,
           },
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
-            stagger: 0.2,
+            duration: 0.6,
+            stagger: 0.2, // Spec: 200ms stagger
             ease: 'power3.out',
           }
         );
@@ -52,10 +52,10 @@ const Hero = () => {
           {
             y: 0,
             opacity: 1,
-            duration: 0.6,
+            duration: 0.5,
             ease: 'power2.out',
           },
-          '-=0.3'
+          '-=0.2'
         );
 
         // Add continuous bounce animation to scroll indicator
@@ -150,18 +150,26 @@ const Hero = () => {
       {/* Content Container */}
       <div className={designTokens.layout.getContainer('xl')}>
         <div ref={textRef} className="text-center space-y-8 max-w-4xl mx-auto">
-          {/* Main Heading */}
+          {/* Main Heading with gradient-text accent underline */}
           <h1
             className={designTokens.cn(
               designTokens.typography.getHeading(1),
               'text-gradient'
             )}
           >
-            Volodymyr Yakymenko — E‑Learning, AI Integrations & Innovative
-            Learning Products
+            Volodymyr Yakymenko —
+            <span className="relative inline-block ml-2">
+              <span className="relative z-10">
+                E‑Learning, AI Integrations & Innovative Learning Products
+              </span>
+              <span
+                aria-hidden
+                className="absolute left-0 bottom-1 h-3 w-full rounded-md bg-gradient-to-r from-primary/40 via-secondary/40 to-accent/40 blur-[2px]"
+              />
+            </span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle (brief descriptor) */}
           <p
             className={designTokens.cn(
               designTokens.typography.getBodyText('lg'),
@@ -212,7 +220,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator (subtle scroll cue) */}
       <div
         ref={scrollIndicatorRef}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"

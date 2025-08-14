@@ -1,10 +1,10 @@
 import { DefaultSeoProps } from 'next-seo';
 
 const config: DefaultSeoProps = {
-  titleTemplate: '%s | Portfolio',
-  defaultTitle: 'Portfolio | Full Stack Developer',
+  titleTemplate: '%s | Volodymyr Yakymenko',
+  defaultTitle: 'Volodymyr Yakymenko | E‑Learning & AI Product Developer',
   description:
-    'Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript. Explore my projects and get in touch.',
+    'E‑Learning specialist building AI‑powered learning products. Next.js, React, TypeScript. Explore projects and get in touch.',
   canonical: 'https://your-domain.com',
 
   // Open Graph
@@ -12,23 +12,23 @@ const config: DefaultSeoProps = {
     type: 'website',
     locale: 'en_US',
     url: 'https://your-domain.com',
-    siteName: 'Portfolio',
-    title: 'Portfolio | Full Stack Developer',
+    siteName: 'Volodymyr Yakymenko Portfolio',
+    title: 'Volodymyr Yakymenko | E‑Learning & AI Product Developer',
     description:
-      'Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript. Explore my projects and get in touch.',
+      'E‑Learning specialist building AI‑powered learning products. Next.js, React, TypeScript. Explore projects and get in touch.',
     images: [
       {
-        url: 'https://your-domain.com/og-image.jpg',
+        url: 'https://your-domain.com/og/default-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Portfolio - Full Stack Developer',
+        alt: 'Volodymyr Yakymenko — E‑Learning & AI Product Developer',
         type: 'image/jpeg',
       },
       {
-        url: 'https://your-domain.com/og-image-square.jpg',
+        url: 'https://your-domain.com/og/default-og-square.jpg',
         width: 400,
         height: 400,
-        alt: 'Portfolio - Full Stack Developer',
+        alt: 'Volodymyr Yakymenko — E‑Learning & AI Product Developer',
         type: 'image/jpeg',
       },
     ],
@@ -39,6 +39,7 @@ const config: DefaultSeoProps = {
     handle: '@yourtwitterhandle',
     site: '@yourtwitterhandle',
     cardType: 'summary_large_image',
+    images: ['https://your-domain.com/og/default-og.jpg'],
   },
 
   // Additional metadata

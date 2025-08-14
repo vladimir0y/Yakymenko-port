@@ -3,11 +3,13 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
   const sunRef = useRef<SVGSVGElement>(null);
   const moonRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -21,6 +23,21 @@ export function ThemeToggle() {
     if (!mounted || !sunRef.current || !moonRef.current) return;
 
     const isDark = theme === 'dark';
+
+    if (prefersReducedMotion) {
+      // Set states without animation
+      if (isDark) {
+        gsap.set(sunRef.current, { rotate: 180, scale: 0, opacity: 0 });
+        gsap.set(moonRef.current, { rotate: 0, scale: 1, opacity: 1 });
+        gsap.set(containerRef.current, { backgroundColor: '#1e293b' });
+      } else {
+        gsap.set(moonRef.current, { rotate: -180, scale: 0, opacity: 0 });
+        gsap.set(sunRef.current, { rotate: 0, scale: 1, opacity: 1 });
+        gsap.set(containerRef.current, { backgroundColor: '#f1f5f9' });
+      }
+      return;
+    }
+
     const tl = gsap.timeline();
 
     if (isDark) {
@@ -82,19 +99,21 @@ export function ThemeToggle() {
           '-=0.3'
         );
     }
-  }, [theme, mounted]);
+  }, [theme, mounted, prefersReducedMotion]);
 
   const handleToggle = () => {
     if (!mounted) return;
 
     // Add a subtle press animation
-    gsap.to(buttonRef.current, {
-      scale: 0.95,
-      duration: 0.1,
-      yoyo: true,
-      repeat: 1,
-      ease: 'power2.inOut',
-    });
+    if (!prefersReducedMotion) {
+      gsap.to(buttonRef.current, {
+        scale: 0.95,
+        duration: 0.1,
+        yoyo: true,
+        repeat: 1,
+        ease: 'power2.inOut',
+      });
+    }
 
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
@@ -110,6 +129,8 @@ export function ThemeToggle() {
       onClick={handleToggle}
       className="relative group focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-full transition-all duration-200"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      aria-pressed={theme === 'dark'}
+      role="switch"
       type="button"
     >
       <div

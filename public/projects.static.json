@@ -1,39 +1,54 @@
 {
   "folders": [
     {
-      "id": "static-project-1",
-      "name": "Portfolio Website",
-      "coverImageId": "placeholder-1",
+      "id": "gbl-project",
+      "name": "GBL",
+      "coverImageId": "gbl-cover",
+      "live": "/api/projects/GBL/view/story.html",
       "projectData": {
-        "title": "Modern Portfolio Website",
-        "description": "A responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features dark mode, smooth animations, and optimized performance.",
-        "tags": ["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP"],
+        "title": "Game-Based Learning Project",
+        "description": "An interactive e-learning module created with Articulate Storyline, featuring gamification elements and multimedia content for enhanced learning experience.",
+        "tags": ["E-Learning", "Articulate Storyline", "SCORM", "Interactive Media", "Education"],
         "date": "2024-01-15"
       }
     },
     {
-      "id": "static-project-2",
-      "name": "E-Commerce Dashboard",
-      "coverImageId": "placeholder-2",
+      "id": "time-management-project",
+      "name": "Time Management",
+      "coverImageId": "time-management-cover",
+      "live": "/api/projects/Time_Management/view/story.html",
       "projectData": {
-        "title": "Analytics Dashboard",
-        "description": "A comprehensive dashboard for e-commerce analytics with real-time data visualization, sales tracking, and customer insights.",
-        "tags": ["React", "Chart.js", "Node.js", "MongoDB", "REST API"],
+        "title": "Time Management Training",
+        "description": "Interactive training module focused on time management skills, productivity techniques, and work-life balance strategies.",
+        "tags": ["E-Learning", "Articulate Storyline", "Training", "Productivity", "SCORM"],
         "date": "2024-02-20"
       }
     },
     {
-      "id": "static-project-3",
-      "name": "Mobile App",
-      "coverImageId": "placeholder-3",
+      "id": "time-management-main-project",
+      "name": "Time Management Main",
+      "coverImageId": "time-management-main-cover",
+      "live": "/api/projects/Time_Management_Main/view/story.html",
       "projectData": {
-        "title": "Social Media Mobile App",
-        "description": "A cross-platform mobile application for social networking with real-time messaging, photo sharing, and social features.",
-        "tags": ["React Native", "Firebase", "Redux", "Socket.io", "Expo"],
+        "title": "Advanced Time Management Course",
+        "description": "Comprehensive time management course with advanced techniques, case studies, and practical exercises for professional development.",
+        "tags": ["E-Learning", "Articulate Storyline", "Professional Development", "Advanced Training", "SCORM"],
+        "date": "2024-03-01"
+      }
+    },
+    {
+      "id": "rock-climbing-project",
+      "name": "Rock Climbing",
+      "coverImageId": "rock-climbing-cover",
+      "live": "/api/projects/rock-climbing-raw-v2ojS82U/view/content/index.html",
+      "projectData": {
+        "title": "Rock Climbing Interactive Experience",
+        "description": "An immersive interactive presentation about rock climbing techniques, safety procedures, and adventure experiences with multimedia content.",
+        "tags": ["Interactive Media", "Adventure Sports", "HTML5", "Multimedia", "Education"],
         "date": "2024-03-10"
       }
     }
   ],
-  "total": 3,
-  "lastModified": "2024-01-01T00:00:00.000Z"
+  "total": 4,
+  "lastModified": "2024-03-10T00:00:00.000Z"
 }

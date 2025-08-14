@@ -17,7 +17,7 @@ const glassy =
   'backdrop-blur supports-[backdrop-filter]:bg-white/10 supports-[backdrop-filter]:dark:bg-slate-900/40 supports-[backdrop-filter]:border-white/20';
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, glass = false, hover = true, children, ...props }, ref) => {
+  ({ className, glass = true, hover = true, children, ...props }, ref) => {
     return (
       <div
         ref={ref}

@@ -26,7 +26,7 @@ function IconLinkedIn(props: React.SVGProps<SVGSVGElement>) {
 export function AppFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-12 border-t border-border/60 bg-white/40 dark:bg-slate-900/30 backdrop-blur supports-[backdrop-filter]:bg-white/10 supports-[backdrop-filter]:dark:bg-slate-900/40">
+<footer className="mt-12 border-t border-white/10 bg-white/40 dark:bg-black/30 backdrop-blur supports-[backdrop-filter]:bg-white/10 supports-[backdrop-filter]:dark:bg-black/40">
       <div className="mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-3 text-xs text-slate-600 dark:text-slate-300">
           <p className="leading-none">

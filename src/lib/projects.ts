@@ -59,7 +59,7 @@ const staticProjectsData: Project[] = [
     date: '2023-09-10T00:00:00.000Z',
     technologies: ['TypeScript', 'React', 'Next.js', 'PostgreSQL'],
     github: 'https://github.com/vladimir0y/Website-Portfolio',
-    live: 'https://vladimir0y.github.io/Website-Portfolio/projects/time-management/story.html',
+    live: 'https://vladimir0y.github.io/Yakymenko-port/Time_Management/story.html',
     projectData: {
       title: 'Time Management System',
       description:
@@ -68,7 +68,7 @@ const staticProjectsData: Project[] = [
       date: '2023-09-10',
       technologies: ['TypeScript', 'React', 'Next.js', 'PostgreSQL'],
       github: 'https://github.com/vladimir0y/Website-Portfolio',
-      live: 'https://vladimir0y.github.io/Website-Portfolio/projects/time-management/story.html',
+      live: 'https://vladimir0y.github.io/Yakymenko-port/Time_Management/story.html',
     },
   },
   {
@@ -82,7 +82,7 @@ const staticProjectsData: Project[] = [
     date: '2023-10-05T00:00:00.000Z',
     technologies: ['React', 'D3.js', 'Chart.js', 'Node.js', 'Express'],
     github: 'https://github.com/vladimir0y/Website-Portfolio',
-    live: 'https://vladimir0y.github.io/Website-Portfolio/projects/time-management-main/story.html',
+    live: 'https://vladimir0y.github.io/Yakymenko-port/Time_Management_Main/story.html',
     projectData: {
       title: 'Time Management Main Dashboard',
       description:
@@ -91,7 +91,7 @@ const staticProjectsData: Project[] = [
       date: '2023-10-05',
       technologies: ['React', 'D3.js', 'Chart.js', 'Node.js', 'Express'],
       github: 'https://github.com/vladimir0y/Website-Portfolio',
-      live: 'https://vladimir0y.github.io/Website-Portfolio/projects/time-management-main/story.html',
+      live: 'https://vladimir0y.github.io/Yakymenko-port/Time_Management_Main/story.html',
     },
   },
 ];

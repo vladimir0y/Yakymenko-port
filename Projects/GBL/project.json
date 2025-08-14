@@ -1,0 +1,11 @@
+{
+  "title": "GBL - Game Based Learning",
+  "description": "An interactive game-based learning platform designed to enhance educational experiences through gamification principles and engaging user interfaces.",
+  "tags": ["Education", "Gaming", "Interactive", "UI/UX"],
+  "date": "2024-01-15",
+  "technologies": ["JavaScript", "HTML", "CSS", "Game Development"],
+  "github": "https://github.com/vladimir0y/GBL",
+  "live": "https://gbl-demo.vercel.app",
+  "category": "Educational Technology",
+  "status": "Completed"
+}

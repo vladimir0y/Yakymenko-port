@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Light Mode */
+:root {
+  /* Primary Color Palette - Professional Blue */
+  --color-primary-50: 239 246 255;
+  --color-primary-100: 219 234 254;
+  --color-primary-200: 191 219 254;
+  --color-primary-300: 147 197 253;
+  --color-primary-400: 96 165 250;
+  --color-primary-500: 59 130 246;
+  --color-primary-600: 37 99 235;
+  --color-primary-700: 29 78 216;
+  --color-primary-800: 30 64 175;
+  --color-primary-900: 30 58 138;
+  --color-primary-950: 23 37 84;
+
+  /* Secondary Color Palette - Elegant Purple */
+  --color-secondary-50: 250 245 255;
+  --color-secondary-100: 243 232 255;
+  --color-secondary-200: 233 213 255;
+  --color-secondary-300: 216 180 254;
+  --color-secondary-400: 196 181 253;
+  --color-secondary-500: 168 85 247;
+  --color-secondary-600: 147 51 234;
+  --color-secondary-700: 126 34 206;
+  --color-secondary-800: 107 33 168;
+  --color-secondary-900: 88 28 135;
+  --color-secondary-950: 59 7 100;
+
+  /* Accent Color Palette - Vibrant Teal */
+  --color-accent-50: 240 253 250;
+  --color-accent-100: 204 251 241;
+  --color-accent-200: 153 246 228;
+  --color-accent-300: 94 234 212;
+  --color-accent-400: 45 212 191;
+  --color-accent-500: 20 184 166;
+  --color-accent-600: 13 148 136;
+  --color-accent-700: 15 118 110;
+  --color-accent-800: 17 94 89;
+  --color-accent-900: 19 78 74;
+  --color-accent-950: 4 47 46;
+
+  /* Base Colors - Light Mode */
+  --color-background: 255 255 255;
+  --color-foreground: 15 23 42;
+  --color-muted: 248 250 252;
+  --color-muted-foreground: 100 116 139;
+  --color-border: 226 232 240;
+  --color-input: 248 250 252;
+  --color-ring: 59 130 246;
+
+  /* Font Variables */
+  --font-sans:
+    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --font-mono:
+    'JetBrains Mono', 'Fira Code', 'Monaco', 'Cascadia Code', 'Ubuntu Mono',
+    monospace;
+  --font-display:
+    'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+}
+
+/* CSS Variables for Dark Mode */
+.dark {
+  /* Primary Color Palette - Adjusted for dark mode */
+  --color-primary-50: 23 37 84;
+  --color-primary-100: 30 58 138;
+  --color-primary-200: 30 64 175;
+  --color-primary-300: 29 78 216;
+  --color-primary-400: 37 99 235;
+  --color-primary-500: 59 130 246;
+  --color-primary-600: 96 165 250;
+  --color-primary-700: 147 197 253;
+  --color-primary-800: 191 219 254;
+  --color-primary-900: 219 234 254;
+  --color-primary-950: 239 246 255;
+
+  /* Secondary Color Palette - Adjusted for dark mode */
+  --color-secondary-50: 59 7 100;
+  --color-secondary-100: 88 28 135;
+  --color-secondary-200: 107 33 168;
+  --color-secondary-300: 126 34 206;
+  --color-secondary-400: 147 51 234;
+  --color-secondary-500: 168 85 247;
+  --color-secondary-600: 196 181 253;
+  --color-secondary-700: 216 180 254;
+  --color-secondary-800: 233 213 255;
+  --color-secondary-900: 243 232 255;
+  --color-secondary-950: 250 245 255;
+
+  /* Accent Color Palette - Adjusted for dark mode */
+  --color-accent-50: 4 47 46;
+  --color-accent-100: 19 78 74;
+  --color-accent-200: 17 94 89;
+  --color-accent-300: 15 118 110;
+  --color-accent-400: 13 148 136;
+  --color-accent-500: 20 184 166;
+  --color-accent-600: 45 212 191;
+  --color-accent-700: 94 234 212;
+  --color-accent-800: 153 246 228;
+  --color-accent-900: 204 251 241;
+  --color-accent-950: 240 253 250;
+
+  /* Base Colors - Dark Mode */
+  --color-background: 2 6 23;
+  --color-foreground: 248 250 252;
+  --color-muted: 15 23 42;
+  --color-muted-foreground: 148 163 184;
+  --color-border: 51 65 85;
+  --color-input: 15 23 42;
+  --color-ring: 147 197 253;
+}
+
+/* Base Styles and Resets */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-variant-ligatures: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Typography baseline */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-fluid-5xl leading-tight;
+  }
+
+  h2 {
+    @apply text-fluid-4xl leading-tight;
+  }
+
+  h3 {
+    @apply text-fluid-3xl leading-snug;
+  }
+
+  h4 {
+    @apply text-fluid-2xl leading-snug;
+  }
+
+  h5 {
+    @apply text-fluid-xl leading-normal;
+  }
+
+  h6 {
+    @apply text-fluid-lg leading-normal;
+  }
+
+  p {
+    @apply text-fluid-base leading-relaxed;
+  }
+
+  /* Links */
+  a {
+    @apply transition-colors duration-200;
+
+    &:hover {
+      @apply text-primary-600 dark:text-primary-400;
+    }
+  }
+
+  /* Form elements */
+  input,
+  textarea,
+  select {
+    @apply bg-input border border-border rounded-md px-3 py-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
+    @apply transition-all duration-200;
+  }
+
+  button {
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Code elements */
+  code {
+    @apply font-mono text-sm bg-muted px-1.5 py-0.5 rounded;
+  }
+
+  pre {
+    @apply font-mono text-sm bg-muted p-4 rounded-lg overflow-x-auto;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-primary-500/20 text-foreground;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  /* Enhanced Focus visible styles for keyboard navigation */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-background;
+    transition: box-shadow 0.2s ease-in-out;
+  }
+
+  /* Focus styles for interactive elements */
+  button:focus-visible,
+  a:focus-visible,
+  [role='button']:focus-visible {
+    @apply ring-2 ring-primary-500 ring-offset-2 ring-offset-background;
+  }
+
+  /* Enhanced focus for form elements */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply ring-2 ring-primary-500 border-primary-500;
+  }
+
+  /* Skip link for accessibility */
+  .skip-link {
+    @apply absolute -top-40 left-6 bg-primary-600 text-white px-4 py-2 rounded-md;
+    @apply transition-all duration-200 z-[100];
+  }
+
+  .skip-link:focus {
+    @apply top-6;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--color-primary-600)),
+      rgb(var(--color-secondary-600))
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glass-effect {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .container-fluid {
+    @apply w-full max-w-7xl mx-auto px-fluid-sm sm:px-fluid-md lg:px-fluid-lg;
+  }
+
+  .section-padding {
+    @apply py-fluid-xl lg:py-fluid-2xl;
+  }
+
+  /* Responsive debugging utilities - only show in development */
+  .debug-responsive {
+    @apply fixed top-2 left-2 z-[9999] bg-red-500 text-white px-2 py-1 text-xs font-mono rounded opacity-80 pointer-events-none;
+  }
+
+  .debug-responsive::after {
+    content: 'XS';
+    @apply sm:content-['SM'] md:content-['MD'] lg:content-['LG'] xl:content-['XL'] 2xl:content-['2XL'];
+  }
+
+  /* Enhanced focus indicators for better accessibility */
+  .focus-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Utility for scroll-triggered animations */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+  }
+
+  .scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered animation delays */
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+  .stagger-3 {
+    animation-delay: 0.3s;
+  }
+  .stagger-4 {
+    animation-delay: 0.4s;
+  }
+  .stagger-5 {
+    animation-delay: 0.5s;
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-fade-in {
+    opacity: 0;
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slide-up 0.5s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    transform: translateX(-20px);
+    opacity: 0;
+    animation: slide-in-left 0.5s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    transform: translateX(20px);
+    opacity: 0;
+    animation: slide-in-right 0.5s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-left {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-right {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}

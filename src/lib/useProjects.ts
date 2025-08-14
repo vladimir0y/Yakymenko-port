@@ -1,16 +1,36 @@
 import useSWR from 'swr';
 import { ProjectsResponse, ProjectsError, Project } from '@/types';
 
-// Fetcher function for SWR
+// Fetcher function for SWR with fallback handling
 const fetcher = async (url: string): Promise<ProjectsResponse> => {
-  const response = await fetch(url);
+  try {
+    const response = await fetch(url);
 
-  if (!response.ok) {
-    const error: ProjectsError = await response.json();
-    throw new Error(error.message || 'Failed to fetch projects');
+    if (!response.ok) {
+      // Try to get error details
+      let errorMessage = 'Failed to fetch projects';
+      try {
+        const errorData: ProjectsError = await response.json();
+        errorMessage = errorData.message || errorMessage;
+      } catch {
+        // If we can't parse error response, use status text
+        errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+      }
+
+      // Log warning and throw error
+      console.warn(`Drive API failed: ${errorMessage}`);
+      throw new Error(errorMessage);
+    }
+
+    return response.json();
+  } catch (error) {
+    // Log the error for debugging
+    console.warn(
+      'Google Drive API unavailable, check your configuration:',
+      error
+    );
+    throw error;
   }
-
-  return response.json();
 };
 
 // Custom hook for fetching projects

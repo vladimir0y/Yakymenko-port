@@ -32,11 +32,16 @@ interface ErrorResponse {
 
 // Helper function to create JWT auth client
 function createAuthClient(): JWT {
-  const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
-  const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n');
+  const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+  const privateKey = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY?.replace(
+    /\\n/g,
+    '\n'
+  );
 
   if (!clientEmail || !privateKey) {
-    throw new Error('Missing required Google service account credentials');
+    throw new Error(
+      'Missing required Google service account credentials: GOOGLE_SERVICE_ACCOUNT_EMAIL and GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY'
+    );
   }
 
   return new JWT({
@@ -96,9 +101,11 @@ export default async function handler(
 
   try {
     // Validate environment variables
-    const folderId = process.env.DRIVE_FOLDER_ID;
+    const folderId = process.env.GOOGLE_DRIVE_FOLDER_ID;
     if (!folderId) {
-      throw new Error('DRIVE_FOLDER_ID environment variable is required');
+      throw new Error(
+        'GOOGLE_DRIVE_FOLDER_ID environment variable is required'
+      );
     }
 
     // Create authenticated Google Drive client

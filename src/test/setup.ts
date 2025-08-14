@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import { vi } from 'vitest';
 
 // Mock Next.js router
 const mockRouter = {
@@ -7,11 +8,13 @@ const mockRouter = {
   prefetch: vi.fn(),
   back: vi.fn(),
   forward: vi.fn(),
-  reload: vi.fn(),
-  route: '/',
-  pathname: '/',
+  refresh: vi.fn(),
   query: {},
+  pathname: '/',
   asPath: '/',
+  route: '/',
+  isReady: true,
+  isFallback: false,
   events: {
     on: vi.fn(),
     off: vi.fn(),
@@ -19,7 +22,7 @@ const mockRouter = {
   },
 };
 
-vi.mock('next/router', () => ({
+vi.mock('next/navigation', () => ({
   useRouter: () => mockRouter,
 }));
 
@@ -73,8 +76,14 @@ Object.defineProperty(window, 'matchMedia', {
 
 // Mock IntersectionObserver
 global.IntersectionObserver = class IntersectionObserver {
+  root = null;
+  rootMargin = '';
+  thresholds = [];
   constructor() {}
   disconnect() {}
   observe() {}
   unobserve() {}
-};
+  takeRecords() {
+    return [];
+  }
+} as any;

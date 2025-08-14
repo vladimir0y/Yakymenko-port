@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { Project } from '@/types';
@@ -98,10 +98,50 @@ export default function ProjectCard({
     };
   }, []);
 
-  // Compute cover image: use provided cover if available, otherwise generate placeholder
-  const getCoverImage = (projectId: string) => {
-    if (project.image) return project.image;
+  // Determine if the provided image is just a placeholder
+  const isPlaceholder = (src?: string) => !!src && src.startsWith('/api/placeholder');
 
+  // Derive the project folder name under public/Projects from known data
+  const folderName = useMemo(() => {
+    // 1) If project.image already points into /Projects/<folder>/..., extract it
+    if (project.image && !isPlaceholder(project.image)) {
+      const m = project.image.match(/^\/?Projects\/([^/]+)/);
+      if (m) return m[1];
+    }
+
+    // 2) Try to parse from the live URL after /Yakymenko-port/
+    if (project.live) {
+      try {
+        const url = new URL(project.live);
+        const parts = url.pathname.split('/').filter(Boolean);
+        // Find the segment after 'Yakymenko-port'
+        const yakIndex = parts.findIndex((p) => p === 'Yakymenko-port');
+        if (yakIndex !== -1 && parts[yakIndex + 1]) {
+          return parts[yakIndex + 1];
+        }
+        // If not found, try using the first path segment as a fallback
+        if (parts[0]) return parts[0];
+      } catch {
+        // ignore URL parse errors
+      }
+    }
+
+    // 3) Fall back to a sanitized project name or id
+    const fromName = project.name
+      ?.trim()
+      .replace(/\s+/g, '_')
+      .replace(/[^A-Za-z0-9_\-]/g, '');
+    if (fromName) return fromName;
+
+    return project.id;
+  }, [project]);
+
+  // Client-side cover selection: try common extensions until one loads
+  const coverBasePath = useMemo(() => `/Projects/${folderName}/cover`, [folderName]);
+  const candidateExts = useMemo(() => ['webp', 'png', 'jpg', 'jpeg'], []);
+
+  const placeholderSrc = useMemo(() => {
+    // Fallback placeholder (same as previous behavior)
     const colors = [
       'f43f5e,ec4899', // rose to pink
       '3b82f6,8b5cf6', // blue to violet
@@ -110,11 +150,50 @@ export default function ProjectCard({
       '8b5cf6,d946ef', // violet to fuchsia
       '06d6a0,0ea5e9', // teal to sky
     ];
-    const colorIndex =
-      projectId.charCodeAt(projectId.length - 1) % colors.length;
+    const id = project.id || 'x';
+    const colorIndex = id.charCodeAt(id.length - 1) % colors.length;
     const [color1] = colors[colorIndex].split(',');
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(
+      project.projectData?.title || project.name
+    )}&size=400&background=${color1}&color=ffffff&format=png&rounded=true&bold=true&font-size=0.4`;
+  }, [project]);
 
-    return `https://ui-avatars.com/api/?name=${encodeURIComponent(project.projectData?.title || project.name)}&size=400&background=${color1}&color=ffffff&format=png&rounded=true&bold=true&font-size=0.4`;
+  const initialSrc = useMemo(() => {
+    if (project.image && !isPlaceholder(project.image)) return project.image;
+    // Start with webp
+    return `${coverBasePath}.webp`;
+  }, [project.image, coverBasePath]);
+
+  const [imgSrc, setImgSrc] = useState<string>(initialSrc);
+  const [attemptIndex, setAttemptIndex] = useState<number>(0);
+  const [failed, setFailed] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Reset attempts when project changes
+    setAttemptIndex(0);
+    setFailed(false);
+    setImgSrc(initialSrc);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialSrc, folderName]);
+
+  const handleImageError = () => {
+    // If we were given a non-placeholder project.image and it failed, try cover chain next
+    if (attemptIndex === 0 && project.image && !isPlaceholder(project.image)) {
+      setAttemptIndex(1);
+      setImgSrc(`${coverBasePath}.${candidateExts[0]}`); // start webp after explicit image fails
+      return;
+    }
+
+    const nextAttempt = attemptIndex + 1;
+    // Figure out which ext we should try based on attemptIndex
+    // attemptIndex mapping (when starting from cover chain): 0->webp,1->png,2->jpg,3->jpeg
+    if (nextAttempt <= candidateExts.length - 1) {
+      setAttemptIndex(nextAttempt);
+      setImgSrc(`${coverBasePath}.${candidateExts[nextAttempt]}`);
+    } else {
+      // All attempts failed -> use placeholder
+      setFailed(true);
+    }
   };
 
   const handleClick = () => {
@@ -141,13 +220,14 @@ export default function ProjectCard({
       {/* Cover Image */}
       <div ref={imageRef} className="relative aspect-[16/10] overflow-hidden rounded-2xl m-3 border border-zinc-200/70 dark:border-zinc-800">
         <Image
-          src={getCoverImage(project.id)}
+          src={failed ? placeholderSrc : imgSrc}
           alt={project.projectData?.title || project.name}
           fill
           className="object-cover transition-transform duration-300"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+          onError={handleImageError}
           priority={false}
         />
 

@@ -98,8 +98,10 @@ export default function ProjectCard({
     };
   }, []);
 
-  // Generate a placeholder image URL based on project ID
-  const getPlaceholderImage = (projectId: string) => {
+  // Compute cover image: use provided cover if available, otherwise generate placeholder
+  const getCoverImage = (projectId: string) => {
+    if (project.image) return project.image;
+
     const colors = [
       'f43f5e,ec4899', // rose to pink
       '3b82f6,8b5cf6', // blue to violet
@@ -139,7 +141,7 @@ export default function ProjectCard({
       {/* Cover Image */}
       <div ref={imageRef} className="relative aspect-[16/10] overflow-hidden rounded-2xl m-3 border border-zinc-200/70 dark:border-zinc-800">
         <Image
-          src={getPlaceholderImage(project.id)}
+          src={getCoverImage(project.id)}
           alt={project.projectData?.title || project.name}
           fill
           className="object-cover transition-transform duration-300"

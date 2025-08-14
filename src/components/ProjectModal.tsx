@@ -176,15 +176,16 @@ export default function ProjectModal({
       return `${base}${p.startsWith('/') ? p : `/${p}`}`;
     };
 
-    const url = (() => {
-      if (project?.live) return project.live;
+    const url = (() =[0m> {
       const img = project?.image;
       const m = img?.match(/^\/?Projects\/([^/]+)\//);
       if (m?.[1]) {
         const folder = m[1];
+        const folderEnc = encodeURIComponent(folder);
         const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
-        return withBasePath(`/Projects/${folder}/${filename}`);
+        return withBasePath(`/Projects/${folderEnc}/${filename}`);
       }
+      if (project?.live) return project.live;
       return undefined;
     })();
 

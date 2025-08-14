@@ -37,15 +37,16 @@ export default async function ProjectPage({ params }: Params) {
     return `${base}${p.startsWith('/') ? p : `/${p}`}`;
   };
 
-  // Compute iframe URL: prefer project.live; otherwise derive from image folder
-  const iframeUrl = (() => {
-    if (project.live) return project.live;
+  // Compute iframe URL: prefer derived local path; fall back to project.live
+  const iframeUrl = (() =[0m> {
     const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
     if (m?.[1]) {
       const folder = m[1];
+      const folderEnc = encodeURIComponent(folder);
       const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
-      return withBasePath(`/Projects/${folder}/${filename}`);
+      return withBasePath(`/Projects/${folderEnc}/${filename}`);
     }
+    if (project.live) return project.live;
     return undefined;
   })();
 

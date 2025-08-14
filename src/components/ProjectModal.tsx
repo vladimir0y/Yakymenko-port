@@ -173,21 +173,20 @@ export default function ProjectModal({
       // If absolute URL, return as-is
       if (/^https?:\/\//i.test(p)) return p;
       const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
-      return `${base}${p.startsWith('/') ? p : `/${p}`}`;
+      return `${base}${p.startsWith('/') ? p : '/' + p}`;
     };
 
-    const url = (() => {
-      const img = project?.image;
-      const m = img?.match(/^\/?Projects\/([^/]+)\//);
-      if (m?.[1]) {
-        const folder = m[1];
-        const folderEnc = encodeURIComponent(folder);
-        const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
-        return withBasePath(`/Projects/${folderEnc}/${filename}`);
-      }
-      if (project?.live) return project.live;
-      return undefined;
-    })();
+    let url: string | undefined = undefined;
+    const img = project?.image;
+    const m = img?.match(/^\/?Projects\/([^/]+)\//);
+    if (m?.[1]) {
+      const folder = m[1];
+      const folderEnc = encodeURIComponent(folder);
+      const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
+      url = withBasePath(`/Projects/${folderEnc}/${filename}`);
+    } else if (project?.live) {
+      url = project.live;
+    }
 
     if (url) {
       return [

@@ -29,34 +29,32 @@ export default function ProjectCard({
 
     if (!card || !image || !content) return;
 
-    // Set initial state
-    gsap.set(card, { transformOrigin: 'center' });
+    gsap.set([card, image, content], { willChange: 'transform' });
 
     const handleMouseEnter = () => {
       const tl = gsap.timeline();
 
       tl.to(card, {
-        scale: 1.05,
-        rotationY: 2,
-        rotationX: -1,
-        duration: 0.4,
-        ease: 'power2.out',
+        scale: 1.02,
+        y: -2,
+        duration: 0.35,
+        ease: 'power3.out',
       })
         .to(
           image,
           {
-            scale: 1.1,
-            duration: 0.4,
-            ease: 'power2.out',
+            scale: 1.03,
+            duration: 0.35,
+            ease: 'power3.out',
           },
           0
         )
         .to(
           content,
           {
-            y: -8,
-            duration: 0.4,
-            ease: 'power2.out',
+            y: -4,
+            duration: 0.35,
+            ease: 'power3.out',
           },
           0
         );
@@ -67,17 +65,16 @@ export default function ProjectCard({
 
       tl.to(card, {
         scale: 1,
-        rotationY: 0,
-        rotationX: 0,
-        duration: 0.5,
-        ease: 'power2.out',
+        y: 0,
+        duration: 0.45,
+        ease: 'power3.out',
       })
         .to(
           image,
           {
             scale: 1,
-            duration: 0.5,
-            ease: 'power2.out',
+            duration: 0.45,
+            ease: 'power3.out',
           },
           0
         )
@@ -85,8 +82,8 @@ export default function ProjectCard({
           content,
           {
             y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
+            duration: 0.45,
+            ease: 'power3.out',
           },
           0
         );
@@ -127,12 +124,20 @@ export default function ProjectCard({
   return (
     <div
       ref={cardRef}
-      className={`group relative rounded-2xl overflow-hidden cursor-pointer will-change-transform border border-zinc-200/60 dark:border-white/10 bg-white/80 dark:bg-zinc-900/70 backdrop-blur-xl shadow-sm hover:shadow-2xl transition-transform duration-300 hover:-translate-y-1 ${className}`}
-      style={{ perspective: '1000px', ...style }}
+      className={`group relative rounded-3xl overflow-hidden cursor-pointer border border-zinc-200/70 dark:border-zinc-800 bg-gradient-to-b from-white to-white/95 dark:from-zinc-900 dark:to-zinc-900/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_-12px_rgba(0,0,0,0.35)] transition-all duration-300 ${className}`}
+      style={{ ...style }}
       onClick={handleClick}
+      tabIndex={0}
+      role="button"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick();
+        }
+      }}
     >
       {/* Cover Image */}
-      <div ref={imageRef} className="relative aspect-video overflow-hidden rounded-b-none">
+      <div ref={imageRef} className="relative aspect-[16/10] overflow-hidden rounded-2xl m-3 border border-zinc-200/70 dark:border-zinc-800">
         <Image
           src={getPlaceholderImage(project.id)}
           alt={project.projectData?.title || project.name}
@@ -144,35 +149,35 @@ export default function ProjectCard({
           priority={false}
         />
 
-        {/* Subtle top gradient */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent dark:from-white/5" />
+        {/* Subtle overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/5 dark:from-white/0 dark:via-white/0 dark:to-white/5" />
       </div>
 
       {/* Content */}
-      <div ref={contentRef} className="p-6 space-y-3">
-        <h3 className="text-[17px] font-semibold tracking-[-0.01em] text-zinc-900 dark:text-zinc-50 line-clamp-2">
+      <div ref={contentRef} className="px-6 pb-6 pt-2 space-y-3">
+        <h3 className="text-[16px] md:text-[17px] font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 line-clamp-2">
           {project.projectData?.title || project.name}
         </h3>
 
         {project.projectData?.description && (
-          <p className="text-zinc-600 dark:text-zinc-300 text-sm/6 leading-relaxed line-clamp-3">
+          <p className="text-zinc-600 dark:text-zinc-300 text-[13px] md:text-[14px] leading-relaxed line-clamp-3">
             {project.projectData.description}
           </p>
         )}
 
         {/* Tags */}
         {project.projectData?.tags && project.projectData.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {project.projectData.tags.slice(0, 4).map((tag) => (
               <span
                 key={tag}
-                className="px-2 py-1 bg-zinc-100 dark:bg-white/10 text-zinc-700 dark:text-zinc-200 text-[11px] rounded-full font-medium"
+                className="px-2 py-0.5 bg-zinc-100/90 dark:bg-white/10 text-zinc-700 dark:text-zinc-200 text-[11px] rounded-full font-medium"
               >
                 {tag}
               </span>
             ))}
             {project.projectData.tags.length > 4 && (
-              <span className="px-2 py-1 bg-zinc-100 dark:bg-white/10 text-zinc-600 dark:text-zinc-300 text-[11px] rounded-full font-medium">
+              <span className="px-2 py-0.5 bg-zinc-100/90 dark:bg-white/10 text-zinc-600 dark:text-zinc-300 text-[11px] rounded-full font-medium">
                 +{project.projectData.tags.length - 4}
               </span>
             )}
@@ -181,7 +186,7 @@ export default function ProjectCard({
 
         {/* Date */}
         {project.projectData?.date && (
-          <div className="text-[11px] text-zinc-500 dark:text-zinc-400 pt-3 border-t border-zinc-100/80 dark:border-white/10">
+          <div className="text-[11px] text-zinc-500 dark:text-zinc-400 pt-3 border-t border-zinc-100/80 dark:border-white/10/10">
             {new Date(project.projectData.date).toLocaleDateString('en-US', {
               month: 'short',
               year: 'numeric',
@@ -191,8 +196,8 @@ export default function ProjectCard({
       </div>
 
       {/* Hover indicator */}
-      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className="w-8 h-8 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm">
+      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="w-7 h-7 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm ring-1 ring-black/5 dark:ring-white/5">
           <svg
             className="w-4 h-4 text-zinc-600 dark:text-zinc-300"
             fill="none"

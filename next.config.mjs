@@ -1,8 +1,13 @@
-import bundleAnalyzer from '@next/bundle-analyzer';
-
-const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
-});
+// Make @next/bundle-analyzer optional to avoid crashing when it's not installed
+let withBundleAnalyzer = (config) => config;
+if (process.env.ANALYZE === 'true') {
+  try {
+    const { default: bundleAnalyzer } = await import('@next/bundle-analyzer');
+    withBundleAnalyzer = bundleAnalyzer({ enabled: true });
+  } catch (e) {
+    console.warn('[next.config] @next/bundle-analyzer not installed; continuing without analyzer');
+  }
+}
 
 // GitHub Pages support: enable basePath/assetPrefix when deploying to project pages
 const REPO_NAME = 'Yakymenko-port';

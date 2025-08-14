@@ -1,6 +1,7 @@
 import { ProjectsResponse } from '@/types';
 import { getStaticProjectsData } from '@/lib/projects';
 import Image from 'next/image';
+import ProjectPlayer from '@/components/ProjectPlayer';
 
 interface Params {
   params: { id: string };
@@ -27,86 +28,50 @@ export default async function ProjectPage({ params }: Params) {
     );
   }
 
+  // Compute iframe URL: prefer project.live; otherwise derive from image folder
+  const iframeUrl = (() => {
+    if (project.live) return project.live;
+    const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
+    if (m?.[1]) return `/Projects/${m[1]}/story.html`;
+    return undefined;
+  })();
+
   return (
-    <div className="mx-auto max-w-5xl px-6 py-10 space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">
+    <div className="mx-auto max-w-[1400px] px-4 md:px-6 py-6 md:py-10 space-y-4 md:space-y-6">
+      <div className="flex items-center justify-between gap-3">
+        <h1 className="text-xl md:text-2xl font-semibold tracking-tight">
           {project.projectData?.title || project.title || project.name}
         </h1>
-        {project.projectData?.description && (
-          <p className="text-zinc-600 dark:text-zinc-300">
-            {project.projectData.description}
-          </p>
+        {iframeUrl && (
+          <a
+            href={iframeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm px-3 py-1.5 rounded-md border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+          >Open in new tab</a>
         )}
       </div>
 
-      {project.image && (
+      {iframeUrl ? (
+        <ProjectPlayer
+          src={iframeUrl}
+          title={project.projectData?.title || project.name}
+          openUrl={iframeUrl}
+        />
+      ) : (
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800">
-          <Image
-            src={project.image}
-            alt={project.projectData?.title || project.name}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
+          {project.image && (
+            <Image
+              src={project.image}
+              alt={project.projectData?.title || project.name}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+          )}
         </div>
       )}
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-3">
-          <h2 className="text-lg font-semibold">Details</h2>
-          <ul className="text-sm text-zinc-700 dark:text-zinc-300 space-y-1">
-            {project.projectData?.date && (
-              <li>
-                <span className="font-medium">Date:</span>{' '}
-                {new Date(project.projectData.date).toLocaleDateString('en-US', {
-                  month: 'short',
-                  year: 'numeric',
-                })}
-              </li>
-            )}
-            {project.technologies?.length ? (
-              <li>
-                <span className="font-medium">Technologies:</span>{' '}
-                {project.technologies.join(', ')}
-              </li>
-            ) : null}
-            {project.projectData?.tags?.length ? (
-              <li>
-                <span className="font-medium">Tags:</span>{' '}
-                {project.projectData.tags.join(', ')}
-              </li>
-            ) : null}
-          </ul>
-        </div>
-
-        <div className="space-y-3">
-          <h2 className="text-lg font-semibold">Links</h2>
-          <div className="flex gap-3 flex-wrap text-sm">
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-md bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
-              >
-                View Project
-              </a>
-            )}
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-md border border-zinc-300 dark:border-zinc-700"
-              >
-                Source Code
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

@@ -16,13 +16,7 @@ import {
 } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import useSWR from 'swr';
-import {
-  Project,
-  ProjectFile,
-  ProjectFilesResponse,
-  MediaType,
-  MediaItem,
-} from '@/types';
+import { Project, MediaType } from '@/types';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -30,50 +24,41 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+// Local file API types (matching the new API structure)
+interface LocalProjectFile {
+  id: string;
+  name: string;
+  type: 'image' | 'video' | 'document' | 'code' | 'other';
+  path: string;
+  size: number;
+  lastModified: string;
+}
+
+interface LocalProjectFilesResponse {
+  projectId: string;
+  files: LocalProjectFile[];
+  total: number;
+}
+
 // Fetcher function for SWR
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-// Helper function to determine media type
-function getMediaType(file: ProjectFile): MediaType {
-  const { name, mimeType } = file;
+// Helper function to determine media type for local files
+function getMediaType(file: LocalProjectFile): MediaType {
+  const { name, type } = file;
   const lowerName = name.toLowerCase();
 
   // Check for HTML files
-  if (lowerName === 'index.html' || mimeType === 'text/html') {
+  if (lowerName.includes('index.html') || lowerName.endsWith('.html')) {
     return 'html';
   }
 
-  // Check for video files
-  const videoMimeTypes = [
-    'video/mp4',
-    'video/webm',
-    'video/ogg',
-    'video/avi',
-    'video/mov',
-    'video/wmv',
-    'video/flv',
-    'video/mkv',
-  ];
-  const videoExtensions = [
-    '.mp4',
-    '.webm',
-    '.ogg',
-    '.avi',
-    '.mov',
-    '.wmv',
-    '.flv',
-    '.mkv',
-  ];
-
-  if (
-    videoMimeTypes.includes(mimeType) ||
-    videoExtensions.some((ext) => lowerName.endsWith(ext))
-  ) {
+  // Use the type from the API first
+  if (type === 'video') {
     return 'video';
   }
 
-  // Check for image files
-  if (mimeType.startsWith('image/')) {
+  if (type === 'image') {
     return 'image';
   }
 
@@ -101,12 +86,19 @@ function getMediaType(file: ProjectFile): MediaType {
 //   return videoId ? `https://player.vimeo.com/video/${videoId}?autoplay=1` : url;
 // }
 
+// Updated MediaItem type for local files
+interface LocalMediaItem {
+  file: LocalProjectFile;
+  type: MediaType;
+  embedUrl?: string;
+}
+
 // Media player component
 function MediaPlayer({
   mediaItem,
   isFullscreen,
 }: {
-  mediaItem: MediaItem;
+  mediaItem: LocalMediaItem;
   isFullscreen: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -116,7 +108,7 @@ function MediaPlayer({
       return (
         <div ref={containerRef} className="w-full h-full">
           <iframe
-            src={`https://drive.google.com/file/d/${mediaItem.file.id}/preview`}
+            src={mediaItem.file.path}
             className="w-full h-full border-0 rounded-lg"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -132,7 +124,7 @@ function MediaPlayer({
           className="w-full h-full flex items-center justify-center"
         >
           <video
-            src={`https://drive.google.com/uc?id=${mediaItem.file.id}`}
+            src={mediaItem.file.path}
             className="max-w-full max-h-full rounded-lg"
             controls
             autoPlay={isFullscreen}
@@ -164,7 +156,7 @@ function MediaPlayer({
           className="w-full h-full flex items-center justify-center"
         >
           <Image
-            src={`https://drive.google.com/uc?id=${mediaItem.file.id}`}
+            src={mediaItem.file.path}
             alt={mediaItem.file.name}
             width={800}
             height={600}
@@ -184,12 +176,12 @@ function MediaPlayer({
             <p className="text-lg mb-2">Preview not available</p>
             <p className="text-sm">{mediaItem.file.name}</p>
             <a
-              href={mediaItem.file.webViewLink}
+              href={mediaItem.file.path}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Open in Google Drive
+              View File
             </a>
           </div>
         </div>
@@ -209,24 +201,24 @@ export default function ProjectModal({
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
 
   // Fetch project files
-  const { data: filesData, error } = useSWR<ProjectFilesResponse>(
-    project ? `/api/drive/project/${project.id}` : null,
+  const { data: filesData, error } = useSWR<LocalProjectFilesResponse>(
+    project ? `/api/projects/${project.id}` : null,
     fetcher
   );
 
   // Process media items
-  const mediaItems: MediaItem[] = React.useMemo(() => {
+  const mediaItems: LocalMediaItem[] = React.useMemo(() => {
     if (!filesData?.files) return [];
 
     return filesData.files
-      .map((file): MediaItem => {
+      .map((file): LocalMediaItem => {
         const type = getMediaType(file);
         let embedUrl: string | undefined;
 
         // For YouTube/Vimeo, we'd need to read the file content to get the URL
         // This is a simplified version - in practice, you might store URLs in project.json
         if (type === 'youtube' || type === 'vimeo') {
-          embedUrl = file.webViewLink; // Placeholder
+          embedUrl = file.path; // Use the file path for now
         }
 
         return { file, type, embedUrl };

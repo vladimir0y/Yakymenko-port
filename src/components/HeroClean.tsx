@@ -59,9 +59,14 @@ export default function Hero() {
               >
                 <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
                   <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                  <circle cx="8" cy="9" r="1.25" fill="currentColor" />
-                  <rect x="7.25" y="11" width="1.5" height="6" rx="0.25" fill="currentColor" />
-                  <path d="M11.25 17v-4.5h1.5v.85a2.4 2.4 0 0 1 4.25 1.55V17h-1.5v-2.6c0-.66-.54-1.2-1.2-1.2s-1.2.54-1.2 1.2V17h-1.85z" fill="currentColor" />
+                  <path
+                    d="M7.75 10.5h1.5v6h-1.5zM7.75 7.5h1.5v1.5h-1.5zM11.5 10.5h1.5v.85a2.4 2.4 0 0 1 4.25 1.55v3.1h-1.5v-2.6c0-.66-.54-1.2-1.2-1.2s-1.2.54-1.2 1.2v2.6H11.5v-6z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
                 LinkedIn
               </a>

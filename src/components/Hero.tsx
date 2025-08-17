@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
+import type React from 'react';
 
 // Accessible, lightweight Hero with enhanced accents and icons
 export default function Hero() {
@@ -121,7 +122,7 @@ export default function Hero() {
         <div className="pointer-events-auto flex flex-col items-center gap-2">
           <a
             href="#projects"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const el = document.querySelector('#projects');
               el?.scrollIntoView({ behavior: 'smooth' });

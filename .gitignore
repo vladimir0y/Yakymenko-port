@@ -4,3 +4,6 @@ node_modules/
 out/
 .DS_Store
 .env*
+
+# Windows reserved filename accidentally present
+NUL

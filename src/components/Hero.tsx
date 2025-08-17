@@ -23,12 +23,12 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-20 md:py-28">
+      <div className="container mx-auto px-6 pt-20 pb-36 md:pt-28 md:pb-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: Text */}
           <div>
             {/* Name and title (removed dash before the title) */}
-            <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            <h1 id="hero-heading" className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight">
               <span className="bg-gradient-to-br from-foreground via-primary-700 to-accent-700 bg-clip-text text-transparent">Volodymyr Yakymenko</span>
               <span className="block mt-3 bg-gradient-to-br from-primary-700 via-accent-700 to-foreground bg-clip-text text-transparent">Product & Learning Experience Innovator</span>
             </h1>

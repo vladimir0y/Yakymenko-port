@@ -120,7 +120,7 @@ export default function Hero() {
         cdiv className="pointer-events-auto flex flex-col items-center gap-2"e
           ca
             href="#projects"
-            onClick={(e) =e {
+            onClick={(e) => {
               e.preventDefault();
               const el = document.querySelector('#projects');
               el?.scrollIntoView({ behavior: 'smooth' });

@@ -1,4 +1,4 @@
-import { Hero, ProjectsList } from '@/components';
+import { Hero, ProjectsList, Skills } from '@/components';
 import { ThemeToggle } from '@/components/theme';
 import ResponsiveDebugger from '@/components/ResponsiveDebugger';
 
@@ -22,6 +22,9 @@ export default function Home() {
             <ProjectsList />
           </div>
         </section>
+
+        {/* Skills section inserted after Projects */}
+        <Skills />
 
         <section
           id="contact"

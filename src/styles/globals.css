@@ -281,8 +281,13 @@
   }
 }
 
-/* Custom utilities */
+  /* Custom utilities */
 @layer utilities {
+  /* Solid color fallbacks for all custom gradient utilities */
+  .bg-gradient-hero { background-color: rgb(var(--color-primary-700)); }
+  .bg-gradient-primary { background-color: rgb(var(--color-primary-600)); }
+  .bg-gradient-secondary { background-color: rgb(var(--color-secondary-600)); }
+  .bg-gradient-accent { background-color: rgb(var(--color-accent-600)); }
   .text-gradient {
     background: linear-gradient(
       135deg,

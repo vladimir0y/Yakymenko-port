@@ -333,6 +333,8 @@
 
   /* Deep purple multi-stop gradient utility */
   .bg-gradient-purple-deep {
+    /* Solid fallback color shown before gradient loads */
+    background-color: rgb(var(--color-secondary-900));
     background-image: linear-gradient(
       135deg,
       rgb(var(--color-secondary-950)) 0%,

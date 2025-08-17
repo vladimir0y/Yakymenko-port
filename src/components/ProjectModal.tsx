@@ -361,6 +361,9 @@ export default function ProjectModal({
                       {project.projectData.description}
                     </p>
                   )}
+                  <p className="mt-2 text-xs text-primary-600 dark:text-primary-400">
+                    These are partial training modules shown for demonstration, not complete courses.
+                  </p>
                 </div>
 
                 <div className="flex items-center space-x-2">

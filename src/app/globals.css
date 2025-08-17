@@ -20,6 +20,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Animated gradient utility */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 2.66s ease-in-out infinite; /* 3x faster than 8s */
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

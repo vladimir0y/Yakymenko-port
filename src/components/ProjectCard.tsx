@@ -277,16 +277,23 @@ export default function ProjectCard({
         )}
 
         {/* Tags */}
-        {project.projectData?.tags && project.projectData.tags.length > 0 && (
+{project.projectData?.tags && project.projectData.tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
-            {project.projectData.tags.slice(0, 4).map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-0.5 bg-zinc-100/90 dark:bg-white/10 text-zinc-700 dark:text-zinc-200 text-[11px] rounded-full font-medium"
-              >
-                {tag}
-              </span>
-            ))}
+            {project.projectData.tags.slice(0, 4).map((tag) => {
+              const isArticulate = /Articulate/i.test(tag);
+              return (
+                <span
+                  key={tag}
+                  className={
+                    isArticulate
+                      ? "px-3 py-1 rounded-full text-white text-[12px] md:text-[13px] font-semibold animated-gradient-chaos bg-gradient-purple-deep shadow-sm ring-1 ring-black/5 dark:ring-white/10"
+                      : "px-2 py-0.5 bg-zinc-100/90 dark:bg-white/10 text-zinc-700 dark:text-zinc-200 text-[11px] rounded-full font-medium"
+                  }
+                >
+                  {tag}
+                </span>
+              );
+            })}
             {project.projectData.tags.length > 4 && (
               <span className="px-2 py-0.5 bg-zinc-100/90 dark:bg-white/10 text-zinc-600 dark:text-zinc-300 text-[11px] rounded-full font-medium">
                 +{project.projectData.tags.length - 4}

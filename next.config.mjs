@@ -17,16 +17,25 @@ const assetPrefix = isGithubPages ? `/${REPO_NAME}/` : undefined;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  // Prefix routes and assets when building for GitHub Pages
-  ...(isGithubPages && { basePath, assetPrefix }),
+  // Only use static export settings for GitHub Pages builds
+  ...(isGithubPages
+    ? {
+        output: 'export',
+        trailingSlash: true,
+        basePath,
+        assetPrefix,
+        images: { unoptimized: true },
+      }
+    : {
+        // Standard dev/prod settings for Vercel/local
+        images: { unoptimized: false },
+      }),
   // Expose base path for client-side code (used for iframe src)
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
   images: {
-    unoptimized: true,
+    ...(isGithubPages ? {} : { unoptimized: false }),
     remotePatterns: [
       {
         protocol: 'https',

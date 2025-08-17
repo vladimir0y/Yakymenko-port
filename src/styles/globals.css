@@ -311,6 +311,69 @@
     animation: gradient-shift 8s ease-in-out infinite;
   }
 
+  /* Utility used by gradient elements */
+  .animated-gradient {
+    background-size: 250% 250%;
+    animation: gradient-shift 5.99s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  }
+
+  /* Chaotic variant: irregular motion with alternating direction */
+  @keyframes gradient-chaos {
+    0% { background-position: 0% 50%; }
+    23% { background-position: 80% 20%; }
+    47% { background-position: 15% 85%; }
+    61% { background-position: 100% 50%; }
+    73% { background-position: 30% 10%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animated-gradient-chaos {
+    background-size: 400% 400%;
+    animation: gradient-chaos 8.25s cubic-bezier(0.33, 0.0, 0.67, 1) infinite alternate;
+  }
+
+  /* Deep purple multi-stop gradient utility */
+  .bg-gradient-purple-deep {
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--color-secondary-950)) 0%,
+      rgb(var(--color-secondary-700)) 22%,
+      rgb(var(--color-primary-900)) 45%,
+      rgb(var(--color-secondary-400)) 72%,
+      rgb(var(--color-primary-600)) 100%
+    );
+  }
+
+  /* Diagonal variant for more dynamic motion */
+  @keyframes gradient-shift-diagonal {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  .animated-gradient-diagonal {
+    background-size: 300% 300%;
+    animation: gradient-shift-diagonal 6.75s ease-in-out infinite;
+  }
+
+  /* Subtle sheen sweep overlay for buttons/badges */
+  @keyframes sheen-slide {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .animated-sheen {
+    position: relative;
+    overflow: hidden;
+  }
+  .animated-sheen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+    background-size: 200% 100%;
+    animation: sheen-slide 4.05s ease-in-out infinite;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
   .glass-effect {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);

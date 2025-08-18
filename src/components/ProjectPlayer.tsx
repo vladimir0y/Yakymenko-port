@@ -65,10 +65,10 @@ export default function ProjectPlayer({
     return () => {
       cancelled = true;
     };
-  }, [src, fallbackSrc, JSON.stringify(fallbackSrcs || [])]);
+  }, [src, fallbackSrc, fallbackSrcs]);
 
   const toggleFullscreen = () => {
-    const el = (iframeRef.current as any) || (containerRef.current as any);
+    const el = iframeRef.current || containerRef.current;
     if (!document.fullscreenElement) {
       if (el && typeof el.requestFullscreen === 'function') {
         el

@@ -10,7 +10,7 @@ export interface ProjectData {
   description?: string;
   tags?: string[];
   date?: string;
-  [key: string]: any;
+  [key: string]: string | string[] | undefined;
 }
 
 export interface Project {

@@ -169,7 +169,7 @@ export default function ProjectModal({
   const mediaItems: LocalMediaItem[] = React.useMemo(() => {
     // Compute URL: prefer project.live; otherwise derive from image folder if available
     const withBasePath = (p: string) => {
-      if (!p) return p as any;
+      if (!p) return p;
       // If absolute URL, return as-is
       if (/^https?:\/\//i.test(p)) return p;
       const base = 'https://vladimir0y.github.io/Yakymenko-port';
@@ -250,8 +250,8 @@ export default function ProjectModal({
     ) as HTMLElement & { requestFullscreen?: () => Promise<void> };
 
     if (!document.fullscreenElement) {
-      if (mediaEl && typeof (mediaEl as any).requestFullscreen === 'function') {
-        (mediaEl as any).requestFullscreen().catch(() => {
+      if (mediaEl && 'requestFullscreen' in mediaEl && typeof mediaEl.requestFullscreen === 'function') {
+        mediaEl.requestFullscreen().catch(() => {
           modalRef.current?.requestFullscreen();
         });
       } else {

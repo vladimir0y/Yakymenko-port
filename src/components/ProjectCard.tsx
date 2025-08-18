@@ -25,7 +25,7 @@ export default function ProjectCard({
   // Build a direct HTML URL for this project (same logic as detail page)
   const directHtmlUrl = useMemo(() => {
     const withBasePath = (p: string) => {
-      if (!p) return p as any;
+      if (!p) return p;
       if (/^https?:\/\//i.test(p)) return p;
       const base = 'https://vladimir0y.github.io/Yakymenko-port';
       return `${base}${p.startsWith('/') ? p : '/' + p}`;

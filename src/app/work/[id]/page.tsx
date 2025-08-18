@@ -22,7 +22,7 @@ export default async function ProjectPage({ params }: Params) {
       <div className="mx-auto max-w-3xl px-6 py-16">
         <h1 className="text-2xl font-semibold">Project not found</h1>
         <p className="mt-2 text-zinc-600 dark:text-zinc-300">
-          We couldn't find a project with id "{params.id}".
+          We couldn&apos;t find a project with id &quot;{params.id}&quot;.
         </p>
       </div>
     );

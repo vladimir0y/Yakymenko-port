@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 pt-20 pb-36 md:pt-28 md:pb-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: Text */}
-          <div>
+          <div className="order-2 md:order-1">
             {/* Name and title (removed dash before the title) */}
             <h1 id="hero-heading" className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight">
               <span className="bg-gradient-to-br from-foreground via-primary-700 to-accent-700 bg-clip-text text-transparent">Volodymyr Yakymenko</span>
@@ -82,7 +82,7 @@ export default function Hero() {
           </div>
 
           {/* Right: Avatar (no extra styles) */}
-          <div className="flex flex-col items-center md:items-end gap-3">
+          <div className="flex flex-col items-center md:items-end gap-3 order-1 md:order-2">
             <div className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80">
               <Image
                 src="/avatar.png"

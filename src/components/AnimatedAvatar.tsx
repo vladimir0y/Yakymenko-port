@@ -10,7 +10,7 @@ interface AnimatedAvatarProps {
   alt: string;
 }
 
-export default function AnimatedAvatar({ className, width, height, alt }: AnimatedAvatarProps) {
+export default function AnimatedAvatar({ width, height, alt }: AnimatedAvatarProps) {
   // Just the 2 available avatars
   const avatars = [
     '/avatar/Avatar1.gif',

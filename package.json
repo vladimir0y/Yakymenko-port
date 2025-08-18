@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "next build",
     "build:profile": "next build --profile",
     "analyze": "cross-env ANALYZE=true npm run build",
     "start": "next start",

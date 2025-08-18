@@ -118,7 +118,7 @@ export default function Hero() {
         </div>
       </div>
       {/* Bottom-center arrow to Projects */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center">
+      <div className="pointer-events-none flex justify-center mt-10 sm:mt-12 md:absolute md:inset-x-0 md:bottom-6 md:mt-0">
         <div className="pointer-events-auto flex flex-col items-center gap-2">
           <a
             href="#projects"

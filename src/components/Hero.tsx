@@ -7,7 +7,7 @@ import type React from 'react';
 // Accessible, lightweight Hero with enhanced accents and icons
 export default function Hero() {
   return (
-    <section aria-labelledby="hero-heading" className="relative overflow-hidden">
+    <section aria-labelledby="hero-heading" className="relative overflow-hidden hero-v3">
       {/* Decorative background: soft radial and grid overlay */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -inset-24 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-600/15 via-accent-500/10 to-transparent blur-3xl" />
@@ -23,10 +23,10 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 pt-20 pb-36 md:pt-28 md:pb-28">
+      <div className="container mx-auto px-6 pt-20 pb-48 md:pt-28 md:pb-28">
         <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: Text */}
-          <div>
+          <div className="text-center md:text-left">
             {/* Name and title (removed dash before the title) */}
             <h1 id="hero-heading" className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight">
               <span className="bg-gradient-to-br from-foreground via-primary-700 to-accent-700 bg-clip-text text-transparent">Volodymyr Yakymenko</span>
@@ -118,7 +118,7 @@ export default function Hero() {
         </div>
       </div>
       {/* Bottom-center arrow to Projects */}
-      <div className="relative z-10 flex justify-center mt-24 sm:mt-28">
+      <div className="relative z-10 flex justify-center mt-32 sm:mt-36">
         <div className="flex flex-col items-center gap-2">
           <a
             href="#projects"

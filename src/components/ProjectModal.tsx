@@ -345,23 +345,23 @@ export default function ProjectModal({
             <Dialog.Panel
               ref={contentRef}
               className={`
-                relative w-full max-w-6xl mx-auto bg-white dark:bg-gray-900 
+                relative w-full max-w-[95vw] sm:max-w-6xl mx-auto bg-white dark:bg-gray-900 
                 rounded-xl shadow-2xl overflow-hidden
                 ${isFullscreen ? 'max-w-full h-full' : 'max-h-[90vh]'}
               `}
             >
               {/* Header */}
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between p-4 md:p-6 border-b border-gray-200 dark:border-gray-700 space-y-4 md:space-y-0">
-                <div className="flex-1 md:mr-4">
-                  <Dialog.Title className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between p-3 sm:p-4 md:p-6 border-b border-gray-200 dark:border-gray-700 space-y-4 md:space-y-0">
+                <div className="w-full md:flex-1 md:mr-4">
+                  <Dialog.Title className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                     {project.projectData?.title || project.name}
                   </Dialog.Title>
                   {project.projectData?.description && (
-                    <p className="mt-3 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-none">
+                    <p className="mt-3 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-none w-full">
                       {project.projectData.description}
                     </p>
                   )}
-                  <p className="mt-3 text-xs text-primary-600 dark:text-primary-400 leading-relaxed">
+                  <p className="mt-3 text-xs text-primary-600 dark:text-primary-400 leading-relaxed w-full">
                     These are partial training modules shown for demonstration, not complete courses.
                   </p>
                 </div>

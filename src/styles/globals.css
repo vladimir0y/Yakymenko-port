@@ -370,12 +370,21 @@
     background: linear-gradient(-45deg, #ffa63d, #ff3d77, #338aff, #3cf0c5);
     background-size: 600%;
     animation: anime 16s linear infinite;
-    filter: blur(30px);
-    opacity: 0.8;
+    filter: blur(20px); /* Reduced blur to prevent overflow */
+    opacity: 0.6;
     position: absolute;
-    inset: -2px; /* Slightly smaller than container to prevent overflow */
+    inset: 4px; /* Much more aggressive inset to prevent overflow */
     z-index: -1;
     border-radius: inherit; /* Match parent's border radius */
+  }
+  
+  /* Mobile-specific blur variant for even tighter bounds */
+  @media (max-width: 640px) {
+    .animated-gradient-anime-blur {
+      filter: blur(15px); /* Even smaller blur on mobile */
+      inset: 6px; /* Even tighter bounds on mobile */
+      opacity: 0.5;
+    }
   }
 
   /* Deep purple multi-stop gradient utility */

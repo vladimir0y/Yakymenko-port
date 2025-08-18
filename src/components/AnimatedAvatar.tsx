@@ -11,13 +11,13 @@ interface AnimatedAvatarProps {
 }
 
 export default function AnimatedAvatar({ width, height, alt }: AnimatedAvatarProps) {
-  // Just the 2 available avatars
+  // Only the 2 confirmed existing avatars
   const avatars = [
     '/avatar/Avatar1.gif',
     '/avatar/Avatar2.gif'
-  ];
+  ] as const;
 
-  // Start with the first avatar
+  // Start with the first avatar (index 0)
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 

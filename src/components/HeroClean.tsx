@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
+import AnimatedAvatar from './AnimatedAvatar';
 
 export default function Hero() {
   return (
@@ -80,14 +81,11 @@ export default function Hero() {
           </div>
 
           <div className="order-1 md:order-2 flex flex-col items-center md:items-end gap-3">
-            <div className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80">
-              <Image
-                src="/avatar/avatar1.gif"
+            <div className="relative w-52 h-52 sm:w-[17rem] sm:h-[17rem] md:w-[18.5rem] md:h-[18.5rem] lg:w-[22rem] lg:h-[22rem] xl:w-[26rem] xl:h-[26rem]">
+              <AnimatedAvatar
                 alt="AI-generated avatar of Volodymyr Yakymenko"
                 width={1024}
                 height={1024}
-                priority
-                className="rounded-full object-cover"
               />
             </div>
             <p className="mt-1 inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/40 px-3 py-1.5 text-xs sm:text-sm text-foreground/90">

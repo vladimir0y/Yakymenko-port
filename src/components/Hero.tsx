@@ -24,9 +24,9 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto px-6 pt-20 pb-36 md:pt-28 md:pb-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: Text */}
-          <div className="order-last md:order-none">
+          <div>
             {/* Name and title (removed dash before the title) */}
             <h1 id="hero-heading" className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight">
               <span className="bg-gradient-to-br from-foreground via-primary-700 to-accent-700 bg-clip-text text-transparent">Volodymyr Yakymenko</span>
@@ -82,7 +82,7 @@ export default function Hero() {
           </div>
 
           {/* Right: Avatar (no extra styles) */}
-          <div className="flex flex-col items-center md:items-end gap-3 order-first md:order-none">
+          <div className="flex flex-col items-center md:items-end gap-3">
             <div className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80">
               <Image
                 src="/avatar.png"
@@ -118,7 +118,7 @@ export default function Hero() {
         </div>
       </div>
       {/* Bottom-center arrow to Projects */}
-      <div className="pointer-events-none flex justify-center mt-16 sm:mt-20 md:absolute md:inset-x-0 md:bottom-6 md:mt-0">
+      <div className="flex justify-center mt-20 sm:mt-24">
         <div className="pointer-events-auto flex flex-col items-center gap-2">
           <a
             href="#projects"

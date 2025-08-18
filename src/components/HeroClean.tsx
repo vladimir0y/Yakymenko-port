@@ -80,7 +80,7 @@ export default function Hero() {
           </div>
 
           <div className="order-1 md:order-2 flex flex-col items-center md:items-end gap-3">
-            <div className="relative w-52 h-52 sm:w-[17rem] sm:h-[17rem] md:w-[18.5rem] md:h-[18.5rem] lg:w-[22rem] lg:h-[22rem] xl:w-[26rem] xl:h-[26rem]">
+            <div className="relative w-[15.6rem] h-[15.6rem] sm:w-[17rem] sm:h-[17rem] md:w-[18.5rem] md:h-[18.5rem] lg:w-[22rem] lg:h-[22rem] xl:w-[26rem] xl:h-[26rem]">
               <AnimatedAvatar
                 alt="AI-generated avatar of Volodymyr Yakymenko"
                 width={1024}

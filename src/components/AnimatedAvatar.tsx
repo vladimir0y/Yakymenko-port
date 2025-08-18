@@ -43,7 +43,7 @@ export default function AnimatedAvatar({ width, height, alt }: AnimatedAvatarPro
         height={height}
         priority
         unoptimized={true} // Important for animated GIFs
-        className="w-full h-full transition-opacity duration-500"
+        className="w-full h-full transition-all duration-700 ease-in-out"
         style={{
           objectFit: 'contain',
           objectPosition: 'center',

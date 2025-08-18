@@ -31,9 +31,10 @@ export default function Hero() {
             <div className="mt-5 flex items-center gap-3">
               <span className="h-1.5 w-12 rounded-full animated-gradient-anime" aria-hidden />
               <h2 className="text-xl sm:text-2xl font-semibold text-primary-600 dark:text-primary-400">
-                <span>Head of E-learning</span>
-                <span aria-hidden className="mx-3 text-primary-600/60">|</span>
-                <span>E-Learning Manager</span>
+                {/* Mobile: Two lines without divider, Desktop: One line with divider */}
+                <span className="block sm:inline">Head of E-learning</span>
+                <span aria-hidden className="hidden sm:inline mx-3 text-primary-600/60">|</span>
+                <span className="block sm:inline">E-Learning Manager</span>
               </h2>
             </div>
 
@@ -41,7 +42,7 @@ export default function Hero() {
               I design and ship high‑impact digital learning products that blend product strategy, instructional design, and modern web tech. I use AI to personalize content, automate workflows, and scale delivery without sacrificing accessibility or performance.
             </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-3">
+            <div className="mt-10 flex flex-row gap-3">
               <div className="relative overflow-hidden rounded-full">
                 <div className="animated-gradient-anime-blur absolute inset-0 rounded-full"></div>
                 <a
@@ -80,7 +81,7 @@ export default function Hero() {
           </div>
 
           <div className="order-1 md:order-2 flex flex-col items-center md:items-end gap-3">
-            <div className="relative w-[15.6rem] h-[15.6rem] sm:w-[17rem] sm:h-[17rem] md:w-[18.5rem] md:h-[18.5rem] lg:w-[22rem] lg:h-[22rem] xl:w-[26rem] xl:h-[26rem]">
+            <div className="relative w-[20.3rem] h-[20.3rem] sm:w-[17rem] sm:h-[17rem] md:w-[18.5rem] md:h-[18.5rem] lg:w-[22rem] lg:h-[22rem] xl:w-[26rem] xl:h-[26rem]">
               <AnimatedAvatar
                 alt="AI-generated avatar of Volodymyr Yakymenko"
                 width={1024}

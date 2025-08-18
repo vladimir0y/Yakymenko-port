@@ -381,9 +381,9 @@
   /* Mobile-specific blur variant for even tighter bounds */
   @media (max-width: 640px) {
     .animated-gradient-anime-blur {
-      filter: blur(15px); /* Even smaller blur on mobile */
-      inset: 6px; /* Even tighter bounds on mobile */
-      opacity: 0.5;
+      filter: blur(8px); /* Much smaller blur on mobile */
+      inset: 8px; /* Very tight bounds to match button exactly */
+      opacity: 0.4;
     }
   }
 

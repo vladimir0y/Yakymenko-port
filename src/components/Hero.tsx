@@ -118,8 +118,8 @@ export default function Hero() {
         </div>
       </div>
       {/* Bottom-center arrow to Projects */}
-      <div className="flex justify-center mt-20 sm:mt-24">
-        <div className="pointer-events-auto flex flex-col items-center gap-2">
+      <div className="relative z-10 flex justify-center mt-24 sm:mt-28">
+        <div className="flex flex-col items-center gap-2">
           <a
             href="#projects"
             onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {

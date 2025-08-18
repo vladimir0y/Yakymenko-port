@@ -46,7 +46,7 @@ export default function AnimatedAvatar({ width, height, alt }: AnimatedAvatarPro
     };
 
     preloadImages();
-  }, []);
+  }, [avatars]);
 
   // Start animation cycle once images are loaded
   useEffect(() => {

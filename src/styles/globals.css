@@ -373,8 +373,9 @@
     filter: blur(30px);
     opacity: 0.8;
     position: absolute;
-    inset: 0;
+    inset: -2px; /* Slightly smaller than container to prevent overflow */
     z-index: -1;
+    border-radius: inherit; /* Match parent's border radius */
   }
 
   /* Deep purple multi-stop gradient utility */

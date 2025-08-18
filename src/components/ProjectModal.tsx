@@ -351,17 +351,17 @@ export default function ProjectModal({
               `}
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-                <div>
-                  <Dialog.Title className="text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between p-4 md:p-6 border-b border-gray-200 dark:border-gray-700 space-y-4 md:space-y-0">
+                <div className="flex-1 md:mr-4">
+                  <Dialog.Title className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                     {project.projectData?.title || project.name}
                   </Dialog.Title>
                   {project.projectData?.description && (
-                    <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    <p className="mt-3 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-none">
                       {project.projectData.description}
                     </p>
                   )}
-                  <p className="mt-2 text-xs text-primary-600 dark:text-primary-400">
+                  <p className="mt-3 text-xs text-primary-600 dark:text-primary-400 leading-relaxed">
                     These are partial training modules shown for demonstration, not complete courses.
                   </p>
                 </div>

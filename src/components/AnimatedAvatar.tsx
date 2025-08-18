@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Image from 'next/image';
 
 interface AnimatedAvatarProps {
@@ -11,11 +11,11 @@ interface AnimatedAvatarProps {
 }
 
 export default function AnimatedAvatar({ width, height, alt }: AnimatedAvatarProps) {
-  // The 2 avatar files we have locally and will sync to GitHub
-  const avatars = [
+  // The 2 avatar files we have locally and synced to GitHub
+  const avatars = useMemo(() => [
     '/avatar/Avatar1.gif',
     '/avatar/Avatar2.gif'
-  ] as const;
+  ] as const, []);
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);

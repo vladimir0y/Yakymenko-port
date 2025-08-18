@@ -88,9 +88,9 @@ export default function Hero() {
                 height={1024}
               />
             </div>
-            <p className="mt-1 inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/40 px-3 py-1.5 text-xs sm:text-sm text-foreground/90">
+            <p className="mt-1 inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/40 px-3 py-1.5 text-xs sm:text-sm text-foreground/90 max-w-fit">
               <svg
-                className="h-4 w-4 sm:h-5 sm:w-5 text-primary-600 dark:text-primary-400"
+                className="h-4 w-4 sm:h-5 sm:w-5 text-primary-600 dark:text-primary-400 flex-shrink-0"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -99,7 +99,7 @@ export default function Hero() {
                 <circle cx="12" cy="12" r="9" strokeWidth="1.5" />
                 <path d="M12 8h.01M11 11h2v5h-2z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span className="animated-gradient-anime-text font-bold">
+              <span className="animated-gradient-anime-text font-bold whitespace-nowrap">
                 This website was created from scratch by me using AI.
               </span>
             </p>

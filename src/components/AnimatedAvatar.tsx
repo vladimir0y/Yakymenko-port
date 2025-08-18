@@ -71,7 +71,7 @@ export default function AnimatedAvatar({ width, height, alt }: AnimatedAvatarPro
           alt="Loading avatar..."
           width={width}
           height={height}
-          className="w-full h-full animate-pulse opacity-70"
+          className="w-full h-full"
           style={{
             objectFit: 'contain',
             objectPosition: 'center',

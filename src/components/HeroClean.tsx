@@ -24,12 +24,12 @@ export default function Hero() {
         <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="order-2 md:order-1">
             <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
-              <span className="animated-gradient-chaos bg-gradient-purple-deep bg-clip-text text-transparent">Volodymyr Yakymenko</span>
-              <span className="animated-gradient-chaos block mt-3 bg-gradient-purple-deep bg-clip-text text-transparent">Product & Learning Experience Innovator</span>
+              <span className="animated-gradient-anime-text font-black">Volodymyr Yakymenko</span>
+              <span className="animated-gradient-anime-text block mt-3 font-black">Product & Learning Experience Innovator</span>
             </h1>
 
             <div className="mt-5 flex items-center gap-3">
-              <span className="h-1.5 w-12 rounded-full animated-gradient-chaos bg-gradient-purple-deep" aria-hidden />
+              <span className="h-1.5 w-12 rounded-full animated-gradient-anime" aria-hidden />
               <h2 className="text-xl sm:text-2xl font-semibold text-primary-600 dark:text-primary-400">
                 <span>Head of E-learning</span>
                 <span aria-hidden className="mx-3 text-primary-600/60">|</span>
@@ -42,34 +42,40 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
-              <a
-                href="mailto:vladimiryakimenko99@gmail.com"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition"
-                aria-label="Contact me via email"
-              >
-                <EnvelopeIcon className="h-5 w-5" aria-hidden="true" />
-                Contact me
-              </a>
-              <a
-                href="https://www.linkedin.com/in/vladimir-yakimenko/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition"
-                aria-label="Open my LinkedIn profile in a new tab"
-              >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                  <path
-                    d="M7.75 10.5h1.5v6h-1.5zM7.75 7.5h1.5v1.5h-1.5zM11.5 10.5h1.5v.85a2.4 2.4 0 0 1 4.25 1.55v3.1h-1.5v-2.6c0-.66-.54-1.2-1.2-1.2s-1.2.54-1.2 1.2v2.6H11.5v-6z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                LinkedIn
-              </a>
+              <div className="relative overflow-hidden rounded-full">
+                <div className="animated-gradient-anime-blur absolute inset-0 rounded-full"></div>
+                <a
+                  href="mailto:vladimiryakimenko99@gmail.com"
+                  className="relative inline-flex items-center justify-center gap-2 rounded-full animated-gradient-anime px-6 py-3 text-white font-semibold hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition"
+                  aria-label="Contact me via email"
+                >
+                  <EnvelopeIcon className="h-5 w-5" aria-hidden="true" />
+                  Contact me
+                </a>
+              </div>
+              <div className="relative overflow-hidden rounded-full">
+                <div className="animated-gradient-anime-blur absolute inset-0 rounded-full"></div>
+                <a
+                  href="https://www.linkedin.com/in/vladimir-yakimenko/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative inline-flex items-center justify-center gap-2 rounded-full animated-gradient-anime px-6 py-3 text-white font-semibold hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition"
+                  aria-label="Open my LinkedIn profile in a new tab"
+                >
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                    <path
+                      d="M7.75 10.5h1.5v6h-1.5zM7.75 7.5h1.5v1.5h-1.5zM11.5 10.5h1.5v.85a2.4 2.4 0 0 1 4.25 1.55v3.1h-1.5v-2.6c0-.66-.54-1.2-1.2-1.2s-1.2.54-1.2 1.2v2.6H11.5v-6z"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </div>
 
@@ -95,7 +101,7 @@ export default function Hero() {
                 <circle cx="12" cy="12" r="9" strokeWidth="1.5" />
                 <path d="M12 8h.01M11 11h2v5h-2z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span className="animated-gradient-chaos bg-gradient-purple-deep bg-clip-text text-transparent font-medium">
+              <span className="animated-gradient-anime-text font-bold">
                 This website was created from scratch by me using AI.
               </span>
             </p>
@@ -105,21 +111,25 @@ export default function Hero() {
 
       <div className="relative z-10 flex justify-center mt-16 sm:mt-20 md:mt-24">
         <div className="flex flex-col items-center gap-2">
-          <a
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault();
-              const el = document.querySelector('#projects');
-              el?.scrollIntoView({ behavior: 'smooth' });
-            }}
-className="inline-flex h-14 w-14 items-center justify-center rounded-full animated-gradient-chaos bg-gradient-purple-deep text-white shadow-lg transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600"
-            aria-label="View my work"
-          >
-<svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
-<span className="text-xs md:text-sm font-semibold uppercase tracking-wide text-primary-600 dark:text-primary-400">View my work</span>
+          <div className="relative overflow-hidden rounded-full">
+            {/* Blurred background for glow effect */}
+            <div className="animated-gradient-anime-blur absolute inset-0 rounded-full"></div>
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.querySelector('#projects');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="relative inline-flex h-14 w-14 items-center justify-center rounded-full animated-gradient-anime text-white shadow-lg transition hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600"
+              aria-label="View my work"
+            >
+              <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
+          <span className="text-xs md:text-sm font-semibold uppercase tracking-wide text-primary-600 dark:text-primary-400">View my work</span>
         </div>
       </div>
     </section>

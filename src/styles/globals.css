@@ -336,6 +336,47 @@
     animation: gradient-chaos 8.25s cubic-bezier(0.33, 0.0, 0.67, 1) infinite alternate;
   }
 
+  /* New animated gradient with multi-color effect */
+  @keyframes anime {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .animated-gradient-anime {
+    background: linear-gradient(-45deg, #ffa63d, #ff3d77, #338aff, #3cf0c5);
+    background-size: 600%;
+    animation: anime 16s linear infinite;
+  }
+  
+  /* Text gradient variant */
+  .animated-gradient-anime-text {
+    background: linear-gradient(-45deg, #ffa63d, #ff3d77, #338aff, #3cf0c5);
+    background-size: 600%;
+    animation: anime 16s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ffa63d; /* Fallback */
+  }
+  
+  /* Blurred background variant */
+  .animated-gradient-anime-blur {
+    background: linear-gradient(-45deg, #ffa63d, #ff3d77, #338aff, #3cf0c5);
+    background-size: 600%;
+    animation: anime 16s linear infinite;
+    filter: blur(30px);
+    opacity: 0.8;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
   /* Deep purple multi-stop gradient utility */
   .bg-gradient-purple-deep {
     /* Solid fallback color shown before gradient loads */

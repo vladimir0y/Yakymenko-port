@@ -71,7 +71,7 @@ export default function ProjectsList({ fallbackData }: ProjectsListProps) {
         className="flex items-center justify-between opacity-0"
         style={{ transform: 'translateX(-30px)' }}
       >
-        <h2 className="text-fluid-3xl font-bold bg-gradient-purple-deep animated-gradient-chaos bg-clip-text text-transparent">
+        <h2 className="text-fluid-3xl font-bold animated-gradient-anime-text">
           Projects
           <span className="text-fluid-lg text-gray-600 dark:text-gray-400 font-normal ml-2">
             ({total})

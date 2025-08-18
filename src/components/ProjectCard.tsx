@@ -286,7 +286,7 @@ export default function ProjectCard({
                   key={tag}
                   className={
                     isArticulate
-                      ? "px-3 py-1 rounded-full text-white text-[12px] md:text-[13px] font-semibold animated-gradient-chaos bg-gradient-purple-deep shadow-sm ring-1 ring-black/5 dark:ring-white/10"
+                      ? "px-3 py-1 rounded-full text-white text-[12px] md:text-[13px] font-semibold animated-gradient-anime shadow-sm ring-1 ring-black/5 dark:ring-white/10"
                       : "px-2 py-0.5 bg-zinc-100/90 dark:bg-white/10 text-zinc-700 dark:text-zinc-200 text-[11px] rounded-full font-medium"
                   }
                 >

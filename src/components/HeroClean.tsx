@@ -21,8 +21,8 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto px-6 py-20 md:py-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-          <div>
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="order-2 md:order-1">
             <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
               <span className="animated-gradient-chaos bg-gradient-purple-deep bg-clip-text text-transparent">Volodymyr Yakymenko</span>
               <span className="animated-gradient-chaos block mt-3 bg-gradient-purple-deep bg-clip-text text-transparent">Product & Learning Experience Innovator</span>
@@ -73,10 +73,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex flex-col items-center md:items-end gap-3">
+          <div className="order-1 md:order-2 flex flex-col items-center md:items-end gap-3">
             <div className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80">
               <Image
-                src="/avatar.png"
+                src="/avatar/avatar1.gif"
                 alt="AI-generated avatar of Volodymyr Yakymenko"
                 width={1024}
                 height={1024}
@@ -103,8 +103,8 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center">
-        <div className="pointer-events-auto flex flex-col items-center gap-2">
+      <div className="relative z-10 flex justify-center mt-16 sm:mt-20 md:mt-24">
+        <div className="flex flex-col items-center gap-2">
           <a
             href="#projects"
             onClick={(e) => {

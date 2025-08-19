@@ -50,7 +50,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
               <a
                 href="mailto:vladimiryakimenko99@gmail.com"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-full sm:w-36"
                 aria-label="Contact me via email"
               >
                 <EnvelopeIcon className="h-5 w-5" aria-hidden="true" />
@@ -60,7 +60,7 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/volodymyr-yakymenko"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-full sm:w-36"
                 aria-label="Open my LinkedIn profile in a new tab"
               >
                 <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">

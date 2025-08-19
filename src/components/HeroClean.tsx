@@ -47,7 +47,7 @@ export default function Hero() {
                 <div className="animated-gradient-anime-blur absolute inset-0 rounded-full"></div>
                 <a
                   href="mailto:vladimiryakimenko99@gmail.com"
-                  className="relative inline-flex items-center justify-center gap-2 rounded-full animated-gradient-anime px-6 py-3 text-white font-semibold hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-36"
+                  className="relative inline-flex items-center justify-center gap-2 rounded-full animated-gradient-anime px-6 py-3 text-white font-semibold hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-44"
                   aria-label="Contact me via email"
                 >
                   <EnvelopeIcon className="h-5 w-5" aria-hidden="true" />
@@ -60,7 +60,7 @@ export default function Hero() {
                   href="https://www.linkedin.com/in/volodymyr-yakymenko"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative inline-flex items-center justify-center gap-2 rounded-full animated-gradient-anime px-6 py-3 text-white font-semibold hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-36"
+                  className="relative inline-flex items-center justify-center gap-2 rounded-full animated-gradient-anime px-6 py-3 text-white font-semibold hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-44"
                   aria-label="Open my LinkedIn profile in a new tab"
                 >
                   <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">

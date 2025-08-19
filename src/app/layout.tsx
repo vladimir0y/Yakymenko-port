@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import '../styles/globals.css';
 import { ThemeProvider } from '@/components/theme';
+import { Analytics } from '@vercel/analytics/next';
 
 // Local font declarations with preload
 const geistSans = localFont({
@@ -149,6 +150,7 @@ export default function RootLayout({
           </a>
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

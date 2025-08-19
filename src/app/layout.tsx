@@ -37,11 +37,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://your-domain.com'),
   title: {
-    default: 'Portfolio | Full Stack Developer',
+    default: 'Portfolio | E-Learning Developer',
     template: '%s | Portfolio',
   },
   description:
-    'Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript.',
+    'E-Learning Developer specializing in modern web technologies, educational platforms, and digital learning solutions.',
   keywords: [
     'portfolio',
     'developer',
@@ -56,24 +56,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://your-domain.com',
-    title: 'Portfolio | Full Stack Developer',
+    title: 'Portfolio | E-Learning Developer',
     description:
-      'Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript.',
+      'E-Learning Developer specializing in modern web technologies, educational platforms, and digital learning solutions.',
     siteName: 'Portfolio',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Portfolio - Full Stack Developer',
+        alt: 'Portfolio - E-Learning Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Portfolio | Full Stack Developer',
+    title: 'Portfolio | E-Learning Developer',
     description:
-      'Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript.',
+      'E-Learning Developer specializing in modern web technologies, educational platforms, and digital learning solutions.',
     images: ['/og-image.jpg'],
   },
   robots: {

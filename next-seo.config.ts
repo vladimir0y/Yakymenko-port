@@ -2,9 +2,9 @@ import { DefaultSeoProps } from 'next-seo';
 
 const config: DefaultSeoProps = {
   titleTemplate: '%s | Portfolio',
-  defaultTitle: 'Portfolio | Full Stack Developer',
+  defaultTitle: 'Portfolio | E-Learning Developer',
   description:
-    'Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript. Explore my projects and get in touch.',
+    'E-Learning Developer specializing in modern web technologies, educational platforms, and digital learning solutions. Explore my projects and get in touch.',
   canonical: 'https://your-domain.com',
 
   // Open Graph
@@ -13,22 +13,22 @@ const config: DefaultSeoProps = {
     locale: 'en_US',
     url: 'https://your-domain.com',
     siteName: 'Portfolio',
-    title: 'Portfolio | Full Stack Developer',
+    title: 'Portfolio | E-Learning Developer',
     description:
-      'Full Stack Developer specializing in modern web technologies, React, Next.js, and TypeScript. Explore my projects and get in touch.',
+      'E-Learning Developer specializing in modern web technologies, educational platforms, and digital learning solutions. Explore my projects and get in touch.',
     images: [
       {
         url: 'https://your-domain.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Portfolio - Full Stack Developer',
+        alt: 'Portfolio - E-Learning Developer',
         type: 'image/jpeg',
       },
       {
         url: 'https://your-domain.com/og-image-square.jpg',
         width: 400,
         height: 400,
-        alt: 'Portfolio - Full Stack Developer',
+        alt: 'Portfolio - E-Learning Developer',
         type: 'image/jpeg',
       },
     ],

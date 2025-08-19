@@ -25,7 +25,7 @@ export default function Hero() {
           <div className="order-2 md:order-1">
             <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
               <span className="animated-gradient-anime-text font-black">Volodymyr Yakymenko</span>
-              <span className="animated-gradient-anime-text block mt-3 font-black">Product & Learning Experience Innovator</span>
+              <span className="animated-gradient-anime-text block mt-3 font-black">Product & Learning Experience Expert</span>
             </h1>
 
             <div className="mt-5 flex items-center gap-3">
@@ -34,7 +34,7 @@ export default function Hero() {
                 {/* Mobile: Two lines without divider, Desktop: One line with divider */}
                 <span className="block sm:inline">Head of E-learning</span>
                 <span aria-hidden className="hidden sm:inline mx-3 text-primary-600/60">|</span>
-                <span className="block sm:inline">E-Learning Manager</span>
+                <span className="block sm:inline">E-Learning Developer</span>
               </h2>
             </div>
 
@@ -57,7 +57,7 @@ export default function Hero() {
               <div className="relative overflow-hidden rounded-full">
                 <div className="animated-gradient-anime-blur absolute inset-0 rounded-full"></div>
                 <a
-                  href="https://www.linkedin.com/in/vladimir-yakimenko/"
+                  href="https://www.linkedin.com/in/volodymyr-yakymenko"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative inline-flex items-center justify-center gap-2 rounded-full animated-gradient-anime px-6 py-3 text-white font-semibold hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition"

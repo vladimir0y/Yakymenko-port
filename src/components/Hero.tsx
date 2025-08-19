@@ -30,7 +30,7 @@ export default function Hero() {
             {/* Name and title (removed dash before the title) */}
             <h1 id="hero-heading" className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight">
               <span className="bg-gradient-to-br from-foreground via-primary-700 to-accent-700 bg-clip-text text-transparent">Volodymyr Yakymenko</span>
-              <span className="block mt-3 bg-gradient-to-br from-primary-700 via-accent-700 to-foreground bg-clip-text text-transparent">Product & Learning Experience Innovator</span>
+              <span className="block mt-3 bg-gradient-to-br from-primary-700 via-accent-700 to-foreground bg-clip-text text-transparent">Product & Learning Experience Expert</span>
             </h1>
 
             {/* Additional accent bar and role line */}
@@ -39,7 +39,7 @@ export default function Hero() {
             <h2 className="text-xl sm:text-2xl font-semibold text-primary-600 dark:text-primary-400">
                 <span>Head of E-learning</span>
                 <span aria-hidden className="mx-3 text-primary-600/60">|</span>
-                <span>E-Learning Manager</span>
+                <span>E-Learning Developer</span>
               </h2>
             </div>
 
@@ -57,7 +57,7 @@ export default function Hero() {
                 Contact me
               </a>
               <a
-                href="https://www.linkedin.com/in/vladimir-yakimenko/"
+                href="https://www.linkedin.com/in/volodymyr-yakymenko"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition"

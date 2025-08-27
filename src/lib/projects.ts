@@ -16,7 +16,7 @@ const staticProjectsData: Project[] = [
       description: 'An immersive interactive presentation about rock climbing techniques, safety procedures, and adventure experiences with multimedia content.',
       tags: ['Articulate Rise'],
       technologies: [],
-      live: 'https://vladimir0y.github.io/Yakymenko-port/Projects/Rock%20Climbing/',
+      live: 'https://vladimir0y.github.io/Yakymenko-port/Projects/Rock%20Climbing/index.html',
       github: 'https://github.com/vladimir0y/Rock_Climbing',
     },
   },

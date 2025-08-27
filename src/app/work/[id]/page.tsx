@@ -38,28 +38,35 @@ export default async function ProjectPage({ params }: Params) {
     return `${base}${p.startsWith('/') ? p : `/${p}`}`;
   };
 
-  // Build list of candidate iframe URLs from the image folder and common filenames
+  // Build list of candidate iframe URLs, prioritizing project.live
   const candidates = (() => {
     const result: string[] = [];
-    const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
-    if (m?.[1]) {
-      const folderRaw = m[1];
-      const folderEnc = encodeURIComponent(folderRaw);
-      const folderSlug = folderRaw
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)/g, '');
+    
+    // Prioritize project.live URL first
+    if (project.live) result.push(project.live);
+    
+    // Add fallback URLs only if no live URL exists
+    if (!project.live) {
+      const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
+      if (m?.[1]) {
+        const folderRaw = m[1];
+        const folderEnc = encodeURIComponent(folderRaw);
+        const folderSlug = folderRaw
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '');
 
-      const files = ['story.html', 'content/index.html', 'html5/index.html', 'index.html'];
-      const folders = [folderEnc, folderRaw, folderSlug];
+        const files = ['story.html', 'html5/index.html', 'index.html'];
+        const folders = [folderEnc, folderRaw, folderSlug];
 
-      for (const f of folders) {
-        for (const file of files) {
-          result.push(withBasePath(`/Projects/${f}/${file}`));
+        for (const f of folders) {
+          for (const file of files) {
+            result.push(withBasePath(`/Projects/${f}/${file}`));
+          }
         }
       }
     }
-    if (project.live) result.push(project.live);
+    
     return Array.from(new Set(result));
   })();
 

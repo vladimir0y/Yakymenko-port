@@ -24,6 +24,12 @@ export default function ProjectCard({
 
   // Build a direct HTML URL for this project (same logic as detail page)
   const directHtmlUrl = useMemo(() => {
+    // If project has a live URL, use it directly
+    if (project.live) {
+      return project.live;
+    }
+
+    // Otherwise, build fallback URLs
     const withBasePath = (p: string) => {
       if (!p) return p;
       if (/^https?:\/\//i.test(p)) return p;
@@ -39,7 +45,7 @@ export default function ProjectCard({
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '');
-      const files = ['story.html', 'content/index.html', 'html5/index.html', 'index.html'];
+      const files = ['story.html', 'html5/index.html', 'index.html'];
       const folders = [folderEnc, folderRaw, folderSlug];
       for (const f of folders) {
         for (const file of files) {
@@ -47,7 +53,6 @@ export default function ProjectCard({
         }
       }
     }
-    if (project.live) result.push(project.live);
     return result[0];
   }, [project.image, project.live]);
 

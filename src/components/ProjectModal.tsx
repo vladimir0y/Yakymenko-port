@@ -167,25 +167,30 @@ export default function ProjectModal({
 
   // Process media items - simplified for static export
   const mediaItems: LocalMediaItem[] = React.useMemo(() => {
-    // Compute URL: prefer project.live; otherwise derive from image folder if available
-    const withBasePath = (p: string) => {
-      if (!p) return p;
-      // If absolute URL, return as-is
-      if (/^https?:\/\//i.test(p)) return p;
-      const base = 'https://vladimir0y.github.io/Yakymenko-port';
-      return `${base}${p.startsWith('/') ? p : '/' + p}`;
-    };
-
+    // Prioritize project.live URL first
     let url: string | undefined = undefined;
-    const img = project?.image;
-    const m = img?.match(/^\/?Projects\/([^/]+)\//);
-    if (m?.[1]) {
-      const folder = m[1];
-      const folderEnc = encodeURIComponent(folder);
-      const filename = /rock/i.test(folder) ? 'content/index.html' : 'story.html';
-      url = withBasePath(`/Projects/${folderEnc}/${filename}`);
-    } else if (project?.live) {
+    
+    if (project?.live) {
       url = project.live;
+    } else {
+      // Fallback to derived URL from image folder
+      const withBasePath = (p: string) => {
+        if (!p) return p;
+        // If absolute URL, return as-is
+        if (/^https?:\/\//i.test(p)) return p;
+        const base = 'https://vladimir0y.github.io/Yakymenko-port';
+        return `${base}${p.startsWith('/') ? p : '/' + p}`;
+      };
+      
+      const img = project?.image;
+      const m = img?.match(/^\/?Projects\/([^/]+)\//);
+      if (m?.[1]) {
+        const folder = m[1];
+        const folderEnc = encodeURIComponent(folder);
+        // Try standard files without hardcoded paths
+        const filename = 'story.html'; // Default to story.html for most projects
+        url = withBasePath(`/Projects/${folderEnc}/${filename}`);
+      }
     }
 
     if (url) {

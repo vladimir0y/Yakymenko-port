@@ -1,6 +1,17 @@
 {
-  "framework": "nextjs",
-  "buildCommand": "npm run build",
+  "version": 2,
+  "name": "yakymenko-portfolio",
+  "buildCommand": "GITHUB_PAGES=true npm run build",
   "installCommand": "npm ci",
-  "outputDirectory": ".next"
+  "outputDirectory": "out",
+  "trailingSlash": false,
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }

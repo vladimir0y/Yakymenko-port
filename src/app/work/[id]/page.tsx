@@ -42,11 +42,14 @@ export default async function ProjectPage({ params }: Params) {
   const candidates = (() => {
     const result: string[] = [];
     
-    // Prioritize project.live URL first
-    if (project.live) result.push(project.live);
+    // Prioritize project.projectData.live URL first
+    if (project.projectData?.live) {
+      const liveUrl = Array.isArray(project.projectData.live) ? project.projectData.live[0] : project.projectData.live;
+      if (liveUrl) result.push(liveUrl);
+    }
     
     // Add fallback URLs only if no live URL exists
-    if (!project.live) {
+    if (!project.projectData?.live) {
       const m = project.image?.match(/^\/?Projects\/([^/]+)\//);
       if (m?.[1]) {
         const folderRaw = m[1];

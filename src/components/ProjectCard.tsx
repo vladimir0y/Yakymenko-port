@@ -25,8 +25,9 @@ export default function ProjectCard({
   // Build a direct HTML URL for this project (same logic as detail page)
   const directHtmlUrl = useMemo(() => {
     // If project has a live URL, use it directly
-    if (project.live) {
-      return project.live;
+    if (project.projectData?.live) {
+      const liveUrl = Array.isArray(project.projectData.live) ? project.projectData.live[0] : project.projectData.live;
+      if (liveUrl) return liveUrl;
     }
 
     // Otherwise, build fallback URLs
@@ -54,7 +55,7 @@ export default function ProjectCard({
       }
     }
     return result[0];
-  }, [project.image, project.live]);
+  }, [project.image, project.projectData?.live]);
 
   useEffect(() => {
     const card = cardRef.current;
@@ -144,17 +145,20 @@ export default function ProjectCard({
     }
 
     // 2) Try to parse from the live URL after /Yakymenko-port/
-    if (project.live) {
+    if (project.projectData?.live) {
       try {
-        const url = new URL(project.live);
-        const parts = url.pathname.split('/').filter(Boolean);
-        // Find the segment after 'Yakymenko-port'
-        const yakIndex = parts.findIndex((p) => p === 'Yakymenko-port');
-        if (yakIndex !== -1 && parts[yakIndex + 1]) {
-          return parts[yakIndex + 1];
+        const liveUrl = Array.isArray(project.projectData.live) ? project.projectData.live[0] : project.projectData.live;
+        if (liveUrl) {
+          const url = new URL(liveUrl);
+          const parts = url.pathname.split('/').filter(Boolean);
+          // Find the segment after 'Yakymenko-port'
+          const yakIndex = parts.findIndex((p) => p === 'Yakymenko-port');
+          if (yakIndex !== -1 && parts[yakIndex + 1]) {
+            return parts[yakIndex + 1];
+          }
+          // If not found, try using the first path segment as a fallback
+          if (parts[0]) return parts[0];
         }
-        // If not found, try using the first path segment as a fallback
-        if (parts[0]) return parts[0];
       } catch {
         // ignore URL parse errors
       }

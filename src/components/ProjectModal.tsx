@@ -167,11 +167,11 @@ export default function ProjectModal({
 
   // Process media items - simplified for static export
   const mediaItems: LocalMediaItem[] = React.useMemo(() => {
-    // Prioritize project.live URL first
+    // Prioritize project.projectData.live URL first
     let url: string | undefined = undefined;
     
-    if (project?.live) {
-      url = project.live;
+    if (project?.projectData?.live) {
+      url = Array.isArray(project.projectData.live) ? project.projectData.live[0] : project.projectData.live;
     } else {
       // Fallback to derived URL from image folder
       const withBasePath = (p: string) => {
@@ -211,7 +211,7 @@ export default function ProjectModal({
     }
 
     return [];
-  }, [project?.live, project?.image]);
+  }, [project?.projectData?.live, project?.image]);
 
   // Handle close with animation
   const handleClose = useCallback(() => {

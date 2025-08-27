@@ -3,17 +3,17 @@ import { ProjectsResponse, Project } from '@/types';
 // Static fallback data for when API is unavailable
 const staticProjectsData: Project[] = [
   {
-    id: 'rock-climbing-rise',
-    name: 'Rock Climbing Rise',
-    title: 'Rock Climbing Rise',
-    description: 'An introductory rock climbing course designed to build confidence, skills, and safety awareness. Perfect for beginners who want to explore climbing as both a physical and mental adventure.',
+    id: 'rock-climbing-project',
+    name: 'Rock Climbing',
+    title: 'Rock Climbing Interactive Experience',
+    description: 'An immersive interactive presentation about rock climbing techniques, safety procedures, and adventure experiences with multimedia content.',
     image: '/Projects/Rock Climbing/cover.png',
     tags: ['Articulate Rise'],
     date: '',
     technologies: [],
     projectData: {
-      title: 'Rock Climbing Rise',
-      description: 'An introductory rock climbing course designed to build confidence, skills, and safety awareness. Perfect for beginners who want to explore climbing as both a physical and mental adventure.',
+      title: 'Rock Climbing Interactive Experience',
+      description: 'An immersive interactive presentation about rock climbing techniques, safety procedures, and adventure experiences with multimedia content.',
       tags: ['Articulate Rise'],
       technologies: [],
       live: 'https://vladimir0y.github.io/Rock_Climbing/',
@@ -21,7 +21,7 @@ const staticProjectsData: Project[] = [
     },
   },
   {
-    id: 'cybersecurity-tech',
+    id: 'cybersecurity-tech-project',
     name: 'Cybersecurity - Tech',
     title: 'Cybersecurity - Tech',
     description: 'This cybersecurity course introduces essential concepts and practical skills to protect digital systems and data. Participants learn about common threats, safe online practices, and basic strategies for securing networks and personal information.',
@@ -34,10 +34,11 @@ const staticProjectsData: Project[] = [
       description: 'This cybersecurity course introduces essential concepts and practical skills to protect digital systems and data. Participants learn about common threats, safe online practices, and basic strategies for securing networks and personal information.',
       tags: ['Articulate Storyline'],
       technologies: [],
+      live: 'https://vladimir0y.github.io/Yakymenko-port/Projects/Cybersecurity%20-%20Tech/story.html',
     },
   },
   {
-    id: 'software-simulator-powerpoint',
+    id: 'software-simulator-project',
     name: 'Software Simulator PowerPoint',
     title: 'Software Simulator PowerPoint',
     description: 'This presentation demonstrates a software simulator, showcasing its features, functionality, and practical applications. It guides users through interactive scenarios to help them understand and practice using the software effectively.',
@@ -50,10 +51,11 @@ const staticProjectsData: Project[] = [
       description: 'This presentation demonstrates a software simulator, showcasing its features, functionality, and practical applications. It guides users through interactive scenarios to help them understand and practice using the software effectively.',
       tags: ['Articulate Storyline'],
       technologies: [],
+      live: 'https://vladimir0y.github.io/Yakymenko-port/Projects/Software%20Simulator%20PowerPoint/story.html',
     },
   },
   {
-    id: 'time-management-smart-goals',
+    id: 'time-management-smart-goals-project',
     name: 'Time Management - SMART Goals',
     title: 'Time Management - SMART Goals',
     description: 'This course teaches effective time management using the SMART goals framework, helping participants set Specific, Measurable, Achievable, Relevant, and Time-bound objectives to boost productivity and achieve personal and professional targets.',
@@ -66,6 +68,7 @@ const staticProjectsData: Project[] = [
       description: 'This course teaches effective time management using the SMART goals framework, helping participants set Specific, Measurable, Achievable, Relevant, and Time-bound objectives to boost productivity and achieve personal and professional targets.',
       tags: ['Articulate Storyline'],
       technologies: [],
+      live: 'https://vladimir0y.github.io/Yakymenko-port/Projects/Time%20Management%20-%20SMART%20Goals/story.html',
     },
   },
 ];

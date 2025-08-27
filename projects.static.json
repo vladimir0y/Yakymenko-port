@@ -1,0 +1,55 @@
+{
+  "folders": [
+    {
+      "id": "gbl-project",
+      "name": "GBL",
+      "coverImageId": "gbl-cover",
+      "live": "https://vladimir0y.github.io/Yakymenko-port/GBL/story.html",
+      "projectData": {
+        "title": "Game-Based Learning Project",
+        "description": "An interactive e-learning module created with Articulate Storyline, featuring gamification elements and multimedia content for enhanced learning experience.",
+        "tags": ["Articulate Storyline"],
+        "date": "2024-01-15"
+      }
+    },
+    {
+      "id": "time-management-project",
+      "name": "Time Management",
+      "coverImageId": "time-management-cover",
+      "live": "https://vladimir0y.github.io/Yakymenko-port/Time_Management/story.html",
+      "projectData": {
+        "title": "Time Management Training",
+        "description": "Interactive training module focused on time management skills, productivity techniques, and work-life balance strategies.",
+        "tags": ["Articulate Storyline"],
+        "date": "2024-02-20"
+      }
+    },
+    {
+      "id": "time-management-main-project",
+      "name": "Time Management Main",
+      "coverImageId": "time-management-main-cover",
+      "live": "https://vladimir0y.github.io/Yakymenko-port/Time_Management_Main/story.html",
+      "projectData": {
+        "title": "Advanced Time Management Course",
+        "description": "Comprehensive time management course with advanced techniques, case studies, and practical exercises for professional development.",
+        "tags": ["Articulate Storyline"],
+        "date": "2024-03-01"
+      }
+    },
+    {
+      "id": "rock-climbing-project",
+      "name": "Rock Climbing",
+      "coverImageId": "rock-climbing-cover",
+      "live": "https://vladimir0y.github.io/Yakymenko-port/Projects/Rock%20Climbing/index.html",
+      "github": "https://github.com/vladimir0y/Rock_Climbing",
+      "projectData": {
+        "title": "Rock Climbing Interactive Experience",
+        "description": "An immersive interactive presentation about rock climbing techniques, safety procedures, and adventure experiences with multimedia content.",
+        "tags": ["Articulate Rise"],
+        "date": "2024-03-10"
+      }
+    }
+  ],
+  "total": 4,
+  "lastModified": "2024-03-10T00:00:00.000Z"
+}

@@ -1,37 +1,37 @@
 {
   "folders": [
     {
-      "id": "cybersecurity-tech-project",
-      "name": "Cybersecurity - Tech",
-      "coverImageId": "cybersecurity-cover",
-      "live": "https://vladimir0y.github.io/Yakymenko-port/Projects/Cybersecurity%20-%20Tech/story.html",
+      "id": "gbl-project",
+      "name": "GBL",
+      "coverImageId": "gbl-cover",
+      "live": "https://vladimir0y.github.io/Yakymenko-port/GBL/story.html",
       "projectData": {
-        "title": "Cybersecurity - Tech",
-        "description": "This cybersecurity course introduces essential concepts and practical skills to protect digital systems and data. Participants learn about common threats, safe online practices, and basic strategies for securing networks and personal information.",
+        "title": "Game-Based Learning Project",
+        "description": "An interactive e-learning module created with Articulate Storyline, featuring gamification elements and multimedia content for enhanced learning experience.",
         "tags": ["Articulate Storyline"],
         "date": "2024-01-15"
       }
     },
     {
-      "id": "software-simulator-project",
-      "name": "Software Simulator PowerPoint",
-      "coverImageId": "software-simulator-cover",
-      "live": "https://vladimir0y.github.io/Yakymenko-port/Projects/Software%20Simulator%20PowerPoint/story.html",
+      "id": "time-management-project",
+      "name": "Time Management",
+      "coverImageId": "time-management-cover",
+      "live": "https://vladimir0y.github.io/Yakymenko-port/Time_Management/story.html",
       "projectData": {
-        "title": "Software Simulator PowerPoint",
-        "description": "This presentation demonstrates a software simulator, showcasing its features, functionality, and practical applications. It guides users through interactive scenarios to help them understand and practice using the software effectively.",
+        "title": "Time Management Training",
+        "description": "Interactive training module focused on time management skills, productivity techniques, and work-life balance strategies.",
         "tags": ["Articulate Storyline"],
         "date": "2024-02-20"
       }
     },
     {
-      "id": "time-management-smart-goals-project",
-      "name": "Time Management - SMART Goals",
-      "coverImageId": "time-management-smart-goals-cover",
-      "live": "https://vladimir0y.github.io/Yakymenko-port/Projects/Time%20Management%20-%20SMART%20Goals/story.html",
+      "id": "time-management-main-project",
+      "name": "Time Management Main",
+      "coverImageId": "time-management-main-cover",
+      "live": "https://vladimir0y.github.io/Yakymenko-port/Time_Management_Main/story.html",
       "projectData": {
-        "title": "Time Management - SMART Goals",
-        "description": "This course teaches effective time management using the SMART goals framework, helping participants set Specific, Measurable, Achievable, Relevant, and Time-bound objectives to boost productivity and achieve personal and professional targets.",
+        "title": "Advanced Time Management Course",
+        "description": "Comprehensive time management course with advanced techniques, case studies, and practical exercises for professional development.",
         "tags": ["Articulate Storyline"],
         "date": "2024-03-01"
       }

@@ -7,3 +7,4 @@ out/
 
 # Windows reserved filename accidentally present
 NUL
+tsconfig.tsbuildinfo

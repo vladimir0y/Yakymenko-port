@@ -1,11 +1,12 @@
 {
-  "title": "Rock Climbing Adventure",
-  "description": "A comprehensive rock climbing guide and adventure platform featuring route information, difficulty ratings, and community-driven content for climbing enthusiasts.",
-  "tags": ["Sports", "Adventure", "Community", "Web App"],
-  "date": "2023-11-20",
-  "technologies": ["React", "Node.js", "MongoDB", "Express"],
-  "github": "https://github.com/vladimir0y/Website-Portfolio",
-  "live": "https://vladimir0y.github.io/Website-Portfolio/projects/rock-climbing/content/index.html",
+  "title": "Rock Climbing Interactive Experience",
+  "description": "An immersive interactive presentation about rock climbing techniques, safety procedures, and adventure experiences with multimedia content.",
+  "tags": ["Articulate Rise"],
+  "date": "2024-03-10",
+  "technologies": ["HTML5", "CSS3", "JavaScript"],
+  "github": "https://github.com/vladimir0y/Rock_Climbing",
+  "live": "https://vladimir0y.github.io/Rock_Climbing/",
+  "demo": "https://vladimir0y.github.io/Rock_Climbing/",
   "category": "Sports & Recreation",
   "status": "Completed"
 }

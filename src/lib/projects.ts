@@ -15,8 +15,9 @@ const staticProjectsData: Project[] = [
       title: 'Rock Climbing Rise',
       description: 'An introductory rock climbing course designed to build confidence, skills, and safety awareness. Perfect for beginners who want to explore climbing as both a physical and mental adventure.',
       tags: ['Articulate Rise'],
-      // no year/date tag
       technologies: [],
+      live: 'https://vladimir0y.github.io/Rock_Climbing/',
+      github: 'https://github.com/vladimir0y/Rock_Climbing',
     },
   },
   {

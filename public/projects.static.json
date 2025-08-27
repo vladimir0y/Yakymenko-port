@@ -40,11 +40,12 @@
       "id": "rock-climbing-project",
       "name": "Rock Climbing",
       "coverImageId": "rock-climbing-cover",
-      "live": "https://vladimir0y.github.io/Yakymenko-port/rock-climbing-raw-v2ojS82U/content/index.html",
+      "live": "https://vladimir0y.github.io/Rock_Climbing/",
+      "github": "https://github.com/vladimir0y/Rock_Climbing",
       "projectData": {
         "title": "Rock Climbing Interactive Experience",
         "description": "An immersive interactive presentation about rock climbing techniques, safety procedures, and adventure experiences with multimedia content.",
-        "tags": ["Interactive Media", "Adventure Sports", "HTML5", "Multimedia", "Education"],
+        "tags": ["Articulate Rise"],
         "date": "2024-03-10"
       }
     }

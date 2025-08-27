@@ -9,11 +9,10 @@ if (process.env.ANALYZE === 'true') {
   }
 }
 
-// GitHub Pages support: enable basePath/assetPrefix when deploying to project pages
-const REPO_NAME = 'Yakymenko-port';
+// GitHub Pages support: enable static export when deploying to GitHub Pages
 const isGithubPages = process.env.GITHUB_PAGES === 'true';
-const basePath = isGithubPages ? `/${REPO_NAME}` : '';
-const assetPrefix = isGithubPages ? `/${REPO_NAME}/` : undefined;
+const basePath = '';
+const assetPrefix = undefined;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import type React from 'react';
+import { useState } from 'react';
 
 const navItems = [
   { label: 'Home', href: '#main-content', id: 'main-content' },
@@ -13,127 +12,41 @@ const navItems = [
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('main-content');
-  const [isDesktopVisible, setIsDesktopVisible] = useState(false);
-
-  // Desktop scroll logic
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
-      const scrollPosition = currentScrollY + 100;
-
-      // Update active section
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(section.id);
-          break;
-        }
-      }
-
-      // Show/hide desktop nav
-      if (window.innerWidth >= 768) {
-        setIsDesktopVisible(currentScrollY > 100);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault();
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
-  const toggleMenu = () => {
-    console.log('MOBILE MENU CLICKED!');
-    setIsMenuOpen(prev => {
-      const newState = !prev;
-      console.log('Menu state changing from', prev, 'to', newState);
-      return newState;
-    });
-  };
 
   return (
-    <>
-      {/* Desktop Navigation */}
-      <nav
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-300 hidden md:block ${
-          isDesktopVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-        aria-label="Main navigation"
-      >
-        <div className="glass-nav">
-          <div className="flex items-center space-x-6 px-6 py-3">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={item.href}
-                onClick={(e) => scrollToSection(e, item.id)}
-                className={`nav-link ${
-                  activeSection === item.id ? 'nav-link--active' : ''
-                }`}
-                aria-label={`Navigate to ${item.label} section`}
-              >
-                {item.label}
-              </a>
+    <div className="fixed top-4 left-4 z-50 md:hidden">
+      <div className="bg-blue-600 p-2 rounded">
+        <button
+          onClick={() => {
+            alert('Button clicked!');
+            setIsMenuOpen(!isMenuOpen);
+          }}
+          className="bg-white text-black px-4 py-2 rounded font-bold"
+        >
+          {isMenuOpen ? 'CLOSE' : 'MENU'}
+        </button>
+        
+        {isMenuOpen && (
+          <div className="mt-2 bg-red-500 p-4 rounded">
+            <div className="text-white font-bold mb-2">MENU ITEMS:</div>
+            {navItems.map((item, i) => (
+              <div key={i} className="mb-1">
+                <a
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMenuOpen(false);
+                  }}
+                  className="block bg-yellow-400 text-black px-2 py-1 rounded text-center font-bold"
+                >
+                  {i + 1}. {item.label}
+                </a>
+              </div>
             ))}
           </div>
-        </div>
-      </nav>
-
-      {/* Mobile Navigation - Always visible */}
-      <nav
-        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 md:hidden"
-        aria-label="Mobile navigation"
-      >
-        <div className="glass-nav relative">
-          <button
-            onClick={toggleMenu}
-            className="flex items-center justify-center px-4 py-3 w-full nav-link"
-            aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation menu"
-            type="button"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-          
-          {/* Mobile Menu Dropdown */}
-          {isMenuOpen && (
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 z-50">
-              <div className="bg-red-500 border-4 border-black rounded-lg p-4">
-                <div className="text-white text-center mb-2">MENU IS OPEN!</div>
-                <div className="text-white text-center mb-2">Items: {navItems.length}</div>
-                {navItems.map((item, index) => (
-                  <div key={item.id} className="mb-2">
-                    <a
-                      href={item.href}
-                      onClick={(e) => scrollToSection(e, item.id)}
-                      className="block px-4 py-3 bg-yellow-400 text-black text-center font-bold border-2 border-black rounded hover:bg-yellow-300"
-                    >
-                      {index + 1}. {item.label}
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
-    </>
+        )}
+      </div>
+    </div>
   );
 }

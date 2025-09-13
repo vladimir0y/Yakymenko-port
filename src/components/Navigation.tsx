@@ -15,6 +15,24 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('main-content');
   const [isVisible, setIsVisible] = useState(false);
+  
+  // Always show navigation on mobile when menu is open
+  const shouldShowNav = isVisible || isMenuOpen;
+  
+  // Force visibility on very small screens to debug
+  useEffect(() => {
+    const checkMobile = () => {
+      if (window.innerWidth < 768) {
+        console.log('Mobile detected, forcing nav visibility for debugging');
+        setIsVisible(true);
+      }
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     let hideTimer: NodeJS.Timeout | null = null;
@@ -100,9 +118,10 @@ export default function Navigation() {
   };
 
   const toggleMenu = () => {
+    console.log('Mobile menu toggle clicked', { isMenuOpen, isVisible });
     setIsMenuOpen((prev) => {
       const next = !prev;
-      if (next) setIsVisible(true);
+      console.log('Setting menu open to:', next);
       return next;
     });
   };
@@ -110,7 +129,7 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-300 ${
-        isVisible || isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        shouldShowNav ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}
       aria-label="Main navigation"
     >
@@ -137,9 +156,10 @@ export default function Navigation() {
       <div className="glass-nav md:hidden overflow-visible">
         <button
           onClick={toggleMenu}
-          className="nav-link flex items-center justify-center px-4 py-2 w-full"
+          className="nav-link flex items-center justify-center px-4 py-2 w-full touch-manipulation"
           aria-expanded={isMenuOpen}
           aria-label="Toggle navigation menu"
+          type="button"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isMenuOpen ? (

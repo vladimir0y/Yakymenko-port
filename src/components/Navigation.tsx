@@ -58,7 +58,12 @@ export default function Navigation() {
           }
         }, 150);
       } else {
-        setIsVisible(false);
+        // At top of page; keep nav visible if menu is open
+        if (!isMenuOpen) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
         if (hideTimer) clearTimeout(hideTimer);
         if (scrollTimer) clearTimeout(scrollTimer);
       }
@@ -94,12 +99,18 @@ export default function Navigation() {
     }
   };
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => {
+      const next = !prev;
+      if (next) setIsVisible(true);
+      return next;
+    });
+  };
 
   return (
     <nav
       className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-300 ${
-        isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        isVisible || isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}
       aria-label="Main navigation"
     >
@@ -123,7 +134,7 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="glass-nav md:hidden">
+      <div className="glass-nav md:hidden overflow-visible">
         <button
           onClick={toggleMenu}
           className="nav-link flex items-center justify-center px-4 py-2 w-full"
@@ -141,7 +152,7 @@ export default function Navigation() {
         
         {isMenuOpen && (
           <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[calc(100vw-3rem)] max-w-xs">
-            <div className="glass-nav">
+            <div className="glass-nav overflow-hidden">
               <div className="py-2">
                 {navItems.map((item) => (
                   <a

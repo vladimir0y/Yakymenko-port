@@ -124,44 +124,42 @@ export default function Navigation() {
 
       {/* Mobile Navigation */}
       <div className="glass-nav md:hidden">
-        <div className="px-4 py-3">
-          <button
-            onClick={toggleMenu}
-            className="nav-link flex items-center justify-center w-8 h-8"
-            aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation menu"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-          
-          {isMenuOpen && (
-            <div className="absolute top-full left-0 right-0 mt-2">
-              <div className="glass-nav">
-                <div className="py-2">
-                  {navItems.map((item) => (
-                    <a
-                      key={item.id}
-                      href={item.href}
-                      onClick={(e) => scrollToSection(e, item.id)}
-                      className={`nav-link nav-link--mobile ${
-                        activeSection === item.id ? 'nav-link--active' : ''
-                      }`}
-                      aria-label={`Navigate to ${item.label} section`}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
+        <button
+          onClick={toggleMenu}
+          className="nav-link flex items-center justify-center px-4 py-2 w-full"
+          aria-expanded={isMenuOpen}
+          aria-label="Toggle navigation menu"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
+        
+        {isMenuOpen && (
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[calc(100vw-3rem)] max-w-xs">
+            <div className="glass-nav">
+              <div className="py-2">
+                {navItems.map((item) => (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    onClick={(e) => scrollToSection(e, item.id)}
+                    className={`nav-link nav-link--mobile ${
+                      activeSection === item.id ? 'nav-link--active' : ''
+                    }`}
+                    aria-label={`Navigate to ${item.label} section`}
+                  >
+                    {item.label}
+                  </a>
+                ))}
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </nav>
   );

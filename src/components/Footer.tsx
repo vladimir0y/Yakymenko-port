@@ -29,7 +29,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-20">
         <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Content - Hero style */}
-          <div className="text-center md:text-left">
+          <div className="text-left">
             {/* Name - Hero style */}
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
               <span className="animated-gradient-anime-text">Thank you for visiting</span>

@@ -54,7 +54,12 @@ export default function Navigation() {
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(prev => !prev);
+    console.log('MOBILE MENU CLICKED!');
+    setIsMenuOpen(prev => {
+      const newState = !prev;
+      console.log('Menu state changing from', prev, 'to', newState);
+      return newState;
+    });
   };
 
   return (
@@ -108,23 +113,25 @@ export default function Navigation() {
           </button>
           
           {/* Mobile Menu Dropdown */}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 z-50">
-            <div className="bg-red-500 border-4 border-black rounded-lg p-4">
-              <div className="text-white text-center mb-2">DEBUG: Menu Open = {isMenuOpen ? 'TRUE' : 'FALSE'}</div>
-              <div className="text-white text-center mb-2">Items Count: {navItems.length}</div>
-              {navItems.map((item, index) => (
-                <div key={item.id} className="mb-2">
-                  <a
-                    href={item.href}
-                    onClick={(e) => scrollToSection(e, item.id)}
-                    className="block px-4 py-3 bg-yellow-400 text-black text-center font-bold border-2 border-black rounded hover:bg-yellow-300"
-                  >
-                    {index + 1}. {item.label}
-                  </a>
-                </div>
-              ))}
+          {isMenuOpen && (
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 z-50">
+              <div className="bg-red-500 border-4 border-black rounded-lg p-4">
+                <div className="text-white text-center mb-2">MENU IS OPEN!</div>
+                <div className="text-white text-center mb-2">Items: {navItems.length}</div>
+                {navItems.map((item, index) => (
+                  <div key={item.id} className="mb-2">
+                    <a
+                      href={item.href}
+                      onClick={(e) => scrollToSection(e, item.id)}
+                      className="block px-4 py-3 bg-yellow-400 text-black text-center font-bold border-2 border-black rounded hover:bg-yellow-300"
+                    >
+                      {index + 1}. {item.label}
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </nav>
     </>

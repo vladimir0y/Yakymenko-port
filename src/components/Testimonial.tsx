@@ -2,7 +2,6 @@
 
 import type React from 'react';
 import { testimonial } from '@/data/content';
-import LinkedInSquareIcon from './icons/LinkedInSquareIcon';
 
 export default function Testimonial() {
   return (

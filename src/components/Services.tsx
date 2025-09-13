@@ -3,7 +3,6 @@
 import type React from 'react';
 import { EnvelopeIcon, BookOpenIcon, PuzzlePieceIcon, CpuChipIcon, ServerStackIcon, PaintBrushIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline';
 import { services, contactInfo } from '@/data/content';
-import LinkedInSquareIcon from './icons/LinkedInSquareIcon';
 
 // Icon components for services
 const ServiceIcons = {

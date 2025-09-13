@@ -3,7 +3,6 @@
 import type React from 'react';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
 import { contactInfo } from '@/data/content';
-import LinkedInSquareIcon from './icons/LinkedInSquareIcon';
 
 export default function Footer() {
   const scrollToTop = () => {

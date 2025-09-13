@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
 import type React from 'react';
-import LinkedInSquareIcon from './icons/LinkedInSquareIcon';
 
 // Accessible, lightweight Hero with enhanced accents and icons
 export default function Hero() {

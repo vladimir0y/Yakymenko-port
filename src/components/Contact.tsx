@@ -2,7 +2,6 @@
 
 import type React from 'react';
 import { contactInfo } from '@/data/content';
-import LinkedInSquareIcon from './icons/LinkedInSquareIcon';
 
 export default function Contact() {
   return (

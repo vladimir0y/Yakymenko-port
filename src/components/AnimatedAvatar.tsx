@@ -50,9 +50,10 @@ export default function AnimatedAvatar({ width, height, alt }: AnimatedAvatarPro
 
   // Start animation cycle once images are loaded
   useEffect(() => {
-    if (!isLoading && loadedImages.size > 0) {
+    const displayAvatars = avatars.filter(src => loadedImages.has(src));
+    if (!isLoading && displayAvatars.length > 0) {
       intervalRef.current = setInterval(() => {
-        setCurrentIndex(prevIndex => (prevIndex + 1) % avatars.length);
+        setCurrentIndex(prevIndex => (prevIndex + 1) % displayAvatars.length);
       }, 5000);
     }
 
@@ -61,7 +62,7 @@ export default function AnimatedAvatar({ width, height, alt }: AnimatedAvatarPro
         clearInterval(intervalRef.current);
       }
     };
-  }, [isLoading, loadedImages.size, avatars]);
+  }, [isLoading, loadedImages, avatars]);
 
   if (isLoading) {
     return (
@@ -84,7 +85,7 @@ export default function AnimatedAvatar({ width, height, alt }: AnimatedAvatarPro
   return (
     <div className="relative w-full h-full">
       <Image
-        src={avatars[currentIndex]}
+        src={(Array.from(loadedImages).length ? Array.from(loadedImages) : avatars)[currentIndex % (Array.from(loadedImages).length || avatars.length)]}
         alt={alt}
         width={width}
         height={height}

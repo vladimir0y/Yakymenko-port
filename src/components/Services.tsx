@@ -1,43 +1,29 @@
 'use client';
 
 import type React from 'react';
-import { services } from '@/data/content';
+import { EnvelopeIcon, BookOpenIcon, PuzzlePieceIcon, CpuChipIcon, ServerStackIcon, PaintBrushIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline';
+import { services, contactInfo } from '@/data/content';
+import LinkedInSquareIcon from './icons/LinkedInSquareIcon';
 
 // Icon components for services
 const ServiceIcons = {
   blueprint: (
-    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="2" />
-      <path d="M9 9h1v1H9zM14 9h1v1h-1zM9 14h1v1H9zM14 14h1v1h-1z" />
-    </svg>
+    <ClipboardDocumentListIcon className="h-8 w-8" aria-hidden="true" />
   ),
   development: (
-    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path d="M16 18L22 12L16 6M8 6L2 12L8 18" />
-    </svg>
+    <BookOpenIcon className="h-8 w-8" aria-hidden="true" />
   ),
   gamification: (
-    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path d="M6 12h12M12 6v12" />
-      <circle cx="12" cy="12" r="10" />
-    </svg>
+    <PuzzlePieceIcon className="h-8 w-8" aria-hidden="true" />
   ),
   ai: (
-    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-    </svg>
+    <CpuChipIcon className="h-8 w-8" aria-hidden="true" />
   ),
   integration: (
-    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-    </svg>
+    <ServerStackIcon className="h-8 w-8" aria-hidden="true" />
   ),
   design: (
-    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" />
-    </svg>
+    <PaintBrushIcon className="h-8 w-8" aria-hidden="true" />
   ),
 };
 
@@ -46,27 +32,20 @@ export default function Services() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="relative py-20 md:py-28 bg-gradient-to-b from-background via-muted/20 to-background overflow-hidden"
+      className="py-20 md:py-28 bg-white dark:bg-gray-950"
     >
-      {/* Decorative background */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -inset-24 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent-500/10 via-primary-500/5 to-transparent blur-3xl" />
-      </div>
 
       <div className="container mx-auto px-6">
         {/* Section header */}
         <div className="text-center mb-16 md:mb-20">
           <h2
             id="services-heading"
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight"
           >
-            <span className="bg-gradient-to-br from-foreground via-primary-700 to-accent-700 bg-clip-text text-transparent">
-              What I provide to clients
+            <span className="animated-gradient-anime-text">
+              Let&apos;s work together
             </span>
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            I help organizations turn business goals into learning solutions that actually work
-          </p>
         </div>
 
         {/* Services grid */}
@@ -100,19 +79,43 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Contact CTA */}
-        <div className="text-center mt-16">
-          <a
-            href="mailto:vladimiryakimenko99@gmail.com"
-            className="inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 px-8 py-4 text-white font-semibold hover:from-primary-700 hover:via-accent-700 hover:to-primary-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-            aria-label="Contact me via email to discuss possibilities"
-          >
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-              <path d="M21.5 9V17C21.5 18.1046 20.6046 19 19.5 19H4.5C3.39543 19 2.5 18.1046 2.5 17V9" />
-              <path d="M22 7H2L12 13L22 7Z" />
-            </svg>
-            Contact me to discuss possibilities
-          </a>
+
+        {/* Contact Section - Card Style */}
+        <div className="mt-20 text-center">
+          <div className="max-w-2xl mx-auto">
+            <div className="group relative bg-background/80 backdrop-blur-sm border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:border-accent-500/30 hover:-translate-y-1">
+              {/* Subtle gradient border on hover */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-500/10 via-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+              
+              <h3 className="text-2xl font-bold text-foreground mb-6 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">Start a project</h3>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                Have a specific project in mind? Let me know about your learning objectives, timeline, and requirements. I&apos;ll get back to you with a tailored approach.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={`mailto:${contactInfo.email}?subject=Project Discussion&body=Hi Volodymyr,%0D%0A%0D%0AI'd like to discuss a potential project with you.%0D%0A%0D%0AProject details:%0D%0A- %0D%0A- %0D%0A- %0D%0A%0D%0ABest regards`}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-full sm:w-44"
+                  aria-label="Send project inquiry email"
+                >
+                  <EnvelopeIcon className="h-5 w-5" aria-hidden="true" />
+                  Contact me
+                </a>
+                <a
+                  href={contactInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-full sm:w-44"
+                  aria-label="Connect on LinkedIn"
+                >
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
+                    <path d="M20 2H4a2 2 0 00-2 2v16a2 2 0 002 2h16a2 2 0 002-2V4a2 2 0 00-2-2zM8.339 18.339H5.661V9.661h2.678v8.678zm-1.339-9.905a1.552 1.552 0 110-3.104 1.552 1.552 0 010 3.104zM18.339 18.339h-2.678v-4.205c0-1.004-.018-2.293-1.398-2.293-1.399 0-1.613 1.094-1.613 2.223v4.275h-2.678V9.661h2.571v1.185h.035c.358-.68 1.228-1.398 2.527-1.398 2.704 0 3.206 1.779 3.206 4.092v4.8z" />
+                  </svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -39,7 +39,7 @@ export default function Hero() {
             </div>
 
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-prose">
-              I design and ship high‑impact digital learning products that blend product strategy, instructional design, and modern web tech. I use AI to personalize content, automate workflows, and scale delivery without sacrificing accessibility or performance.
+              I design and deliver engaging digital learning experiences that combine instructional design, gamification, and modern e‑learning technologies. My work blends creative design, AI-powered content, and interactive storytelling to make learning effective, scalable, and enjoyable for diverse audiences.
             </p>
 
             <div className="mt-10 flex flex-row gap-3">
@@ -63,16 +63,8 @@ export default function Hero() {
                   className="relative inline-flex items-center justify-center gap-2 rounded-full animated-gradient-anime px-6 py-3 text-white font-semibold hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-44"
                   aria-label="Open my LinkedIn profile in a new tab"
                 >
-                  <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                    <path
-                      d="M7.75 10.5h1.5v6h-1.5zM7.75 7.5h1.5v1.5h-1.5zM11.5 10.5h1.5v.85a2.4 2.4 0 0 1 4.25 1.55v3.1h-1.5v-2.6c0-.66-.54-1.2-1.2-1.2s-1.2.54-1.2 1.2v2.6H11.5v-6z"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
+                    <path d="M20 2H4a2 2 0 00-2 2v16a2 2 0 002 2h16a2 2 0 002-2V4a2 2 0 00-2-2zM8.339 18.339H5.661V9.661h2.678v8.678zm-1.339-9.905a1.552 1.552 0 110-3.104 1.552 1.552 0 010 3.104zM18.339 18.339h-2.678v-4.205c0-1.004-.018-2.293-1.398-2.293-1.399 0-1.613 1.094-1.613 2.223v4.275h-2.678V9.661h2.571v1.185h.035c.358-.68 1.228-1.398 2.527-1.398 2.704 0 3.206 1.779 3.206 4.092v4.8z" />
                   </svg>
                   LinkedIn
                 </a>

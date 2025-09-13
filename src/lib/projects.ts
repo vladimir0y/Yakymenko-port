@@ -3,6 +3,23 @@ import { ProjectsResponse, Project } from '@/types';
 // Static fallback data for when API is unavailable
 const staticProjectsData: Project[] = [
   {
+    id: 'mars-exploration-project',
+    name: 'Mars Exploration',
+    title: 'Mars Exploration',
+    description: 'This course takes learners on a journey across Mars, exploring its landscapes, moons, and robotic missions. Through animations, interactive 3D models, and scenario-based dialogues, participants discover the planet\'s secrets, the challenges of human exploration, and the groundbreaking role of rovers and drones in uncovering Mars\' mysteries.',
+    image: '/Projects/MARS/cover.jpg',
+    tags: ['Articulate Rise'],
+    date: '',
+    technologies: [],
+    projectData: {
+      title: 'Mars Exploration',
+      description: 'This course takes learners on a journey across Mars, exploring its landscapes, moons, and robotic missions. Through animations, interactive 3D models, and scenario-based dialogues, participants discover the planet\'s secrets, the challenges of human exploration, and the groundbreaking role of rovers and drones in uncovering Mars\' mysteries.',
+      tags: ['Articulate Rise'],
+      technologies: [],
+      live: 'https://vladimir0y.github.io/MARS_Rise/',
+    },
+  },
+  {
     id: 'rock-climbing-project',
     name: 'Rock Climbing',
     title: 'Rock Climbing Interactive Experience',

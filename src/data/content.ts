@@ -33,39 +33,36 @@ export const services = [
 ];
 
 export const skillsAndExpertise = {
-  "Instructional Design": [
-    "Instructional design and learning experience design"
-  ],
-  "E-learning Development": [
-    "Articulate Storyline",
-    "Rise",
-    "iSpring Suite", 
-    "Adobe Captivate",
-    "Courselab"
-  ],
-  "LMS & Integrations": [
-    "Moodle",
-    "TalentLMS", 
-    "ScormCloud",
-    "Opigno LMS",
-    "Collaborator"
-  ],
-  "Gamification & Analytics": [
-    "Gamification and KPI testing"
-  ],
-  "AI & Modern Tools": [
-    "Synthesia for video content"
-  ],
-  "Design & Prototyping": [
-    "Figma",
-    "Photoshop", 
-    "Illustrator"
-  ],
-  "Analytics & Leadership": [
-    "Learning analytics and reporting",
-    "Project and team leadership",
-    "Stakeholder management"
-  ]
+  "Learning design & development": {
+    description: "Creating engaging courses from concept to launch: instructional design, simulations, interactive exercises.",
+    tools: "Articulate Storyline, Articulate Rise, iSpring Suite, Adobe Captivate, Courselab.",
+    icon: "academic-cap"
+  },
+  "Platforms & Analytics": {
+    description: "Experience with LMS setup and customization. Includes reporting and user flows. Tracking learner progress and using analytics to improve effectiveness.",
+    tools: "Moodle, TalentLMS, ScormCloud, Opigno LMS, Collaborator, Analytics",
+    icon: "server-stack"
+  },
+  "Design & UX": {
+    description: "I design intuitive, learner-centered interfaces and rapid visual prototypes for e-learning, including custom graphics, interactive elements, and layouts. I focus on clarity, engagement, and aesthetics to make digital learning effective and enjoyable.",
+    tools: "Figma, Photoshop, Illustrator",
+    icon: "chart-bar"
+  },
+  "Gamification and GBL": {
+    description: "I design gamified learning experiences, using rewards, challenges, and progress tracking, and apply Game-Based Learning to help learners solve real-world problems through interactive play.",
+    tools: "Gamification, Game Based Learning",
+    icon: "sparkles"
+  },
+  "AI-powered content": {
+    description: "I specialize in AI-driven content creation: designing custom visuals, images, and graphics, developing avatar-based videos, and producing AI voiceovers.",
+    tools: "Synthesia, Heygen, Generative AI",
+    icon: "ai-chip"
+  },
+  "Leadership & Collaboration": {
+    description: "Strong team leadership with focus on communication, motivation, and effective decision-making.",
+    tools: "Team Leadership, Stakeholder Management",
+    icon: "user-group"
+  }
 };
 
 export const achievements = [

@@ -1,4 +1,4 @@
-import { Hero, ProjectsList, Services, SkillsExpertise, Achievements, Testimonial, Contact, Footer, Navigation } from '@/components';
+import { Hero, ProjectsList, Services, SkillsExpertise, Achievements, Testimonial, Footer, Navigation } from '@/components';
 import { ThemeToggle } from '@/components/theme';
 import ResponsiveDebugger from '@/components/ResponsiveDebugger';
 
@@ -19,7 +19,17 @@ export default function Home() {
       <main id="main-content">
         <Hero />
 
-        {/* Services section */}
+        {/* Projects section - moved to second */}
+        <section 
+          id="projects" 
+          className="py-20 md:py-28 bg-white dark:bg-gray-950"
+        >
+          <div className="container mx-auto px-6">
+            <ProjectsList />
+          </div>
+        </section>
+
+        {/* Services + Contact combined section */}
         <Services />
 
         {/* Skills & Expertise section */}
@@ -28,18 +38,8 @@ export default function Home() {
         {/* Achievements section */}
         <Achievements />
 
-        {/* Projects section */}
-        <section id="projects" className="min-h-screen py-20 bg-muted/20">
-          <div className="container mx-auto px-6">
-            <ProjectsList />
-          </div>
-        </section>
-
         {/* Testimonial section */}
         <Testimonial />
-
-        {/* Contact section */}
-        <Contact />
 
       </main>
 

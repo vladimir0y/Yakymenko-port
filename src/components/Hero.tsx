@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
 import type React from 'react';
+import LinkedInSquareIcon from './icons/LinkedInSquareIcon';
 
 // Accessible, lightweight Hero with enhanced accents and icons
 export default function Hero() {
@@ -29,13 +30,13 @@ export default function Hero() {
           <div className="order-2 md:order-1 text-center md:text-left">
             {/* Name and title (removed dash before the title) */}
             <h1 id="hero-heading" className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight">
-              <span className="bg-gradient-to-br from-foreground via-primary-700 to-accent-700 bg-clip-text text-transparent">Volodymyr Yakymenko</span>
-              <span className="block mt-3 bg-gradient-to-br from-primary-700 via-accent-700 to-foreground bg-clip-text text-transparent">Product & Learning Experience Expert</span>
+              <span className="animated-gradient-anime-text">Volodymyr Yakymenko</span>
+              <span className="block mt-3 animated-gradient-anime-text">Product & Learning Experience Expert</span>
             </h1>
 
             {/* Additional accent bar and role line */}
             <div className="mt-5 flex items-center gap-3">
-              <span className="h-1.5 w-12 rounded-full bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600" aria-hidden />
+              <span className="h-1.5 w-12 rounded-full animated-gradient-anime" aria-hidden />
             <h2 className="text-xl sm:text-2xl font-semibold text-primary-600 dark:text-primary-400">
                 <span>Head of E-learning</span>
                 <span aria-hidden className="mx-3 text-primary-600/60">|</span>
@@ -44,7 +45,7 @@ export default function Hero() {
             </div>
 
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-prose">
-              I design and ship high‑impact digital learning products that blend product strategy, instructional design, and modern web tech. I use AI to personalize content, automate workflows, and scale delivery without sacrificing accessibility or performance.
+              I design and deliver engaging digital learning experiences that combine instructional design, gamification, and modern e‑learning technologies. My work blends creative design, AI-powered content, and interactive storytelling to make learning effective, scalable, and enjoyable for diverse audiences.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
@@ -63,16 +64,8 @@ export default function Hero() {
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-foreground hover:bg-muted/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition w-full sm:w-44"
                 aria-label="Open my LinkedIn profile in a new tab"
               >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                  <path
-                    d="M7.75 10.5h1.5v6h-1.5zM7.75 7.5h1.5v1.5h-1.5zM11.5 10.5h1.5v.85a2.4 2.4 0 0 1 4.25 1.55v3.1h-1.5v-2.6c0-.66-.54-1.2-1.2-1.2s-1.2.54-1.2 1.2v2.6H11.5v-6z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+<svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
+                  <path d="M20 2H4a2 2 0 00-2 2v16a2 2 0 002 2h16a2 2 0 002-2V4a2 2 0 00-2-2zM8.339 18.339H5.661V9.661h2.678v8.678zm-1.339-9.905a1.552 1.552 0 110-3.104 1.552 1.552 0 010 3.104zM18.339 18.339h-2.678v-4.205c0-1.004-.018-2.293-1.398-2.293-1.399 0-1.613 1.094-1.613 2.223v4.275h-2.678V9.661h2.571v1.185h.035c.358-.68 1.228-1.398 2.527-1.398 2.704 0 3.206 1.779 3.206 4.092v4.8z" />
                 </svg>
                 LinkedIn
               </a>
@@ -110,7 +103,7 @@ export default function Hero() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 bg-clip-text text-transparent font-medium">
+              <span className="animated-gradient-anime-text font-medium">
                 This website and its design were created entirely from scratch by me using AI.
               </span>
             </p>

@@ -2,22 +2,23 @@
 
 import type React from 'react';
 import { testimonial } from '@/data/content';
+import LinkedInSquareIcon from './icons/LinkedInSquareIcon';
 
 export default function Testimonial() {
   return (
     <section
       id="testimonial"
       aria-labelledby="testimonial-heading"
-      className="relative py-20 md:py-28 bg-muted/30"
+      className="py-20 md:py-28 bg-white dark:bg-gray-950"
     >
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 md:mb-20">
           <h2
             id="testimonial-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight"
           >
-            <span className="bg-gradient-to-br from-foreground via-primary-700 to-accent-700 bg-clip-text text-transparent">
+            <span className="animated-gradient-anime-text">
               What clients say
             </span>
           </h2>
@@ -27,32 +28,35 @@ export default function Testimonial() {
         <div className="max-w-4xl mx-auto">
           <figure className="relative">
             {/* Quote card */}
-            <div className="relative bg-background/80 backdrop-blur-sm border border-border rounded-2xl p-8 md:p-12 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="group relative bg-background/80 backdrop-blur-sm border border-border rounded-2xl p-8 md:p-12 shadow-lg hover:shadow-xl hover:border-accent-500/30 transition-all duration-300 hover:-translate-y-1">
+              {/* Subtle gradient border on hover */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-500/10 via-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+              
               {/* Decorative quote icon */}
-              <div className="absolute -top-6 left-8 w-12 h-12 bg-gradient-to-br from-primary-600 via-accent-600 to-primary-600 rounded-full flex items-center justify-center shadow-lg">
+              <div className="absolute -top-6 left-8 w-12 h-12 animated-gradient-anime rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
                 </svg>
               </div>
 
               {/* Quote text */}
-              <blockquote className="text-lg md:text-xl text-muted-foreground leading-relaxed italic mb-8 pt-6">
+              <blockquote className="text-lg md:text-xl text-muted-foreground leading-relaxed italic mb-8 pt-6 relative z-10">
                 &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
 
               {/* Author info */}
-              <figcaption className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+              <figcaption className="flex flex-col sm:flex-row items-center sm:items-start gap-6 relative z-10">
                 {/* Author avatar placeholder - you can add actual image later */}
-                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary-600 via-accent-600 to-primary-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <div className="flex-shrink-0 w-16 h-16 animated-gradient-anime rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                   {testimonial.author.name.split(' ').map(n => n[0]).join('')}
                 </div>
 
                 {/* Author details */}
                 <div className="text-center sm:text-left">
-                  <div className="font-semibold text-foreground text-lg">
+                  <div className="font-bold text-foreground text-lg group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {testimonial.author.name}
                   </div>
-                  <div className="text-muted-foreground mb-3">
+                  <div className="text-muted-foreground font-medium mb-3">
                     {testimonial.author.role} at {testimonial.author.company}
                   </div>
                   
@@ -64,10 +68,10 @@ export default function Testimonial() {
                     className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors text-sm font-medium"
                     aria-label="View full testimonial on LinkedIn"
                   >
-                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+<svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
+                      <path d="M20 2H4a2 2 0 00-2 2v16a2 2 0 002 2h16a2 2 0 002-2V4a2 2 0 00-2-2zM8.339 18.339H5.661V9.661h2.678v8.678zm-1.339-9.905a1.552 1.552 0 110-3.104 1.552 1.552 0 010 3.104zM18.339 18.339h-2.678v-4.205c0-1.004-.018-2.293-1.398-2.293-1.399 0-1.613 1.094-1.613 2.223v4.275h-2.678V9.661h2.571v1.185h.035c.358-.68 1.228-1.398 2.527-1.398 2.704 0 3.206 1.779 3.206 4.092v4.8z" />
                     </svg>
-                    See the full testimonial on LinkedIn
+                    See the testimonial on LinkedIn
                   </a>
                 </div>
               </figcaption>

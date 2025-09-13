@@ -15,36 +15,9 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('main-content');
   const [isDesktopVisible, setIsDesktopVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  
-  // Check if we're on mobile
+
+  // Desktop scroll logic
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
-  // Mobile nav is always visible, desktop nav shows/hides on scroll
-  const shouldShowNav = isMobile || isDesktopVisible;
-
-  useEffect(() => {
-    let hideTimer: NodeJS.Timeout | null = null;
-    let scrollTimer: NodeJS.Timeout | null = null;
-
-    const startHideTimer = () => {
-      if (hideTimer) clearTimeout(hideTimer);
-      hideTimer = setTimeout(() => {
-        if (!isMenuOpen && !isMobile) {
-          setIsDesktopVisible(false);
-        }
-      }, 3000);
-    };
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
@@ -59,50 +32,17 @@ export default function Navigation() {
         }
       }
 
-      // Only apply scroll logic to desktop
-      if (!isMobile) {
-        if (currentScrollY > 100) {
-          setIsDesktopVisible(true);
-          
-          // Clear existing timers
-          if (hideTimer) clearTimeout(hideTimer);
-          if (scrollTimer) clearTimeout(scrollTimer);
-          
-          // Set a timer to start the hide countdown after scroll stops
-          scrollTimer = setTimeout(() => {
-            if (!isMenuOpen) {
-              startHideTimer();
-            }
-          }, 150);
-        } else {
-          // At top of page on desktop
-          setIsDesktopVisible(false);
-          if (hideTimer) clearTimeout(hideTimer);
-          if (scrollTimer) clearTimeout(scrollTimer);
-        }
+      // Show/hide desktop nav
+      if (window.innerWidth >= 768) {
+        setIsDesktopVisible(currentScrollY > 100);
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (hideTimer) clearTimeout(hideTimer);
-      if (scrollTimer) clearTimeout(scrollTimer);
-    };
-  }, [isMenuOpen, isMobile]);
-
-  // Handle menu state changes (desktop only)
-  useEffect(() => {
-    if (!isMobile && !isMenuOpen && isDesktopVisible && window.scrollY > 100) {
-      // Menu was closed, start hide timer if we're scrolled down and visible
-      const timer = setTimeout(() => {
-        setIsDesktopVisible(false);
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [isMenuOpen, isDesktopVisible, isMobile]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
@@ -114,80 +54,83 @@ export default function Navigation() {
   };
 
   const toggleMenu = () => {
-    console.log('Menu toggle clicked - before:', { isMenuOpen, isMobile, shouldShowNav });
-    setIsMenuOpen(prev => {
-      const newState = !prev;
-      console.log('Menu toggle clicked - after:', newState);
-      return newState;
-    });
+    setIsMenuOpen(prev => !prev);
   };
 
   return (
-    <nav
-      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-300 ${
-        shouldShowNav ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-      }`}
-      aria-label="Main navigation"
-    >
+    <>
       {/* Desktop Navigation */}
-      <div className="glass-nav hidden md:block">
-        <div className="flex items-center space-x-6 px-6 py-3">
-          {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={item.href}
-              onClick={(e) => scrollToSection(e, item.id)}
-              className={`nav-link ${
-                activeSection === item.id ? 'nav-link--active' : ''
-              }`}
-              aria-label={`Navigate to ${item.label} section`}
-            >
-              {item.label}
-            </a>
-          ))}
+      <nav
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-300 hidden md:block ${
+          isDesktopVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        aria-label="Main navigation"
+      >
+        <div className="glass-nav">
+          <div className="flex items-center space-x-6 px-6 py-3">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                onClick={(e) => scrollToSection(e, item.id)}
+                className={`nav-link ${
+                  activeSection === item.id ? 'nav-link--active' : ''
+                }`}
+                aria-label={`Navigate to ${item.label} section`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Navigation */}
-      <div className="glass-nav md:hidden overflow-visible">
-        <button
-          onClick={toggleMenu}
-          className="nav-link flex items-center justify-center px-4 py-2 w-full touch-manipulation"
-          aria-expanded={isMenuOpen}
-          aria-label="Toggle navigation menu"
-          type="button"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-        
-        {isMenuOpen && (
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[calc(100vw-3rem)] max-w-xs">
-            <div className="glass-nav overflow-hidden">
-              <div className="py-2">
-                {navItems.map((item) => (
-                  <a
-                    key={item.id}
-                    href={item.href}
-                    onClick={(e) => scrollToSection(e, item.id)}
-                    className={`nav-link nav-link--mobile ${
-                      activeSection === item.id ? 'nav-link--active' : ''
-                    }`}
-                    aria-label={`Navigate to ${item.label} section`}
-                  >
-                    {item.label}
-                  </a>
-                ))}
+      {/* Mobile Navigation - Always visible */}
+      <nav
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 md:hidden"
+        aria-label="Mobile navigation"
+      >
+        <div className="glass-nav relative">
+          <button
+            onClick={toggleMenu}
+            className="flex items-center justify-center px-4 py-3 w-full nav-link"
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation menu"
+            type="button"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+          
+          {/* Mobile Menu Dropdown */}
+          {isMenuOpen && (
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48">
+              <div className="glass-nav">
+                <div className="py-2">
+                  {navItems.map((item) => (
+                    <a
+                      key={item.id}
+                      href={item.href}
+                      onClick={(e) => scrollToSection(e, item.id)}
+                      className={`block px-4 py-3 nav-link text-center ${
+                        activeSection === item.id ? 'nav-link--active' : ''
+                      }`}
+                      aria-label={`Navigate to ${item.label} section`}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        )}
-      </div>
-    </nav>
+          )}
+        </div>
+      </nav>
+    </>
   );
 }

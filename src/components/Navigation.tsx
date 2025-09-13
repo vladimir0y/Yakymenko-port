@@ -108,29 +108,23 @@ export default function Navigation() {
           </button>
           
           {/* Mobile Menu Dropdown */}
-          {isMenuOpen && (
-            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 z-10">
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg">
-                <div className="py-2">
-                  {navItems.map((item) => (
-                    <a
-                      key={item.id}
-                      href={item.href}
-                      onClick={(e) => scrollToSection(e, item.id)}
-                      className={`block px-4 py-3 text-center font-medium transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${
-                        activeSection === item.id 
-                          ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20' 
-                          : 'text-gray-700 dark:text-gray-300'
-                      }`}
-                      aria-label={`Navigate to ${item.label} section`}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 z-50">
+            <div className="bg-red-500 border-4 border-black rounded-lg p-4">
+              <div className="text-white text-center mb-2">DEBUG: Menu Open = {isMenuOpen ? 'TRUE' : 'FALSE'}</div>
+              <div className="text-white text-center mb-2">Items Count: {navItems.length}</div>
+              {navItems.map((item, index) => (
+                <div key={item.id} className="mb-2">
+                  <a
+                    href={item.href}
+                    onClick={(e) => scrollToSection(e, item.id)}
+                    className="block px-4 py-3 bg-yellow-400 text-black text-center font-bold border-2 border-black rounded hover:bg-yellow-300"
+                  >
+                    {index + 1}. {item.label}
+                  </a>
                 </div>
-              </div>
+              ))}
             </div>
-          )}
+          </div>
         </div>
       </nav>
     </>

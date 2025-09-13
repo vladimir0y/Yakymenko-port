@@ -14,18 +14,13 @@ const navItems = [
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('main-content');
-  const [isVisible, setIsVisible] = useState(false);
+  const [isDesktopVisible, setIsDesktopVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
-  // Always show navigation on mobile when menu is open
-  const shouldShowNav = isVisible || isMenuOpen;
-  
-  // Force visibility on very small screens to debug
+  // Check if we're on mobile
   useEffect(() => {
     const checkMobile = () => {
-      if (window.innerWidth < 768) {
-        console.log('Mobile detected, forcing nav visibility for debugging');
-        setIsVisible(true);
-      }
+      setIsMobile(window.innerWidth < 768);
     };
     
     checkMobile();
@@ -33,6 +28,9 @@ export default function Navigation() {
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+  
+  // Mobile nav is always visible, desktop nav shows/hides on scroll
+  const shouldShowNav = isMobile || isDesktopVisible;
 
   useEffect(() => {
     let hideTimer: NodeJS.Timeout | null = null;
@@ -41,8 +39,8 @@ export default function Navigation() {
     const startHideTimer = () => {
       if (hideTimer) clearTimeout(hideTimer);
       hideTimer = setTimeout(() => {
-        if (!isMenuOpen) {
-          setIsVisible(false);
+        if (!isMenuOpen && !isMobile) {
+          setIsDesktopVisible(false);
         }
       }, 3000);
     };
@@ -61,29 +59,27 @@ export default function Navigation() {
         }
       }
 
-      // Show/hide navigation based on scroll
-      if (currentScrollY > 100) {
-        setIsVisible(true);
-        
-        // Clear existing timers
-        if (hideTimer) clearTimeout(hideTimer);
-        if (scrollTimer) clearTimeout(scrollTimer);
-        
-        // Set a timer to start the hide countdown after scroll stops
-        scrollTimer = setTimeout(() => {
-          if (!isMenuOpen) {
-            startHideTimer();
-          }
-        }, 150);
-      } else {
-        // At top of page; keep nav visible if menu is open
-        if (!isMenuOpen) {
-          setIsVisible(false);
+      // Only apply scroll logic to desktop
+      if (!isMobile) {
+        if (currentScrollY > 100) {
+          setIsDesktopVisible(true);
+          
+          // Clear existing timers
+          if (hideTimer) clearTimeout(hideTimer);
+          if (scrollTimer) clearTimeout(scrollTimer);
+          
+          // Set a timer to start the hide countdown after scroll stops
+          scrollTimer = setTimeout(() => {
+            if (!isMenuOpen) {
+              startHideTimer();
+            }
+          }, 150);
         } else {
-          setIsVisible(true);
+          // At top of page on desktop
+          setIsDesktopVisible(false);
+          if (hideTimer) clearTimeout(hideTimer);
+          if (scrollTimer) clearTimeout(scrollTimer);
         }
-        if (hideTimer) clearTimeout(hideTimer);
-        if (scrollTimer) clearTimeout(scrollTimer);
       }
     };
 
@@ -95,18 +91,18 @@ export default function Navigation() {
       if (hideTimer) clearTimeout(hideTimer);
       if (scrollTimer) clearTimeout(scrollTimer);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isMobile]);
 
-  // Handle menu state changes
+  // Handle menu state changes (desktop only)
   useEffect(() => {
-    if (!isMenuOpen && isVisible && window.scrollY > 100) {
+    if (!isMobile && !isMenuOpen && isDesktopVisible && window.scrollY > 100) {
       // Menu was closed, start hide timer if we're scrolled down and visible
       const timer = setTimeout(() => {
-        setIsVisible(false);
+        setIsDesktopVisible(false);
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [isMenuOpen, isVisible]);
+  }, [isMenuOpen, isDesktopVisible, isMobile]);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
@@ -118,11 +114,11 @@ export default function Navigation() {
   };
 
   const toggleMenu = () => {
-    console.log('Mobile menu toggle clicked', { isMenuOpen, isVisible });
-    setIsMenuOpen((prev) => {
-      const next = !prev;
-      console.log('Setting menu open to:', next);
-      return next;
+    console.log('Menu toggle clicked - before:', { isMenuOpen, isMobile, shouldShowNav });
+    setIsMenuOpen(prev => {
+      const newState = !prev;
+      console.log('Menu toggle clicked - after:', newState);
+      return newState;
     });
   };
 

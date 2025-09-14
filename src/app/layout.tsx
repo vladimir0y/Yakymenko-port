@@ -126,6 +126,16 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* Gilroy-like font (Space Grotesk is similar to Gilroy) */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        {/* Try to load Gilroy from CDN if available */}
+        <link
+          href="https://fonts.cdnfonts.com/css/gilroy"
+          rel="stylesheet"
+        />
       </head>
       <body
         className={`

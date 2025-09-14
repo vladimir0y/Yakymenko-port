@@ -28,7 +28,7 @@ export default function Hero() {
           {/* Avatar on mobile (first), Text on desktop (first column) */}
           <div className="order-2 md:order-1 text-center md:text-left">
             {/* Name and title (removed dash before the title) */}
-            <h1 id="hero-heading" className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight">
+            <h1 id="hero-heading" className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight">
               <span className="animated-gradient-anime-text">Volodymyr Yakymenko</span>
               <span className="block mt-3 animated-gradient-anime-text">Product & Learning Experience Expert</span>
             </h1>

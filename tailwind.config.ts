@@ -95,6 +95,7 @@ const config: Config = {
       // Custom font families
       fontFamily: {
         sans: [
+          'var(--font-gilroy)',
           'Gilroy',
           'Space Grotesk',
           'var(--font-geist-sans)',
@@ -109,6 +110,7 @@ const config: Config = {
           'monospace',
         ],
         display: [
+          'var(--font-gilroy)',
           'Gilroy',
           'Space Grotesk',
           'var(--font-geist-sans)',
@@ -116,7 +118,7 @@ const config: Config = {
           'system-ui',
           'sans-serif',
         ],
-        'gilroy': ['Gilroy', 'Space Grotesk', 'sans-serif'],
+        'gilroy': ['var(--font-gilroy)', 'Gilroy', 'Space Grotesk', 'sans-serif'],
         'space-grotesk': ['Space Grotesk', 'sans-serif'],
         'geist-sans': ['var(--font-geist-sans)', 'sans-serif'],
         'geist-mono': ['var(--font-geist-mono)', 'monospace'],

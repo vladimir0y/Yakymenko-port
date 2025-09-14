@@ -24,7 +24,7 @@ export default function Skills() {
   return (
     <section id="skills" aria-labelledby="skills-heading" className="py-16 md:py-24">
       <div className="container mx-auto px-6">
-        <h2 id="skills-heading" className="text-2xl sm:text-3xl font-bold mb-8 text-foreground">
+        <h2 id="skills-heading" className="text-2xl sm:text-3xl font-black mb-8 text-foreground">
           My Skills
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">

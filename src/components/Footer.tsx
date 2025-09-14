@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Content - Hero style */}
           <div className="text-left">
             {/* Name - Hero style */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">
               <span className="animated-gradient-anime-text">Thank you for visiting</span>
             </h2>
 

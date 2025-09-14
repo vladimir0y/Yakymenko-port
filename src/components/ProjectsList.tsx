@@ -73,7 +73,7 @@ export default function ProjectsList({ fallbackData }: ProjectsListProps) {
           className="opacity-0"
           style={{ transform: 'translateX(-30px)' }}
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">
             <span className="animated-gradient-anime-text">
               Featured work
             </span>

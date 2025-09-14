@@ -59,13 +59,13 @@
 
   /* Font Variables */
   --font-sans:
-    'Gilroy', 'Space Grotesk', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    var(--font-gilroy), 'Gilroy', 'Space Grotesk', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     sans-serif;
   --font-mono:
     'JetBrains Mono', 'Fira Code', 'Monaco', 'Cascadia Code', 'Ubuntu Mono',
     monospace;
   --font-display:
-    'Gilroy', 'Space Grotesk', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    var(--font-gilroy), 'Gilroy', 'Space Grotesk', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     sans-serif;
 }
 
@@ -148,7 +148,7 @@
   h4,
   h5,
   h6 {
-    @apply font-display font-semibold tracking-tight;
+    @apply font-display font-black tracking-tight;
   }
 
   h1 {

@@ -39,7 +39,7 @@ export default function Services() {
         <div className="text-center mb-16 md:mb-20">
           <h2
             id="services-heading"
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight"
           >
             <span className="animated-gradient-anime-text">
               Let&apos;s work together

@@ -22,6 +22,33 @@ const geistMono = localFont({
   preload: true,
 });
 
+// Gilroy local fonts (all common weights)
+const gilroy = localFont({
+  variable: '--font-gilroy',
+  display: 'swap',
+  preload: true,
+  src: [
+    { path: './fonts/Gilroy-Thin.woff2', weight: '100', style: 'normal' },
+    { path: './fonts/Gilroy-ThinItalic.woff2', weight: '100', style: 'italic' },
+    { path: './fonts/Gilroy-UltraLight.woff2', weight: '200', style: 'normal' },
+    { path: './fonts/Gilroy-UltraLightItalic.woff2', weight: '200', style: 'italic' },
+    { path: './fonts/Gilroy-Light.woff2', weight: '300', style: 'normal' },
+    { path: './fonts/Gilroy-LightItalic.woff2', weight: '300', style: 'italic' },
+    { path: './fonts/Gilroy-Regular.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/Gilroy-RegularItalic.woff2', weight: '400', style: 'italic' },
+    { path: './fonts/Gilroy-Medium.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/Gilroy-MediumItalic.woff2', weight: '500', style: 'italic' },
+    { path: './fonts/Gilroy-Semibold.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/Gilroy-SemiboldItalic.woff2', weight: '600', style: 'italic' },
+    { path: './fonts/Gilroy-Bold.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/Gilroy-BoldItalic.woff2', weight: '700', style: 'italic' },
+    { path: './fonts/Gilroy-Extrabold.woff2', weight: '800', style: 'normal' },
+    { path: './fonts/Gilroy-ExtraboldItalic.woff2', weight: '800', style: 'italic' },
+    { path: './fonts/Gilroy-Black.woff2', weight: '900', style: 'normal' },
+    { path: './fonts/Gilroy-BlackItalic.woff2', weight: '900', style: 'italic' },
+  ],
+});
+
 // Google Fonts as fallbacks
 const inter = Inter({
   subsets: ['latin'],
@@ -126,20 +153,10 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Gilroy-like font (Space Grotesk is similar to Gilroy) */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        {/* Try to load Gilroy from CDN if available */}
-        <link
-          href="https://fonts.cdnfonts.com/css/gilroy"
-          rel="stylesheet"
-        />
       </head>
       <body
         className={`
-          ${geistSans.variable} ${geistMono.variable}
+          ${gilroy.variable} ${geistSans.variable} ${geistMono.variable}
           ${inter.variable} ${jetbrainsMono.variable}
           font-sans antialiased
         `}

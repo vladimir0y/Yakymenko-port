@@ -23,7 +23,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 py-20 md:py-28">
         <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="order-2 md:order-1">
-            <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+            <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">
               <span className="animated-gradient-anime-text font-black">Volodymyr Yakymenko</span>
               <span className="animated-gradient-anime-text block mt-3 font-black">Product & Learning Experience Expert</span>
             </h1>
